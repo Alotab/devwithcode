@@ -33,7 +33,8 @@ body {
 header{
     background-color: var(--navBar-color);
     width: 100%;
-    height: 5.5em;
+    /* height: 5.5em; */
+    height: 8em;
     display: flex;
     padding: 2rem 7rem;
     justify-content: space-between;
@@ -89,19 +90,21 @@ header{
     font-family: "Caudex", sans-serif;
     font-size: 1.7rem;
     color: black;
+    white-space: nowrap;
 }
 
  li{
     list-style: none;
  }
 
-.subheader nav .join{
+.subheader .create-account-link{
     padding: 6px;
     border: 1px solid blue;
     border-radius: 5px;
+    white-space: nowrap;
 }
 
-.subheader nav .join:hover{
+.subheader nav .create-account-link:hover{
     background-color: var(--buttons);
     color: #f1f1f1;
     text-decoration: underline;
@@ -179,11 +182,11 @@ header{
     width: 55%;
 }
 
-.middle-colume .community-post{
+.community-post{
     
     padding-top: 10px;
     margin-bottom: 8px;
-    /* background-color: #FCFCF6;*/
+    /* background-color: #FCFCF6; */
     background-color: var(--middleColume-backgroundColor);
     border-radius: 10px;
     /* padding-bottom: 10px; */
@@ -221,8 +224,7 @@ header{
 }
 
 .community-post .community-tags{
-    
-    padding-left: 45px;
+    padding-left: 5px;
 }
 
 .community-tags {
@@ -268,6 +270,7 @@ header{
 
 .post{
     margin-bottom: 8px;
+   
 }
 
 
@@ -389,7 +392,7 @@ header{
 .comment-share{
     display: flex;
     justify-content: space-between;
-    padding: 0px 33px;
+    padding: 0px px;
     align-items: center;
     padding-bottom: 20px;
     margin-top: 10px;
@@ -399,10 +402,10 @@ header{
     display: flex;
     text-align: center;
     line-height: 1.5rem;
-    align-items: center;
+    /* align-items: center; */
     gap: 5px;
     text-decoration: none;
-    padding: 6px 9px;
+    /* padding: 6px 9px; */
     cursor: pointer;
     overflow-wrap: normal;
    
@@ -411,7 +414,7 @@ header{
 .post-comment a:hover{
     background-color: rgba(27, 124, 227, .5);
     border-radius: 0.375rem;
-    padding: 6px 9px;
+    /* padding: 6px 9px; */
 }
 
 .post-comment img{
@@ -455,15 +458,17 @@ header{
 .load-post a p{
     font-size: 20px;
     text-align: center;
+    
     color: black;
     font-family: inherit;
-    background-color: gray;
-    border: 1px solid lightgray;
+    /* background-color: gray; */
+
+    /* border: 1px solid lightgray; */
     cursor: pointer;
 
     margin-top: 50px;
-    margin-left: 25rem;
-    margin-right: 25rem;
+    /* margin-left: 25rem;
+    margin-right: 25rem; */
     padding: 5px;
     border-radius: 5px;
 }
@@ -484,6 +489,8 @@ header{
     background-color: red;
 }
 
+
+/* footer section  */
 footer{
     height: 15rem;
     background-color: #2D313A;
@@ -507,27 +514,259 @@ footer{
     letter-spacing: 2px;
 }
 
-/* footer p:last-child{
-    color: red;
-} */
-
 .footer-website-name {
-    /* color: var(--website-backgroundColor); */
     color: #F6A241;
 }
-
 footer ul li a{
     font-size: 1.8rem;
     text-decoration: none;
-    /* color: white; */
     color: #34A5AC;
-
 }
-
-
-/* F4F3EE */
-
 .signarture{
     font-size: 14px;
     color: #f1f1f1;
+}
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+      background-color: green;
+    }
+  }
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+        /* background-color:red; */
+    }
+
+    header{
+        background-color: var(--navBar-color);
+        width: 100%;
+        /* height: 5.5em; */
+        height: 6em;
+        /* display: flex; */
+        padding: 2rem 0rem;
+        /* justify-content: space-between; */
+       
+        align-items: center;
+        position: fixed;
+        z-index: 1; 
+    }
+
+    .logo{
+        display: flex;
+        /* gap: 1.5em; */
+        margin-left: 1em;
+        /* width: 50rem; */
+    }
+
+    .search input {
+        display: none! important;
+    }
+
+    .home-link{
+        display: none! important;
+    }
+
+    .portfolio-link{
+        display: none! important;
+    }
+    .sign-in-link{
+        display: none! important;
+    }
+
+    .create-account-link{
+        padding: 6px;
+        margin-right: 10px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        white-space: nowrap;
+    }
+
+
+
+
+
+    .community-post-headline h4{
+        font-size: 16px;
+        font-family: "Caudex", sans-serif;
+        font-weight: 500;
+    }
+
+    .community-tags {
+        border-radius: 5px;
+        /* margin: 0px 45px; */
+        
+        /* background-color: #E8E5C8; */
+        background-color: #94818A;
+        
+    }
+    
+    .community-tags h5{
+        font-size: 18px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 600;
+        line-height: 150%;
+    }
+
+    /* main content  on small device */
+    .main-content{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    /* middle content  on small device */
+    .middle-colume{
+        width: 100%;
+    }
+
+    .middle-colume .post{
+        padding-left: 10px;
+        padding-top: 15px;
+        margin: 8px 0;
+    }
+
+
+    /* post content on small device */
+    .author-profile{
+        padding: 0px 5px;
+    }
+
+    .author-name .post-date{
+        font-size: 10px;
+        color: #969CA3;
+        font-family: sans-serif;
+        font-weight: 500;
+    }
+
+    .post-header{
+        padding: 3px 5px;
+        align-items: center;
+        /* font-size: 19px; */
+        /* font-weight: bold; */
+    }
+
+    .post-header a h4{
+        text-decoration: none;
+        list-style: none;
+        color: rgb(41, 41, 41);
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0px;
+        font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+    }
+
+    .post-comment p{
+        display: none;
+    }
+
+    .post-tags{
+        display: flex;
+        padding: 1px 5px;
+        align-items: center;
+        gap: 15px;
+        height: 30px;
+        position:relative;
+    }
+
+    .post-tags a{
+        font-size: 13px;
+        font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: rgb(117, 117, 117);
+        line-height: 20px;
+        font-weight: 400;
+        /* max-height: 40px; */
+        cursor: pointer;
+        text-decoration: none; 
+    }
+
+    .comment-share{
+        display: flex;
+        justify-content: space-between;
+        /* padding: 0px 0px; */
+        align-items: center;
+        padding-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .post-comment a{
+        display: flex;
+        text-align: center;
+        line-height: 1.5rem;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        padding: 6px 5px;
+        cursor: pointer;
+        overflow-wrap: normal;
+       
+    }
+
+    .post-share{
+        /* background-color: blanchedalmond; */
+        margin-right: 10px;
+    }
+
+    .post-share a img{
+        max-width: 36px;
+        max-height: 36px;
+        cursor: pointer;
+        
+    }
+
+    .post-tags a:hover{
+        background-color: gray;
+    }
+
+    .load-post{
+        background-color: gray;
+        text-align: center;
+        margin-left: 18rem;
+        margin-right: 18rem;
+        border-radius: 0.375rem;
+    }
+    .load-post a p{
+        font-size: 13px;
+        text-align: center;
+        color: white;
+        font-family: inherit;
+        white-space: nowrap;
+    }
+
+
+    /* left colume content  on small device */
+    .left-colume{
+        display: none! important;
+    }
+
+    /* right colument content on small device */
+    .right-colume{
+        display: none! important;
+    }
+
+    /* footer section on small device  */
+    .website-slogan {
+        font-size: 14px;
+        padding-top: 35px;
+        color: #F4F3EE;
+        letter-spacing: 2px;
+    }
+
+    footer ul li a{
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #34A5AC;
+    }
+
+    .signarture{
+        font-size: 13px;
+        color: #f1f1f1;
+    }
+
 }
