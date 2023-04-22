@@ -200,7 +200,7 @@ header{
 }
 
 .middle-colume{
-    margin: 90px 0;
+    margin: 90px 0px;
     
     border-radius: 5px;
     width: 55%;
@@ -607,8 +607,6 @@ footer ul li a{
         background-color: #85b4e7;
         cursor: pointer;
         display: block! important;
-
-        /* background-color: red; */
     }
 
     .subheader-search img:hover{
@@ -669,7 +667,43 @@ footer ul li a{
 
     /* middle content  on small device */
     .middle-colume{
+        padding-top: 20px !important; 
         width: 100%;
+    }
+
+    /* JS- when search icon is click in mobile mode */
+    .community-post{
+        display: none! important;
+    }
+
+    .middle-colume-search{
+        width: 100%;
+        background-color: lightblue;
+        height: 50px;
+        margin-bottom: 10px;
+        text-align: center;
+        align-items: center;
+        position: relative;
+        /* display: none; */
+    }
+
+    .middle-colume-search input{
+        width: 95%;
+        height: 3.9rem;
+        font-size: 16px;
+        border-radius: 0.578rem;
+    }
+
+    .middle-colume-search img{
+        position: absolute;
+        right: 47px;
+        bottom: 17px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .middle-colume-search img:hover{
+        background-color: lightblue;
     }
 
     .middle-colume .post{
