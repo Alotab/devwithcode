@@ -555,7 +555,7 @@ footer ul li a{
 /* Small screens, laptops */
 @media (min-width: 769px) and (max-width: 1024px) {
     body {
-      background-color: lightcoral;
+      /* background-color: lightcoral; */
     }
 
 
@@ -572,15 +572,19 @@ footer ul li a{
 
     .logo{
         display: flex;
-        /* gap: 1.5em; */
         margin-left: 1em;
-        /* width: 50rem; */
+    }
+
+    .search{
+        flex: 1;
     }
 
     .search input {
         display: block! important;
         border-radius: 0.578rem;
-        width: auto;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
     }
 
     .search img{
@@ -607,28 +611,76 @@ footer ul li a{
         white-space: nowrap;
     }
 
-
-
     .right-colume{
         display: none! important;
     }
 
+
+    .left-colume {
+        margin: 60px 0px;
+        width: 30%; 
+    }
+    
+    .left-colume h3{
+        font-size: 18px;
+        font-family: "Caudex", sans-serif;
+        font-weight: 300;
+        color: black;
+        padding-bottom: 10px;
+    
+    }
+    
+    .tag-headling{
+        color: red;
+        
+    }
+    
+    .tags{
+        /* border: 1px solid; */
+        /* border-radius: 5px; */
+        word-wrap: break-word;
+        padding-bottom: 10px;
+    }
+
+
+
+
+
+    /* main content  on small device */
+    .main-content{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    /* middle content  on small device */
+    .middle-colume{
+        /* padding-top: 0px !important;  */
+        margin-top: 10rem;
+        /* margin-left: 100px; */
+        width: 68%;
+        
+    }
+
+
+    .community-post{
+    
+        padding-top: 10px;
+        margin-bottom: 8px;
+        /* background-color: #FCFCF6; */
+        margin-right: 10px;
+        background-color: var(--middleColume-backgroundColor);
+        border-radius: 10px;
+        overflow: auto;
+    }
+
+
+    .post{
+        margin-right: 10px;
+    }
+
     
 
-
-
-
-
-
-  }
-
-
-
-
-
-
-
-
+}
 
 /* iPads Tablets devices */
 @media (min-width: 481px) and (max-width: 768px) {
@@ -811,7 +863,7 @@ footer ul li a{
         padding: 8px;
         white-space: nowrap;
     }
-  }
+}
 
 
 
