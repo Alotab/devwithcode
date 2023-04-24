@@ -551,17 +551,9 @@ footer ul li a{
 }
 
 
-/* post-detail css */
 
-.main-detail-content{
-    display: flex;
-    
-    /* justify-content: space-between; */
-    /* gap: 5px; */
-    background-color: red;
-}
 
-.main-detail-post{
+/* .main-detail-post{
     margin: 0rem 10rem;
     margin-top: 10rem;
     width: 58%;
@@ -572,12 +564,27 @@ footer ul li a{
 .detail-post .post-image{
     width: 50px;
     height: 50px;
-  
-}
+
+} */
+
+
+/* .middle-page{
+    background-color: red;
+    width: 40%;
+    height: 3rem;
+    width: 3rem;
+} */
+
+/* .side-sidebar{
+    background-color: #1b7ce3;
+    width: 40%;
+    height: 10rem;
+    width: 5rem;
+} */
 
 
 
-.main-post-author img{
+/* .main-post-author img{
     width: 30px;
     height: 30px;
 }
@@ -585,40 +592,204 @@ footer ul li a{
 .main-post-comment-user img{
     width: 50px;
     height: 50px;
-}
+} */
 
 
 
 /* sidebar-Trending-post */
-.main-detail-sidebar{
+/* .main-detail-sidebar{
     width: 30%;
     background-color: green;
+} */
+/* .sidebar-post1{
+    background-color: var(--middleColume-backgroundColor);
+} */
+
+/* .trending-post img{
+    width: 40px;
+    height: 40px;
+} */
+
+
+/* sidebar-related-post */
+
+/* .sidebar-post2{
+    background-color: var(--middleColume-backgroundColor);
+} */
+
+/* .related-post img{
+    width: 40px;
+    height: 40px;
+} */
+
+
+
+
+/* post-detail css */
+
+
+.main-detail-post{
+    display: flex;
+    gap: 5rem;
+    padding: 10rem 10rem;;
+    width: 100%;
+    
+    /* justify-content: space-between; */
 }
-.sidebar-post1{
-    /* background-color: var(--middleColume-backgroundColor); */
+
+.detail-post{
+    background-color: var(--middleColume-backgroundColor);
+    margin-bottom: 0.023rem;
+}
+
+.detail-post .post-image{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 5px 5px 0px 0px;
+    
+}
+
+.main-post{
+    margin: 0rem 4rem;
+    
+}
+
+.main-post-author img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+   
+    
+}
+
+.detail-column{
+    width: 60%;
+    /* background-color: red; */
+    border-radius: 5px 5px 0px 0px;
+}
+
+/* comments */
+
+.main-post-comments{
+    width: 100%;
+    background-color: var(--middleColume-backgroundColor);
+    margin-top: 2px;
+}
+.main-post-comments h5{
+    margin: 0rem 4rem;
+    font-size: 15px;
+    padding: 2rem 0rem;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.main-post-comment-user{
+    display: flex;
+    gap: 7px;
+    /* align-items: center; */
+    margin: 0rem 4rem;
+    padding-bottom: 2rem;
+}
+
+.main-post-comment-user img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.main-post-comment-user textarea{
+    height: 5rem;
+    flex: 1;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+/* sidebar-column - detail-page */
+.sidebar-column{
+    width: 33%;
+    /* margin-right: 10px; */
 }
 
 .trending-post img{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
 
 
-/* sidebar-related-post */
+
+.sidebar-post1{
+    border-radius: 5px;
+    background-color: var(--middleColume-backgroundColor);
+    padding: 0px 2rem;
+    /* margin-bottom: 3rem; */
+    padding-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.sidebar-post1 h3{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 400;
+    padding-top: 2rem;
+    text-transform: uppercase;
+}
+
+.trending-post{
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.trending-post-author-date{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.trending-post-author-date p{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    font-weight: 100;
+}
+
+
 
 .sidebar-post2{
-    /* background-color: var(--middleColume-backgroundColor); */
+    background-color: var(--middleColume-backgroundColor);
+    border-radius: 5px;
+    margin-top: 6rem;
+    border-radius: 5px;
+    padding: 3rem;
+}
+
+.sidebar-post2 h3{
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 400;
+    /* padding-top: 2rem; */
+    text-transform: uppercase;
+}
+
+.related-post{
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0rem;
 }
 
 .related-post img{
     width: 40px;
     height: 40px;
+    border-radius: 50%;
 }
-
-
-
-
-
 
 
 
