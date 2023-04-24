@@ -551,6 +551,77 @@ footer ul li a{
 }
 
 
+/* post-detail css */
+
+.main-detail-content{
+    display: flex;
+    
+    /* justify-content: space-between; */
+    /* gap: 5px; */
+    background-color: red;
+}
+
+.main-detail-post{
+    margin: 0rem 10rem;
+    margin-top: 10rem;
+    width: 58%;
+    background-color: var(--middleColume-backgroundColor);
+}
+
+
+.detail-post .post-image{
+    width: 50px;
+    height: 50px;
+  
+}
+
+
+
+.main-post-author img{
+    width: 30px;
+    height: 30px;
+}
+
+.main-post-comment-user img{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+/* sidebar-Trending-post */
+.main-detail-sidebar{
+    width: 30%;
+    background-color: green;
+}
+.sidebar-post1{
+    /* background-color: var(--middleColume-backgroundColor); */
+}
+
+.trending-post img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* sidebar-related-post */
+
+.sidebar-post2{
+    /* background-color: var(--middleColume-backgroundColor); */
+}
+
+.related-post img{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
 
 /* Small screens, laptops */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -605,7 +676,7 @@ footer ul li a{
 
     .create-account-link{
         padding: 6px;
-        margin-right: 1px;
+        margin-right: 10px;
         border: 1px solid blue;
         border-radius: 5px;
         white-space: nowrap;
@@ -643,16 +714,13 @@ footer ul li a{
     }
 
 
-
-
-
-    /* main content  on small device */
+    /* main content  on Small screens, laptops  */
     .main-content{
         margin-left: 0px;
         margin-right: 0px;
     }
 
-    /* middle content  on small device */
+    /* middle content  on Small screens, laptops  */
     .middle-colume{
         /* padding-top: 0px !important;  */
         margin-top: 10rem;
@@ -676,6 +744,22 @@ footer ul li a{
 
     .post{
         margin-right: 10px;
+    }
+
+    .load-post{
+        background-color: gray;
+        text-align: center;
+        margin-left: 18rem;
+        margin-right: 18rem;
+        border-radius: 0.375rem;
+    }
+    .load-post a p{
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        font-family: inherit;
+        padding: 8px;
+        white-space: nowrap;
     }
 
     
@@ -835,8 +919,6 @@ footer ul li a{
     .post-share{
         margin-right: 1.5rem;
     }
-
-  
 
     /* left colume content  on small device */
     .left-colume{
