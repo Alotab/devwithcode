@@ -656,11 +656,36 @@ footer ul li a{
     
 }
 
+.main-post-author{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .main-post-author img{
     height: 40px;
     width: 40px;
     border-radius: 50%;
-   
+      
+}
+
+.author-name{
+    display: flex;
+    gap: 9px;
+    text-align: center;
+    /* background-color: blueviolet; */
+}
+
+.author-name .author-name-link{
+    font-size: 15px;
+}
+
+
+.author-name .date{
+    font-size: 12px;
+    /* font-family: sans-serif; */
+    text-align: center;
+    font-weight: 200;
     
 }
 
@@ -668,6 +693,44 @@ footer ul li a{
     width: 60%;
     /* background-color: red; */
     border-radius: 5px 5px 0px 0px;
+}
+
+
+.main-post-headline{
+    font-size: 25px;
+    line-height: 40px;
+    letter-spacing: -0.016em;
+    font-style: normal;
+    font-weight: 400;
+    color: rgb(41, 41, 41);
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    
+}
+
+.main-post-tags{
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.main-post-tags p{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.post-main-detail{
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.003em;
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 20px;
+    color: rgb(41, 41, 41);
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+    overflow-wrap: break-word;
+    
 }
 
 /* comments */
