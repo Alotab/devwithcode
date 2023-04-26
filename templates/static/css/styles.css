@@ -552,79 +552,6 @@ footer ul li a{
 
 
 
-
-/* .main-detail-post{
-    margin: 0rem 10rem;
-    margin-top: 10rem;
-    width: 58%;
-    background-color: var(--middleColume-backgroundColor);
-}
-
-
-.detail-post .post-image{
-    width: 50px;
-    height: 50px;
-
-} */
-
-
-/* .middle-page{
-    background-color: red;
-    width: 40%;
-    height: 3rem;
-    width: 3rem;
-} */
-
-/* .side-sidebar{
-    background-color: #1b7ce3;
-    width: 40%;
-    height: 10rem;
-    width: 5rem;
-} */
-
-
-
-/* .main-post-author img{
-    width: 30px;
-    height: 30px;
-}
-
-.main-post-comment-user img{
-    width: 50px;
-    height: 50px;
-} */
-
-
-
-/* sidebar-Trending-post */
-/* .main-detail-sidebar{
-    width: 30%;
-    background-color: green;
-} */
-/* .sidebar-post1{
-    background-color: var(--middleColume-backgroundColor);
-} */
-
-/* .trending-post img{
-    width: 40px;
-    height: 40px;
-} */
-
-
-/* sidebar-related-post */
-
-/* .sidebar-post2{
-    background-color: var(--middleColume-backgroundColor);
-} */
-
-/* .related-post img{
-    width: 40px;
-    height: 40px;
-} */
-
-
-
-
 /* post-detail css */
 
 
@@ -767,11 +694,6 @@ footer ul li a{
     flex: 1;
     align-items: center;
 }
-
-
-
-
-
 
 
 
