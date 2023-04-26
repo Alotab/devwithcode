@@ -963,13 +963,10 @@ footer ul li a{
 
 
 
-
-
-
 /* iPads Tablets devices */
 @media (min-width: 481px) and (max-width: 768px) {
     body {
-      background-color: #34A5AC;
+      /* background-color: #34A5AC; */
     }
     header{
         background-color: var(--navBar-color);
@@ -1176,7 +1173,7 @@ footer ul li a{
         /* margin-right: 10px; */
     }
 
-
+    /* sidebar-column - detail-page */
     .sidebar-post2{
         background-color: var(--middleColume-backgroundColor);
         border-radius: 5px;
@@ -1460,6 +1457,45 @@ footer ul li a{
         display: none! important;
     }
 
+
+    /* detail page */
+    .main-detail-post{
+        display: inline-block;
+        padding: 7rem 1rem;
+    }
+
+    .detail-column{
+        width: 100%;
+        /* background-color: red; */
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+
+    .detail-post .post-image{
+        height: 30rem;
+        width: 100%
+        /* object-fit: cover;
+        margin-bottom: 2rem;
+        border-radius: 5px 5px 0px 0px; */
+    }
+
+
+    /* sidebar-column - detail-page */
+    .sidebar-column{
+        width: 100%;
+        margin-top: 3.5rem;
+        /* margin-right: 10px; */
+    }
+
+    /* sidebar-column - detail-page */
+    .sidebar-post2{
+        background-color: var(--middleColume-backgroundColor);
+        border-radius: 5px;
+        margin-top: 2rem;
+        border-radius: 5px;
+        padding: 3rem;
+    }
+
     /* footer section on small device  */
     .website-slogan {
         font-size: 14px;
@@ -1478,5 +1514,9 @@ footer ul li a{
         font-size: 13px;
         color: #f1f1f1;
     }
+
+
+
+
 
 }
