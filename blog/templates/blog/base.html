@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
-    <title>Document</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript, Python, Docker, AWS">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/index.js"></script>
+    <title>DevWithCode | Home</title>
 </head>
 <body>
     <div class="wrapper">
@@ -15,17 +20,18 @@
         <!-- blog log and search icon section -->
         <div class="logo">
             <div class="main-logo">
-                <a href="#"><img src="images/fauxica.svg" alt="logo" ></a>
+                <a href="#"><img src="{% static 'images/fauxica.svg' %}" alt="logo" ></a>
+               
             </div>
             <div class="search">
                 <input type="search" id="gsearch" name="gsearch">
-                <img src="images/shareBabe.svg" alt="search" class="share-search input-link">
+                <img src="{% static 'images/shareBabe.svg' %}" alt="search" class="share-search input-link">
             </div>
         </div>
         <div class="subheader">
             <!-- search-icon to display in media query -->
              <div class="subheader-search">
-                <img src="images/shareBabe.svg" alt="search" class="share-search input-link">
+                <img src="{% static 'images/shareBabe.svg' %}" alt="search" class="share-search input-link">
             </div>
             <!-- navigation list -->
             <nav>

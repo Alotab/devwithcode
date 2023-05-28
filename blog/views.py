@@ -5,5 +5,5 @@ from django.shortcuts import render, HttpResponse
 
 
 def home_page(request):
-    return HttpResponse(request, 'ok')
-    # return HttpResponse(request, 'blog/home.html')
+    
+    return render(request, 'blog/home.html')
