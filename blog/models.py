@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.urls import reverse
+from users.models import Profile
 from PIL import Image
 
 # Create your models here.
@@ -12,6 +13,9 @@ from PIL import Image
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return Post.objects.filter(status=Post.Status.PUBLISHED)
+    
+
+
 
 class Post(models.Model):
 
@@ -21,7 +25,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish')
     content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default="default.jpg", upload_to='post_pics')
     created_at = models.DateTimeField(auto_now_add=True)

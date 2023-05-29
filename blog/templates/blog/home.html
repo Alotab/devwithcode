@@ -59,21 +59,24 @@
                 <p>Create Account</p>
             </div>
             
-
+            {% for post in posts %}
             <div class="post">
                 <div class="author-profile">
                     <div class="author-image">
-                        <a href="#"><img src="static/images/author.jpg" alt="author"></a>
+                        <a href="#"><img src="{{ post.image.url }}" alt="author"></a>
                     </div>
                     <div class="author-name">
-                        <a href="#"><p>James Kiki</p></a>
+                        {% with author=post.author %}
+                            <a href="#"><p>{{ author.first_name }} {{author.last_name}}</p></a>
+                        {%  endwith %}
+                        
                         <p class="post-date">Apr 11, 2023</p>
                     </div>
                    
                 </div>
                 <div class="post-header">
                     <a href="#">
-                        <h4>Industries Trasformed by the information Systems: Education, Healthcare, News, Travel</h4>
+                        <h4>{{ post.title }}</h4>
                     </a>
                 </div>
                 <div class="post-tags">
@@ -96,8 +99,9 @@
                 </div>
                
             </div>
+            {% endfor %}
 
-            <div class="post">
+            <!-- <div class="post">
                 <div class="author-profile">
                     <div class="author-image">
                         <a href="#"><img src="static/images/author.jpg" alt="author"></a>
@@ -113,13 +117,13 @@
                         <h4>Industries Trasformed by the </h4>
                     </a>
                 </div>
-                <div class="post-tags">
+                <div class="post-tags"> -->
                     <!-- <a href="#"><p>#webdev</p></a>
                     <a href="#"><p>#python</p></a>
                     <a href="#"><p>#django</p></a>
                     <a href="#"><p>#docker</p></a> -->
 
-                    <a class="post-tag-chrome" href="#"><span>#</span>python</a>
+                    <!-- <a class="post-tag-chrome" href="#"><span>#</span>python</a>
                     <a class="post-tag-chrome" href="#"><span>#</span>javascript</a>
                     <a class="post-tag-chrome" href="#"><span>#</span>chatgpt</a>
                 </div>
@@ -134,9 +138,9 @@
                     <div class="post-share">
                         <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
                     </div>
-                </div>
+                </div> -->
                
-            </div>
+            <!-- </div>
             <div class="post">
                 <div class="author-profile">
                     <div class="author-image">
@@ -153,18 +157,18 @@
                         <h4>Industries Trasformed by the information Systems: Education, Healthcare, News, Travel</h4>
                     </a>
                 </div>
-                <div class="post-tags">
+                <div class="post-tags"> -->
                     <!-- <a href="#"><p>#webdev</p></a>
                     <a href="#"><p>#python</p></a>
                     <a href="#"><p>#django</p></a>
                     <a href="#"><p>#docker</p></a> -->
-
+                <!-- 
                     <a class="post-tag-chrome" href="#"><span>#</span>python</a>
                     <a class="post-tag-chrome" href="#"><span>#</span>javascript</a>
                     <a class="post-tag-chrome" href="#"><span>#</span>chatgpt</a>
-                </div>
+                </div> -->
 
-                <div class="comment-share">
+                <!-- <div class="comment-share">
                     <div class="post-comment">
                         <a href="">
                             <img src="{% static 'images/commentIcon.svg' %}" alt="comment" class="post-comment-icon">
@@ -175,12 +179,12 @@
                         <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
                     </div>
                 </div>
-               
-            </div>
+                -->
+            <!-- </div> -->
 
-            <div class="load-post">
+            <!-- <div class="load-post">
                 <a href="#"><p>Load More</p></a>
-            </div>
+            </div> -->
             
         </div>
 
