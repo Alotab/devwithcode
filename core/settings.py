@@ -120,6 +120,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static")),
+    # BASE_DIR / "static",
+    # "static/css/styles.css",
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -129,3 +134,6 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TAGGIT_CASE_INSENSITIVE = True
+
+# For django to use this new custome user class
+AUTH_USER_MODEL = 'users.CustomUser'
