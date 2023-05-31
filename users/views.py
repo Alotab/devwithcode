@@ -1,19 +1,18 @@
 from django.shortcuts import render, redirect
-
-# from django.contrib.auth.models import User
 from .models import CustomUser
+from django.http import HttpResponse
 from django.contrib.auth import get_user_model  # get the custome user model 
 from .forms import CustomeUserChangeForm, CustomUserCreationsForm
-from django.views.generic import CreateView, FormView
-from django.core.exceptions import ValidationError
+from django.views.generic import CreateView
+from django.contrib.auth import authenticate, login
 import re
 
 
 def register(request, *args, **kwargs):
     user = request.user
 
-    # if user.is_authenticated:
-    #     return HttpResponse(f"You are already authenticated as {user.email}")
+    if user.is_authenticated:
+        return HttpResponse(f"You are already authenticated as {user.email}")
     context = {}
 
     if request.method == 'POST':
@@ -22,16 +21,42 @@ def register(request, *args, **kwargs):
             form.save()
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
-            # customUser = authenticate(email=email, password=raw_password)
-            # login(request, customUser)
-            destination = kwargs.get('next')
-            if destination:
-                redirect(destination)
+            # log_user = authenticate(email=email, password=raw_password)
+            # login(request, log_user)
+            # destination = kwargs.get('next')
+            # if destination:
+            #     redirect(destination)
             return redirect('home')
         else:
             context['custom_user_creations_form'] = form
 
     return render(request, "users/register.html", context)
+
+
+
+# def login(request):
+#     user = get_user_model()
+
+
+def login(request):
+    if request.method == 'POST':
+        # Get the username and password from the request.
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        # Try to authenticate the user.
+        user = authenticate(email=email, password=password)
+
+        # If the user is authenticated, log them in and redirect to the home page.
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+        # Otherwise, show the login form again with errors.
+        else:
+            return render(request, 'users/login.html', {'errors': ['Invalid username or password.']})
+    return render(request, 'users/login.html')
+
 
 
 
