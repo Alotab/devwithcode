@@ -9,7 +9,3 @@ def post_list(request):
     posts = Post.published.all()
     trending_post = Post.published.all().order_by('-publish')[:6]
     return render(request, 'blog/home.html', {'posts': posts, 'trending_post': trending_post})
-
-
-def login(request):
-    return render(request, 'blog/try.html')
