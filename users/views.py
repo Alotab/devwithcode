@@ -3,7 +3,7 @@ from .models import CustomUser
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model  # get the custome user model 
 from .forms import CustomeUserChangeForm, CustomUserCreationsForm, AccountAuthenticationForm
-from django.views.generic import CreateView
+# from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
 import re
 
@@ -38,24 +38,24 @@ def register(request, *args, **kwargs):
 #     user = get_user_model()
 
 
-def login(request):
-    if request.method == 'POST':
-        # Get the username and password from the request.
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+# def login(request):
+#     if request.method == 'POST':
+#         # Get the username and password from the request.
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
 
-        # Try to authenticate the user.
-        user = authenticate(email=email, password=password)
+#         # Try to authenticate the user.
+#         user = authenticate(email=email, password=password)
 
-        # If the user is authenticated, log them in and redirect to the home page.
-        if user is not None:
-            login(request, user)
-            return redirect('home')
+#         # If the user is authenticated, log them in and redirect to the home page.
+#         if user is not None:
+#             login(request, user)
+#             return redirect('home')
 
-        # Otherwise, show the login form again with errors.
-        else:
-            return render(request, 'users/login.html', {'errors': ['Invalid username or password.']})
-    return render(request, 'users/login.html')
+#         # Otherwise, show the login form again with errors.
+#         else:
+#             return render(request, 'users/login.html', {'errors': ['Invalid username or password.']})
+#     return render(request, 'users/login.html')
 
 
 
@@ -86,10 +86,6 @@ def login_view(request):
                 return redirect('home')
         else:
             context['login_form'] = form
-
-    
-
-
     return render(request, "users/login.html", context)
 
 
@@ -129,8 +125,8 @@ def get_redirect_if_exists(request):
     #     return render(request, 'users/register.html')
     
 
-class RegisterView(CreateView):
-    model = get_user_model()
-    form_class = CustomUserCreationsForm
-    template_name = 'blog/home.html'
-    success_url = '/'
+# class RegisterView(CreateView):
+#     model = get_user_model()
+#     form_class = CustomUserCreationsForm
+#     template_name = 'blog/home.html'
+#     success_url = '/'

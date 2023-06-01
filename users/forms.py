@@ -62,7 +62,7 @@ class AccountAuthenticationForm(forms.ModelForm):
         model = CustomUser
         fields = ("email", "password")
 
-    
+    # forms doesnt know if this is a register or login so this clean will show the errors that come along
     def clean(self):
         if self.is_valid():
             email = self.cleaned_data['email']

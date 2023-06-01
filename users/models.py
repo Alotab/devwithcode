@@ -29,5 +29,10 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
+    
+    # change the name of profile image to the default name
+    def get_profile_image_filename(self):
+        return str(self.profile_iamge)[str(self.profile_image).index(f"profile_images/{self.pk}/"):]
+
 
 

@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 # For django to use this new custome user class
 AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS = {
-    'django.contribe.auth.backends.AllowUsersModelBackend',
-    'users.backends.CaseInsentiveModelBackend'
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'users.backends.CaseInsentiveModelBackend',
 }
 
 

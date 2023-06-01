@@ -4,12 +4,18 @@
 
 <form method="post" class="regsss">
     {% csrf_token %}
-
-    <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
-  
-    <input type="password" class="form-control" name="password1" placeholder="Enter your password" required>
-
-    <input type="password" class="form-control"  name="password2" placeholder="Confirm your password" required>
+    <div style="margin-top: 20px";>
+        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+    </div>
+    
+    <div style="margin-top: 20px";>
+        <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+    </div>
+    
+    <div style="margin-top: 20px;"> 
+        <input type="password" class="form-control"  name="password" placeholder="Confirm your password" required>
+    </div>
+    
 
 
     {% for field in login_form %}
@@ -22,11 +28,14 @@
         <div style="color: red">
             <p>{{ login_form.non_field_errors }}</p>
         </div>
-        {% endfor %}
+        {% endif %}
         
     </p>
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <div style="margin-top: 20px">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+    
 
     <div>
         <a class="m-auto" href="#">Rest password</a>
