@@ -25,6 +25,11 @@ SECRET_KEY = 'django-insecure-(kto7mpc3l$m_)4fd7^8#vxvbdxa&y2jegezun!img+rf(5*vo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # development email 
+
+
 ALLOWED_HOSTS = []
 
 # For django to use this new custome user class
