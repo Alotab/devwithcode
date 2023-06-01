@@ -27,8 +27,8 @@ from django.shortcuts import resolve_url
 from django.template.response import TemplateResponse
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.utils.deprecation import RemovedInDjango21Warning
-from django.utils.http import is_safe_url, urlsafe_base64_decode
+# from django.utils.deprecation import RemovedInDjango21Warning
+from django.utils.http import urlsafe_base64_decode, url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
@@ -130,28 +130,7 @@ def get_redirect_if_exists(request):
 #     regex = '^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$'
 #     return re.match(regex, email)
 
-# def register(request):
-#     if request.method == 'POST':
-        # username = request.POST['username']
-        # email = request.POST['email']
-        # password = request.POST['password']
 
-        # if validate_email(email):
-            # Create the user
-            # user = User.objects.create(username=username, email=email, password=password)
-
-            # Create the profile
-            # profile = CustomUser.objects.create( email=email, password=password)
-
-            # Save the user and profile
-            # user.save()
-            # profile.save()
-
-    #         return redirect('home')
-    #     else:
-    #         return render(request, 'users/register.html', {'error': 'Invalid email address'})
-    # else:
-    #     return render(request, 'users/register.html')
     
 
 # class RegisterView(CreateView):
@@ -207,7 +186,7 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
             self.redirect_field_name,
             self.request.GET.get(self.redirect_field_name, '')
         )
-        url_is_safe = is_safe_url(
+        url_is_safe = url_has_allowed_host_and_scheme(
             url=redirect_to,
             allowed_hosts=self.get_success_url_allowed_hosts(),
             require_https=self.request.is_secure(),
@@ -242,12 +221,12 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
         return context
 
 
-def login(request, *args, **kwargs):
-    warnings.warn(
-        'The login() view is superseded by the class-based LoginView().',
-        RemovedInDjango21Warning, stacklevel=2
-    )
-    return LoginView.as_view(**kwargs)(request, *args, **kwargs)
+# def login(request, *args, **kwargs):
+#     warnings.warn(
+#         'The login() view is superseded by the class-based LoginView().',
+#         RemovedInDjango21Warning, stacklevel=2
+#     )
+#     return LoginView.as_view(**kwargs)(request, *args, **kwargs)
 
 
 class LogoutView(SuccessURLAllowedHostsMixin, TemplateView):
@@ -282,7 +261,7 @@ class LogoutView(SuccessURLAllowedHostsMixin, TemplateView):
                 self.redirect_field_name,
                 self.request.GET.get(self.redirect_field_name)
             )
-            url_is_safe = is_safe_url(
+            url_is_safe = url_has_allowed_host_and_scheme(
                 url=next_page,
                 allowed_hosts=self.get_success_url_allowed_hosts(),
                 require_https=self.request.is_secure(),
@@ -308,8 +287,7 @@ class LogoutView(SuccessURLAllowedHostsMixin, TemplateView):
 
 def logout(request, *args, **kwargs):
     warnings.warn(
-        'The logout() view is superseded by the class-based LogoutView().',
-        RemovedInDjango21Warning, stacklevel=2
+        'The logout() view is superseded by the class-based LogoutView().',stacklevel=2
     )
     return LogoutView.as_view(**kwargs)(request, *args, **kwargs)
 
@@ -324,8 +302,7 @@ def logout_then_login(request, login_url=None, extra_context=_sentinel):
     if extra_context is not _sentinel:
         warnings.warn(
             "The unused `extra_context` parameter to `logout_then_login` "
-            "is deprecated.", RemovedInDjango21Warning
-        )
+            "is deprecated.")
 
     if not login_url:
         login_url = settings.LOGIN_URL
@@ -333,7 +310,7 @@ def logout_then_login(request, login_url=None, extra_context=_sentinel):
     return LogoutView.as_view(next_page=login_url)(request)
 
 
-def redirect_to_login(next, login_url=None, redirect_field_name=REDIRECT_FIELD_NAME):
+# def redirect_to_login(next, login_url=None, redirect_field_name=REDIRECT_FIELD_NAME):
     """
     Redirect the user to the login page, passing the given 'next' page.
     """
@@ -368,8 +345,7 @@ def password_reset(request,
                    html_email_template_name=None,
                    extra_email_context=None):
     warnings.warn("The password_reset() view is superseded by the "
-                  "class-based PasswordResetView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordResetView().", stacklevel=2)
     if post_reset_redirect is None:
         post_reset_redirect = reverse('password_reset_done')
     else:
@@ -405,8 +381,7 @@ def password_reset_done(request,
                         template_name='registration/password_reset_done.html',
                         extra_context=None):
     warnings.warn("The password_reset_done() view is superseded by the "
-                  "class-based PasswordResetDoneView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordResetDoneView().", stacklevel=2)
     context = {
         'title': _('Password reset sent'),
     }
@@ -430,8 +405,7 @@ def password_reset_confirm(request, uidb64=None, token=None,
     new password.
     """
     warnings.warn("The password_reset_confirm() view is superseded by the "
-                  "class-based PasswordResetConfirmView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordResetConfirmView().", stacklevel=2)
     assert uidb64 is not None and token is not None  # checked by URLconf
     if post_reset_redirect is None:
         post_reset_redirect = reverse('password_reset_complete')
@@ -473,8 +447,7 @@ def password_reset_complete(request,
                             template_name='registration/password_reset_complete.html',
                             extra_context=None):
     warnings.warn("The password_reset_complete() view is superseded by the "
-                  "class-based PasswordResetCompleteView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordResetCompleteView().", stacklevel=2)
     context = {
         'login_url': resolve_url(settings.LOGIN_URL),
         'title': _('Password reset complete'),
@@ -634,8 +607,7 @@ def password_change(request,
                     password_change_form=PasswordChangeForm,
                     extra_context=None):
     warnings.warn("The password_change() view is superseded by the "
-                  "class-based PasswordChangeView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordChangeView().", stacklevel=2)
     if post_change_redirect is None:
         post_change_redirect = reverse('password_change_done')
     else:
@@ -665,8 +637,7 @@ def password_change_done(request,
                          template_name='registration/password_change_done.html',
                          extra_context=None):
     warnings.warn("The password_change_done() view is superseded by the "
-                  "class-based PasswordChangeDoneView().",
-                  RemovedInDjango21Warning, stacklevel=2)
+                  "class-based PasswordChangeDoneView().", stacklevel=2)
     context = {
         'title': _('Password change successful'),
     }
