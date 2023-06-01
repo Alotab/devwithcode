@@ -1,8 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
 
+from django.contrib.auth import authenticate
 from django import forms
-
+from .models import CustomUser
 
 
 # class CustomUserCreationsForm(UserCreationForm):
@@ -37,6 +37,10 @@ class CustomUserCreationsForm(UserCreationForm):
         if commit:
             user.save()
         return user
+    
+
+
+
 
 
 
@@ -44,4 +48,24 @@ class CustomeUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ("email",)
+        fields = '__all__'
+        # fields = ("email","first_name", "last_name",)
+
+
+
+# building this from scratch for the userauthentication
+
+class AccountAuthenticationForm(forms.ModelForm):
+    password = forms.CharField(label="Password", widget=forms.PasswordInput) # to hide the password when typing
+
+    class Meta:
+        model = CustomUser
+        fields = ("email", "password")
+
+    
+    def clean(self):
+        if self.is_valid():
+            email = self.cleaned_data['email']
+            password = self.cleaned_data['password']
+            if not authenticate(email=email, password=password):
+                raise forms.ValidationError("Invalid Login")

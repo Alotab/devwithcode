@@ -11,7 +11,26 @@
 
     <input type="password" class="form-control"  name="password2" placeholder="Confirm your password" required>
 
+
+    {% for field in login_form %}
+    <p>
+        {% for error in field.errors %}
+        <p style="color: red">{{ error}}</p>
+        {% endfor %}
+        
+        {% if login_form.non_field_errors %}
+        <div style="color: red">
+            <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endfor %}
+        
+    </p>
+    {% endfor %}
     <button type="submit" class="btn btn-primary">Sign in</button>
+
+    <div>
+        <a class="m-auto" href="#">Rest password</a>
+    </div>
 
 </form>
 

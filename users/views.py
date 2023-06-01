@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from .models import CustomUser
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model  # get the custome user model 
-from .forms import CustomeUserChangeForm, CustomUserCreationsForm
+from .forms import CustomeUserChangeForm, CustomUserCreationsForm, AccountAuthenticationForm
 from django.views.generic import CreateView
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import re
 
 
@@ -23,7 +23,7 @@ def register(request, *args, **kwargs):
             raw_password = form.cleaned_data.get('password1')
             # log_user = authenticate(email=email, password=raw_password)
             # login(request, log_user)
-            # destination = kwargs.get('next')
+            # destination = get_redirect_if_exists(request) #kwargs.get('next')
             # if destination:
             #     redirect(destination)
             return redirect('home')
@@ -59,7 +59,46 @@ def login(request):
 
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('home')
 
+
+def login_view(request):
+
+    context = {}
+    user = request.user
+    if user.is_authenticated:
+        return redirect('home')
+    
+    destination = get_redirect_if_exists(request)
+    if request.POST:
+        form = AccountAuthenticationForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email, password=password)
+            if user:
+                login(request, user)
+                destination = get_redirect_if_exists(request)
+                if destination:
+                    return redirect(destination)
+                return redirect('home')
+        else:
+            context['login_form'] = form
+
+    
+
+
+    return render(request, "users/login.html", context)
+
+
+def get_redirect_if_exists(request):
+    redirect = None
+    if request.GET:
+        if request.GET.get('next'):
+            redirect = str(request.GET.get('next'))
+    return redirect
 
 
 # def validate_email(email):
