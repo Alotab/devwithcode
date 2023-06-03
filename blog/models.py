@@ -4,7 +4,7 @@ from django.utils import timezone
 # from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django.urls import reverse
-from users.models import CustomUser
+from django.conf import settings
 from PIL import Image
 
 # Create your models here.
@@ -25,7 +25,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish')
     content = models.TextField()
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='post')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default="default.jpg", upload_to='post_pics')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -58,13 +58,13 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    user_comment = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user')
+    user_comment = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user')
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class CommentLike(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='comment_likes')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comment_likes')
     comment = models.ForeignKey(Comments, on_delete=models.CASCADE, related_name='likes')
     created_at = models.DateTimeField(auto_now_add=True)
 

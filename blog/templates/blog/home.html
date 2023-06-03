@@ -68,7 +68,7 @@
                     </div>
                     <div class="author-name">
                         {% with author=post.author %}
-                            <a href="#"><p>{{ author.first_name }} {{author.last_name}}</p></a>
+                            <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
                         {%  endwith %}
                         
                         <p class="post-date">Apr 11, 2023</p>
@@ -76,7 +76,7 @@
                    
                 </div>
                 <div class="post-header">
-                    <a href="#">
+                    <a href="{% url 'post-detail' post.id %}">
                         <h4>{{ post.title }}</h4>
                     </a>
                 </div>

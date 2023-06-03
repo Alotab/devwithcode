@@ -1,26 +1,19 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth import authenticate
 from django import forms
 from .models import CustomUser
-
-
-# class CustomUserCreationsForm(UserCreationForm):
-
-#     class Meta:
-#         model = CustomUser
-#         fields = ("email",)
-
 
 
 class CustomUserCreationsForm(UserCreationForm):
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    first_name = forms.CharField(max_length=100)
 
     class Meta:
         model = CustomUser
-        fields = ('email',)
+        fields = ['email','first_name']
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -40,16 +33,12 @@ class CustomUserCreationsForm(UserCreationForm):
     
 
 
-
-
-
-
-class CustomeUserChangeForm(UserChangeForm):
+class CustomeUserChangeForm(forms.ModelForm):
+    password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = CustomUser
-        fields = '__all__'
-        # fields = ("email","first_name", "last_name",)
+        fields = ["email", "password", "first_name", "last_name", 'profile_image', "is_active"]
 
 
 

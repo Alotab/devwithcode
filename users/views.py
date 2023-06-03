@@ -62,32 +62,6 @@ def register(request, *args, **kwargs):
     return render(request, "users/register.html", context)
 
 
-
-# def login(request):
-#     user = get_user_model()
-
-
-# def login(request):
-#     if request.method == 'POST':
-#         # Get the username and password from the request.
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-
-#         # Try to authenticate the user.
-#         user = authenticate(email=email, password=password)
-
-#         # If the user is authenticated, log them in and redirect to the home page.
-#         if user is not None:
-#             login(request, user)
-#             return redirect('home')
-
-#         # Otherwise, show the login form again with errors.
-#         else:
-#             return render(request, 'users/login.html', {'errors': ['Invalid username or password.']})
-#     return render(request, 'users/login.html')
-
-
-
 def logout_view(request):
     logout(request)
     return redirect('home')
@@ -125,19 +99,6 @@ def get_redirect_if_exists(request):
             redirect = str(request.GET.get('next'))
     return redirect
 
-
-# def validate_email(email):
-#     regex = '^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$'
-#     return re.match(regex, email)
-
-
-    
-
-# class RegisterView(CreateView):
-#     model = get_user_model()
-#     form_class = CustomUserCreationsForm
-#     template_name = 'blog/home.html'
-#     success_url = '/'
 
 
 
@@ -220,13 +181,6 @@ class LoginView(SuccessURLAllowedHostsMixin, FormView):
             context.update(self.extra_context)
         return context
 
-
-# def login(request, *args, **kwargs):
-#     warnings.warn(
-#         'The login() view is superseded by the class-based LoginView().',
-#         RemovedInDjango21Warning, stacklevel=2
-#     )
-#     return LoginView.as_view(**kwargs)(request, *args, **kwargs)
 
 
 class LogoutView(SuccessURLAllowedHostsMixin, TemplateView):
