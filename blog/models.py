@@ -5,6 +5,7 @@ from django.utils import timezone
 from taggit.managers import TaggableManager
 from django.urls import reverse
 from django.conf import settings
+from django.utils.text import slugify
 from PIL import Image
 
 # Create your models here.
@@ -23,7 +24,7 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
     title = models.CharField(max_length=200)
-    slug =  models.SlugField(max_length=250, unique_for_date='publish')
+    slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True)
     content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
@@ -41,8 +42,8 @@ class Post(models.Model):
 
 
     # override the save method in post class and reduce the size of the image size
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
@@ -50,9 +51,19 @@ class Post(models.Model):
             output_size = (500, 800)
             img.thumbnail(output_size)
             img.save(self.image.path)
+        
+        if not self.slug:
+            self.slug = slugify(self.title)
 
-    def get_absolute_url(self):
-        return reverse()
+
+    # def get_absolute_url(self):
+    #     return reverse('post_detail', kwargs={"slug": self.slug, "author": self.author})
+
+    # def get_absolute_url(self):
+    #     return reverse('blog:post_detail', args=[self.publish.year,
+    #                                              self.publish.month,
+    #                                              self.publish.day,
+    #                                              self.slug])  
     
 
 

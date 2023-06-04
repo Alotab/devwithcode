@@ -6,11 +6,11 @@
 <div class="main-detail-post">
     <div class="detail-column">
         <div class="detail-post">
-            <img src="images/author.jpg" alt="post-image" class="post-image">
+            <img src="{{ post.image.url }}" alt="post-image" class="post-image">
 
             <div class="main-post">
-                <div class="main-post-author">
-                    <img src="images/author.jpg" alt="author-image">
+                <div class="main-post-author" style="padding-top: 5px">
+                    <img src="{{ object.author.profile_image.url  }}" alt="author-image">
                     <div class="author-name">
                         <p class="author-name-link">{{ object.author }}</p>
                         <p class="date">Posted on Dec 25 '23</p>
@@ -20,10 +20,9 @@
                     <h2>{{ object.title }}</h2>
                 </div>
                 <div class="main-post-tags">
-                    <p>#webdev</p>
-                    <p>#python</p>
-                    <p>#javascript</p>
-                    <p>#docker</p>
+                  {% for tag in tags %}
+                    <p>#{{tag}}</p>
+                  {% endfor %}
                 </div>
                 <div class="post-main-detail">
                     {{ object.content }}

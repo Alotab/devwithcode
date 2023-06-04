@@ -76,15 +76,15 @@
                    
                 </div>
                 <div class="post-header">
-                    <a href="{% url 'post-detail' post.id %}">
+                    <a href="{% url 'post-detail' post.author.first_name post.slug %}">   
+                   
                         <h4>{{ post.title }}</h4>
                     </a>
                 </div>
                 <div class="post-tags">
-
-                    <a class="post-tag-chrome" href="#"><span>#</span>python</a>
-                    <a class="post-tag-chrome" href="#"><span>#</span>javascript</a>
-                    <a class="post-tag-chrome" href="#"><span>#</span>chatgpt</a>
+                    {% for tag in tags %}
+                        <p>#{{ tag }}</p>
+                    {% endfor %}
                 </div>
 
                 <div class="comment-share">

@@ -44,8 +44,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # def get_full_name(self):
     #     return f"{self.first_name} {self.last_login}"
     
-    # def get_short_name(self):
-    #     return f"{self.first_name}"
+    def get_short_name(self):
+        return f"{self.first_name}"
+    
     
     # change the name of profile image to the default name
     def get_profile_image_filename(self):
