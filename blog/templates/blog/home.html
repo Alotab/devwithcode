@@ -11,25 +11,10 @@
             <div class="tags">
                 <h3 class="tag-headling">Tags</h3>
                 <div class="sidebar-nav">
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#python</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#azure</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#docker</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
+                    {% for tag in tags %}
+                    <div  id="default-sidebar" class="sidebar-nav-element">#{{ tag }}</div>
+                    {% endfor %}
+                   
                 </div>
             </div>
         </div>
@@ -76,7 +61,7 @@
                    
                 </div>
                 <div class="post-header">
-                    <a href="{% url 'post-detail' post.author.first_name post.slug %}">   
+                    <a href="{% url 'post-detail' post.author.first_name post.slug post.id %}">   
                    
                         <h4>{{ post.title }}</h4>
                     </a>

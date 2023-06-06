@@ -17,7 +17,6 @@ class PublishedManager(models.Manager):
     
 
 
-
 class Post(models.Model):
 
     class Status(models.TextChoices):
@@ -36,10 +35,8 @@ class Post(models.Model):
     tags = TaggableManager()
 
 
-
     def __str__(self) -> str:
         return self.title
-
 
     # override the save method in post class and reduce the size of the image size
     def save(self, *args, **kwargs):
@@ -54,29 +51,24 @@ class Post(models.Model):
         
         if not self.slug:
             self.slug = slugify(self.title)
-
-
-    # def get_absolute_url(self):
-    #     return reverse('post_detail', kwargs={"slug": self.slug, "author": self.author})
-
-    # def get_absolute_url(self):
-    #     return reverse('blog:post_detail', args=[self.publish.year,
-    #                                              self.publish.month,
-    #                                              self.publish.day,
-    #                                              self.slug])  
     
 
 
 
-class Comments(models.Model):
+class Comment(models.Model):
+    blog = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
     user_comment = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user')
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self) -> str:
+        return f'{self.user_comment} {self.blog}'
+
+
 
 class CommentLike(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comment_likes')
-    comment = models.ForeignKey(Comments, on_delete=models.CASCADE, related_name='likes')
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='likes')
     created_at = models.DateTimeField(auto_now_add=True)
 
     # ensure that no two CommentLike objects have the same user and comment values.
