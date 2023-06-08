@@ -10,11 +10,11 @@ class CustomUserCreationsForm(UserCreationForm):
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
-    first_name = forms.CharField(max_length=100)
+    # first_name = forms.CharField(max_length=100)
 
     class Meta:
         model = CustomUser
-        fields = ['email','first_name']
+        fields = ['email']
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")

@@ -37,6 +37,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
 
+
 def register(request, *args, **kwargs):
     user = request.user
 
@@ -48,23 +49,36 @@ def register(request, *args, **kwargs):
         form = CustomUserCreationsForm(request.POST)
         if form.is_valid():
             form.save()
-            email = form.cleaned_data.get('email').lower()
-            raw_password = form.cleaned_data.get('password1')
+            # email = form.cleaned_data.get('email').lower()
+            # raw_password = form.cleaned_data.get('password1')
             # log_user = authenticate(email=email, password=raw_password)
             # login(request, log_user)
             # destination = get_redirect_if_exists(request) #kwargs.get('next')
             # if destination:
             #     redirect(destination)
-            return redirect('home')
+            return redirect('blog:home')
         else:
             context['custom_user_creations_form'] = form
 
     return render(request, "users/register.html", context)
 
 
+# def logout_view(request):
+#     logout(request)
+#     return redirect('blog:home')
+
+
 def logout_view(request):
-    logout(request)
-    return redirect('home')
+  """Log the user out and redirect them to the current detail page."""
+
+  # Get the current URL.
+#   current_url = request.url
+
+  # Log the user out.
+  logout(request)
+
+  # Redirect the user to the current detail page.
+  return redirect('/')
 
 
 def login_view(request):
@@ -72,7 +86,7 @@ def login_view(request):
     context = {}
     user = request.user
     if user.is_authenticated:
-        return redirect('home')
+        return redirect('blog:home')
     
     destination = get_redirect_if_exists(request)
     if request.POST:
@@ -86,7 +100,7 @@ def login_view(request):
                 destination = get_redirect_if_exists(request)
                 if destination:
                     return redirect(destination)
-                return redirect('home')
+                return redirect('blog:home')
         else:
             context['login_form'] = form
     return render(request, "users/login.html", context)
@@ -239,44 +253,44 @@ class LogoutView(SuccessURLAllowedHostsMixin, TemplateView):
         return context
 
 
-def logout(request, *args, **kwargs):
-    warnings.warn(
-        'The logout() view is superseded by the class-based LogoutView().',stacklevel=2
-    )
-    return LogoutView.as_view(**kwargs)(request, *args, **kwargs)
+# def logout(request, *args, **kwargs):
+#     warnings.warn(
+#         'The logout() view is superseded by the class-based LogoutView().',stacklevel=2
+#     )
+#     return LogoutView.as_view(**kwargs)(request, *args, **kwargs)
 
 
-_sentinel = object()
+# _sentinel = object()
 
 
-def logout_then_login(request, login_url=None, extra_context=_sentinel):
-    """
-    Log out the user if they are logged in. Then redirect to the login page.
-    """
-    if extra_context is not _sentinel:
-        warnings.warn(
-            "The unused `extra_context` parameter to `logout_then_login` "
-            "is deprecated.")
+# def logout_then_login(request, login_url=None, extra_context=_sentinel):
+#     """
+#     Log out the user if they are logged in. Then redirect to the login page.
+#     """
+#     if extra_context is not _sentinel:
+#         warnings.warn(
+#             "The unused `extra_context` parameter to `logout_then_login` "
+#             "is deprecated.")
 
-    if not login_url:
-        login_url = settings.LOGIN_URL
-    login_url = resolve_url(login_url)
-    return LogoutView.as_view(next_page=login_url)(request)
+#     if not login_url:
+#         login_url = settings.LOGIN_URL
+#     login_url = resolve_url(login_url)
+#     return LogoutView.as_view(next_page=login_url)(request)
 
 
 # def redirect_to_login(next, login_url=None, redirect_field_name=REDIRECT_FIELD_NAME):
     """
     Redirect the user to the login page, passing the given 'next' page.
     """
-    resolved_url = resolve_url(login_url or settings.LOGIN_URL)
+    # resolved_url = resolve_url(login_url or settings.LOGIN_URL)
 
-    login_url_parts = list(urlparse(resolved_url))
-    if redirect_field_name:
-        querystring = QueryDict(login_url_parts[4], mutable=True)
-        querystring[redirect_field_name] = next
-        login_url_parts[4] = querystring.urlencode(safe='/')
+    # login_url_parts = list(urlparse(resolved_url))
+    # if redirect_field_name:
+    #     querystring = QueryDict(login_url_parts[4], mutable=True)
+    #     querystring[redirect_field_name] = next
+    #     login_url_parts[4] = querystring.urlencode(safe='/')
 
-    return HttpResponseRedirect(urlunparse(login_url_parts))
+    # return HttpResponseRedirect(urlunparse(login_url_parts))
 
 
 # 4 views for password reset:

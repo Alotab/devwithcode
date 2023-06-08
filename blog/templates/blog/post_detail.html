@@ -43,6 +43,7 @@
     <div class="main-post-comments">
         <span class="title">Comments</span>
         <div class="comments">
+          {% for comment in comments %}
           <div class="comment-react">
             <button>
                 <svg fill="none" viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -61,18 +62,18 @@
                 </svg>
               </div>
               <div class="user-info">
-                <span>Yassine Zanina</span>
-                <p>Wednesday, March 13th at 2:45pm</p>
+                <span>{{ comment.user_comment.first_name }} {{comment.user_comment.last_name}}</span>
+                <p>{{ commment.created_at|date }}</p>
               </div>
             </div>
             <p class="comment-content">
-              I've been using this product for a few days now and I'm really impressed! The interface is intuitive and easy to
-              use, and the features are exactly what I need to streamline my workflow.
+              {{ comment.comment }}
             </p>
           </div>
+          {% endfor %}
         </div>
 
-        <form action="{% url 'post_comment' post.pk %}" method="POST">
+        <form action="#" method="POST">
           {% csrf_token %}
           <div class="text-box">
             <div class="box-container">

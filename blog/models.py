@@ -5,17 +5,27 @@ from django.utils import timezone
 from taggit.managers import TaggableManager
 from django.urls import reverse
 from django.conf import settings
+from django.http import Http404
 from django.utils.text import slugify
 from PIL import Image
 
 # Create your models here.
 
-#This manager filter the post objects to retreived on published post
+# This manager filter the post objects to retreived on published post
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return Post.objects.filter(status=Post.Status.PUBLISHED)
     
+# class PublishedManager(models.Manager):
 
+#   def get_queryset(self):
+#     return Post.objects.filter(status=Post.Status.PUBLISHED)
+
+#   def get_or_404(self, slug):
+#     try:
+#       return self.get(slug=slug)
+#     except Post.DoesNotExist:
+#       raise Http404("Post does not exist")
 
 class Post(models.Model):
 
@@ -37,6 +47,10 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+
+    def get_absolute_url(self):
+        return reverse('blog:post-detail', args=[self.slug])
 
     # override the save method in post class and reduce the size of the image size
     def save(self, *args, **kwargs):

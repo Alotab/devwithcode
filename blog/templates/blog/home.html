@@ -61,7 +61,8 @@
                    
                 </div>
                 <div class="post-header">
-                    <a href="{% url 'post-detail' post.author.first_name post.slug post.id %}">   
+                    <a href="{% url 'blog:post_detail' post.slug %}"> 
+                        
                    
                         <h4>{{ post.title }}</h4>
                     </a>
