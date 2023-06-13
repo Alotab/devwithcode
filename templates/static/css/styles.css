@@ -25,13 +25,15 @@ html {
 body {
   margin: 0;
   font-family: "poppins";
-  background-color: var(--website-backgroundColor);
+  /* background-color: var(--website-backgroundColor); */
+  background-color: #e8e8e8;
     
 }
 
 header{
-  /* background-color: var(--navBar-color); */
-  background-color: #e1dcdc;
+  background-color: var(--navBar-color);
+ 
+  /* background-color: #e1dcdc; */
   width: 100%;
   /* height: 5.5em; */
   height: 5.5em;
@@ -127,6 +129,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .subheader nav ul{
     display: flex;
     gap: 3em;
+    margin-right: 3em;
 }
 
 .subheader nav ul li a{
@@ -155,21 +158,10 @@ li{
     color: #090909;
     border-radius: 0.5em;
     background: #e8e8e8;
-    border: 1px solid #e8e8e8;
-    padding: 0.7em 1.2em;
-    box-shadow: 6px 6px 12px #c5c5c5,
-             -6px -6px 12px #ffffff;
+    border: 1px solid red;
+    padding: 0.5em 1.2em;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #e1dcdc;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .subheader nav .create-account-link:hover{
@@ -1759,6 +1751,55 @@ input[type="password"]{
 
 
 /*=============================== PORTFOLIO ==================================*/
+.portfolio-title{
+  padding-top: 10rem;
+  text-align: center;
+  background-color: #34A5AC;
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+
+.portfolio-title h2{
+  font-family: 'Uncial Antiqua', cursive;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 1REM;
+}
+
+.my-profile-snippet{
+  display: flex;
+  /* justify-content: space-between; */
+  height: 60rem;
+  /* position: relative; */
+ 
+
+}
+
+
+.my-profile-image img{
+  height: 100%;
+  width: 50rem;
+  object-fit: cover;
+}
+
+.my-profile-introduction{
+  /* flex-basis: 50%; */
+  height: 60rem;
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.my-profile-introduction p{
+  font-size: 2rem;
+  text-align: center;
+  /* overflow: hidden; */
+ 
+  background-color: #0a84ff;
+}
+
+
 
 .portfolio-container{
   display: flex;
@@ -1767,7 +1808,7 @@ input[type="password"]{
   /* display: grid;
   grid-template-columns: repeat(3, 2fr);
   grid-gap: 10px; */
-  padding-top: 10rem;
+  padding-top: 5rem;
   align-items: center;
   margin-left: 10rem;
   margin-right: 10rem;
