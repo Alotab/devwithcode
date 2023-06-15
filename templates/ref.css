@@ -777,3 +777,28 @@
     align-items: center;
 }
 
+
+
+
+
+// For mobile devices
+@media only screen and (max-width: 768px) {
+  /* Styles for mobile devices */
+}
+
+// For tablets
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+}
+
+
+
+// For desktops
+@media only screen and (min-width: 1025px) {
+  /* Styles for desktops */
+}
+
+// For TVs
+@media only screen and (min-width: 1280px) {
+  /* Styles for TVs */
+}
