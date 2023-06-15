@@ -50,7 +50,7 @@ header{
 }
 .nav__toggle i{
   font-size: 2.5rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   border-radius: 0.3rem;
   padding: 0.5rem;
   cursor: pointer;
@@ -66,18 +66,14 @@ header{
   display: flex;
   gap: 1.5em;
   width: 50rem;
-  margin-left: 1.5em;  
+  margin-left: 0.7rem;  
 }
 
 .main-logo a img{
   font-size: 15px;
   height: 4rem;
   border-radius: .5rem;
-  background-color: red;
 }
-
-
-
 
 .search{
   display: flex;
@@ -120,8 +116,15 @@ input[type="search"]::-webkit-search-cancel-button {
 .search-icon{
   font-size: 2.5rem;
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
+  left: 4.1em;
+  border-radius: 0.3rem;
+  bottom: 0.5rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.search-icon:hover{
+  background-color: var(--buttonIconHover);
 }
 
 
@@ -173,6 +176,20 @@ li{
 .subheader nav .create-account-link:hover{
 
     transition: .5s;
+}
+
+.nav__close{
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 2rem;
+  color: red;
+  cursor: pointer;
+}
+
+/* Show menu */
+.show-menu{
+  left: 0;
 }
 
 .main-content{
@@ -2220,8 +2237,7 @@ input[type="password"]{
 
   .search input {
       display: none! important;
-      border-radius: 0.578rem;
-      width: auto;
+    
   }
 
   /* .search img{
@@ -2473,12 +2489,37 @@ input[type="password"]{
   .nav__toggle i{
     display: block !important;
   }
+
+  /* .nav__close{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 2rem;
+    color: red;
+    cursor: pointer;
+  }
+  
+
+  .show-menu{
+    left: 0;
+  } */
   
   .logo{
     display: flex;
     /* gap: 1.5em; */
-    margin-left: 0.5em;
-    width: 50rem;
+    /* margin-left: 0.5em; */
+    /* margin: 0; */
+    /* width: 25rem; */
+
+    border-radius: .5rem;
+    
+  }
+
+  .main-logo a img{
+    font-size: 2rem;
+    /* height: 10rem; */
+    width: 12rem;
+    border-radius: 0.5rem;
   }
 
   .search input {
@@ -2489,7 +2530,7 @@ input[type="password"]{
       display: none! important;
   }
 
-  .subheader-search img{
+  /* .subheader-search img{
     color: brown;
     right: 14em;
     top: 1.2em;
@@ -2504,7 +2545,7 @@ input[type="password"]{
   .subheader-search img:hover{
     background-color: #5293d7;
     transition: .5s;
-  }
+  } */
 
   .home-link{
     display: none! important;
@@ -2519,10 +2560,9 @@ input[type="password"]{
 
   .create-account-link{
     padding: 6px;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     border: 1px solid red !important;
-    border-radius: 5px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
 
   .community-post-headline h4{
