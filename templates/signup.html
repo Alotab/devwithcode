@@ -15,32 +15,40 @@
     <div class="wrapper">
         <!-- navigation section -->
         <header>
-            <!-- blog log and search icon section -->
-            <div class="logo">
-                <div class="main-logo">
-                    <a href="#"><img src="images/fauxica.svg" alt="logo" ></a>
+            <!-- <div class="main-nav"> -->
+                <div class="logo">
+                    <div class="main-logo">
+                        <a href="#"><img src="images/logo2.svg" alt="logo" ></a>
+                    </div>
+                    <div class="search">
+                        <input type="search" id="gsearch" name="gsearch">
+                        <i class="ri-search-line search-icon"></i>
+                    </div>
                 </div>
-                <div class="search">
-                    <input type="search" id="gsearch" name="gsearch">
-                    <img src="images/shareBabe.svg" alt="search" class="share-search input-link">
+                
+                <div class="nav-links-menu">
+                    <div class="subheader" id="nav-menu">
+                        <nav>
+                            <ul>
+                                <li><a href="index.html" class="home-link">Home</a></li>
+                                <li><a href="porfolio.html" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="login.html" class="sign-in-link">Sign-In</a></li>
+                                <li><a href="signup.html" class="create-account-link">Create account</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!---- toggle/close icon ---->
+                    <div class="toggle-menu">
+                        <div class="nav__toggle" id="nav-toggle">
+                            <i class="ri-menu-line"></i>
+                        </div>
+                        <div class="nav__close" id="nav-close">
+                            <i class="ri-close-line"></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="subheader">
-                <!-- search-icon to display in media query -->
-                 <div class="subheader-search">
-                    <img src="images/shareBabe.svg" alt="search" class="share-search input-link">
-                </div>
-                <!-- navigation list -->
-                <nav>
-                    <ul>
-                        <li><a href="#" class="home-link">Home</a></li>
-                        <li><a href="#" class="portfolio-link">Portfolio</a></li>
-                        <li><a href="#" class="sign-in-link">Sign-In</a></li>
-                        <li><a href="#" class="create-account-link">Create account</a></li>
-                        
-                    </ul>
-                </nav>
-            </div>
+            <!-- </div> -->
         </header>
 
 
@@ -85,7 +93,7 @@
                 <div class="signup-right-info">
                     <div class="login-link">
                         <p>Have an Account?</p>
-                        <a href="#" class="login-button button--flex">
+                        <a href="#" class="login-button-link button--flex">
                             Log in <i class="ri-arrow-right-line"></i>
                         </a>
                     </div>
@@ -119,7 +127,7 @@
                              
                             </div>
                             <div class="register">
-                                <button type="submit" class="button">Register</button>
+                                <button type="submit" class="register-button">Register</button>
                             </div>
                         </form>
 
