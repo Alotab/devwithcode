@@ -12,7 +12,7 @@
 
                 <div class="signup-link">
                     <p>Don't have an Account?</p>
-                    <a href="#" class="signup-button button--flex">
+                    <a href="{% url 'register' %}" class="signup-button button--flex">
                         Sign up <i class="ri-arrow-right-fill"></i>
                     </a>
                 </div>
@@ -23,22 +23,23 @@
                 <div class="login-account-page">
                     <p>Log in to your account</p>
                 
-                    
-                    <form action="#" class="login-form-new">  <!--- login-account-page -->
-                        <div class="login-input-container">  <!---input-field -->
-                            <input type="text" placeholder="Email" required>
+                   
+                    <form method="post" action="#" class="login-form-new">  
+                        {% csrf_token %}
+                        <div class="login-input-container"> 
+                            <input type="email" name="email"  placeholder="Email" required>
                             <i class="ri-mail-fill icon"></i>
                         </div>
                         
 
                         <div class="login-input-container">
-                            <input type="password" class="password" placeholder="Password" required>
+                            <input type="password" name="password" class="password" placeholder="Password" required>
                             <i class="ri-lock-line icon"></i>
                         
                         </div>
                         
                       
-                        <div class="user-login-button">  <!--- register -->
+                        <div class="user-login-button"> 
                             <button type="submit" class="user-signup-button">Login</button>
                         </div>
                     </form>
