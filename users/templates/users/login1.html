@@ -1,0 +1,48 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{%  block content %}
+
+<form method="post" class="regsss">
+    {% csrf_token %}
+    <div style="margin-top: 20px";>
+        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+    </div>
+    
+    <div style="margin-top: 20px";>
+        <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+    </div>
+    
+    <div style="margin-top: 20px;"> 
+        <input type="password" class="form-control"  name="password" placeholder="Confirm your password" required>
+    </div>
+    
+
+
+    {% for field in login_form %}
+    <p>
+        {% for error in field.errors %}
+        <p style="color: red">{{ error}}</p>
+        {% endfor %}
+        
+        {% if login_form.non_field_errors %}
+        <div style="color: red">
+            <p>{{ login_form.non_field_errors }}</p>
+        </div>
+        {% endif %}
+        
+    </p>
+    {% endfor %}
+    <div style="margin-top: 20px">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+    
+
+    <div>
+        <a class="m-auto" href="{% url 'password_reset' %}">Rest password</a>
+    </div>
+
+</form>
+
+
+
+{% endblock %}

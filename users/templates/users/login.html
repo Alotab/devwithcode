@@ -2,47 +2,49 @@
 {% load static %}
 {%  block content %}
 
-<form method="post" class="regsss">
-    {% csrf_token %}
-    <div style="margin-top: 20px";>
-        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
-    </div>
-    
-    <div style="margin-top: 20px";>
-        <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
-    </div>
-    
-    <div style="margin-top: 20px;"> 
-        <input type="password" class="form-control"  name="password" placeholder="Confirm your password" required>
-    </div>
-    
 
 
-    {% for field in login_form %}
-    <p>
-        {% for error in field.errors %}
-        <p style="color: red">{{ error}}</p>
-        {% endfor %}
-        
-        {% if login_form.non_field_errors %}
-        <div style="color: red">
-            <p>{{ login_form.non_field_errors }}</p>
+    <!------------------ login section ------------------>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="login-headline-info">
+                <h3></h3>
+
+                <div class="signup-link">
+                    <p>Don't have an Account?</p>
+                    <a href="#" class="signup-button button--flex">
+                        Sign up <i class="ri-arrow-right-fill"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="login-info">
+                <div class="login-account-page">
+                    <p>Log in to your account</p>
+                
+                    
+                    <form action="#" class="login-form-new">  <!--- login-account-page -->
+                        <div class="login-input-container">  <!---input-field -->
+                            <input type="text" placeholder="Email" required>
+                            <i class="ri-mail-fill icon"></i>
+                        </div>
+                        
+
+                        <div class="login-input-container">
+                            <input type="password" class="password" placeholder="Password" required>
+                            <i class="ri-lock-line icon"></i>
+                        
+                        </div>
+                        
+                      
+                        <div class="user-login-button">  <!--- register -->
+                            <button type="submit" class="user-signup-button">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        {% endif %}
-        
-    </p>
-    {% endfor %}
-    <div style="margin-top: 20px">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+
     </div>
-    
-
-    <div>
-        <a class="m-auto" href="{% url 'password_reset' %}">Rest password</a>
-    </div>
-
-</form>
-
-
-
 {% endblock %}
