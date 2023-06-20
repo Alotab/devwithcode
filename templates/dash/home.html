@@ -1,0 +1,10 @@
+{% comment %} {% extends 'account/base.html' %} {% endcomment %}
+
+{% block content %}
+    <div class="text-center">
+        <h2 style='margin-top: 20rem'>Home</h2>
+        <p>Hello {{ user.first_name }}!</p>
+        <p>Your Username : {{ user }}</p>
+        <a class="btn btn-dark" href="{% url 'socialaccount_connections' %}">Settings</a>
+    </div>
+{% endblock %}

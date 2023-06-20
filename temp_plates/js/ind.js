@@ -19,7 +19,3 @@ const signupForm = document.querySelector(".form")
 //     document.getElementById("main-page").style.filter = "";
 //     document.getElementById("main-page").style.position = "";
 // });
-
-
-
-

@@ -38,6 +38,19 @@ from django.views.generic.edit import FormView
 
 
 
+
+# from allauth.socialaccount.adapter import SocialAccountAdapter
+
+# class MySocialAccountAdapter(SocialAccountAdapter):
+
+#     def get_login_url(self, request, socialaccount):
+#         return reverse('social:begin', args=[socialaccount.provider])
+
+
+def portfolio(request):
+    return render(request, 'users/portfolio.html')
+
+
 def register(request, *args, **kwargs):
     user = request.user
 

@@ -34,9 +34,16 @@ ALLOWED_HOSTS = []
 
 # For django to use this new custome user class
 AUTH_USER_MODEL = 'users.CustomUser'
+
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
     'users.backends.CaseInsentiveModelBackend',
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 }
 
 
@@ -49,9 +56,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'blog',
     'users',
     "taggit",
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +83,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,6 +91,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # `allauth` needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -130,9 +147,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static")),
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
     # BASE_DIR / "static",
     # "static/css/styles.css",
 
@@ -148,3 +165,36 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TAGGIT_CASE_INSENSITIVE = True
 
 
+SITE_ID=2
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+
+LOGIN_REDIRECT_URL = 'home-home'
+LOGOUT_REDIRECT_URL = 'login'
+
+
+
+
+# 218998905670-4v62caqb2ld3i726u06t6cf8lv4ppgcc.apps.googleusercontent.com
+
+
+# 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
