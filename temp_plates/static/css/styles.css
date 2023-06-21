@@ -1198,13 +1198,18 @@ footer ul li a{
   align-items: center;
 }
 
+.signup-ext{
+  display: flex;
+  justify-content: center;
+}
+
 .create-account-page h3{
   font-size: 1.5rem;
   font-weight: 200;
   margin-top: 5rem;
   color: black;
   align-items: center;
-  background-color: rebeccapurple;
+  
 }
 
 /* .line{
@@ -1257,42 +1262,6 @@ footer ul li a{
   font-weight: 500;
 } */
 
-
-/* .login-account-page p{
-  font-family: sans-serif;
-  font-size: 1.5rem;
-  font-weight: 310;
-  margin-top: 4rem;
-}
-
-*/
-
-/* .signup-external-link{
-  display: inline-flex;
-  justify-content: center;
-  height: 4rem;
-  width: 100%;
-  background-color: blue;
-  border-radius: 0.5rem;
-  align-items: center;
-  cursor: pointer;
-} */
-
-/* .signup-link-container button{
-
-  border-style: none;
-  background-color: transparent;
-} */
-
-
-/* .signup-button-external-link{
-  color: #fff;
-  font-size: 16px;
-  align-items: center;
-  cursor: pointer;
-  text-decoration: none;
-  align-items: center;
-} */
 
 
 .signup-link-container{
@@ -1937,7 +1906,7 @@ footer ul li a{
 }
 
 
-
+/*======================= Desktop ==================================*/
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* Styles for desktops */
   body{
@@ -2036,13 +2005,15 @@ footer ul li a{
   }
 
   .input-field{
-    display: inline-flex;
+    /* display: inline-flex; */
     text-align: center;
   }
 
+
   .register-button{     
-    width: 70%;
+    width: 100%;
   }
+
 
   /*------------------ login -----------------*/
   .login-input-container{
@@ -2074,7 +2045,7 @@ footer ul li a{
 }
 
 
-/* Small screens, laptops */
+/* ================ Small screens, laptops ========================*/
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
     background-color: rgb(30, 34, 24);
@@ -2347,13 +2318,14 @@ footer ul li a{
   }
 
   .input-field{
-    display: inline-flex;
+    /* display: inline-flex; */
     text-align: center;
   }
 
   .register-button{     
-    width: 70%;
+    width: 100%;
   }
+
 }
 
 
@@ -2641,12 +2613,12 @@ footer ul li a{
   }
 
   .input-field{
-    display: inline-flex;
+    /* display: inline-flex; */
     text-align: center;
   }
 
   .register-button{     
-    width: 70%;
+    width: 100%;
   }
 
 }
@@ -3075,7 +3047,7 @@ footer ul li a{
 
 
   .create-account-page form {
-    /* align-items: center; */
+    align-items: center;
     text-align: center;
   }
 
@@ -3097,13 +3069,13 @@ footer ul li a{
   }
 
   .input-field{
-    display: inline-flex;
+    /* display: inline-flex; */
     text-align: center;
   }
 
 
   .register-button{     
-    width: 70%;
+    width: 100%;
   }
 
 } 
