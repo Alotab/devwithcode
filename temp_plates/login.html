@@ -1,3 +1,4 @@
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,16 +67,25 @@
                         </div>
                 </div>
 
-
-
-            
-
-
                 <div class="login-info">
                     <div class="login-account-page">
-                        <p>Log in to your account</p>
+
+
+                        <div class="external-link-container googles-link">  <!--- register -->
+                            <a class="google-link" href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">
+                                <i class="ri-google-fill party-link"></i>
+                                <button class="external-link">Sign in with Google</button>
+                            </a>
+                        </div>
+
+                        <div class="external-link-container github-link">  <!--- register -->
+                            <a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">
+                                <i class="ri-github-fill party-link"></i>
+                                <button class="external-link">Sign in with Github</button>
+                            </a>
+                        </div>
                     
-                        
+                        <p>Login with password and email address</p>
                         <form action="#" class="login-form-new">  <!--- login-account-page -->
                             <div class="login-input-container">  <!---input-field -->
                                 <input type="text" placeholder="Email" required>
@@ -86,7 +96,6 @@
                             <div class="login-input-container">
                                 <input type="password" class="password" placeholder="Password" required>
                                 <i class="ri-lock-line icon"></i>
-                            
                             </div>
                             
                             </div>

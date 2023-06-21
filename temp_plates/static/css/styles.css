@@ -9,6 +9,14 @@
     --buttonIconHover: rgba(124, 131, 133, .9);
 }
 
+button{
+  text-decoration: none !important;
+}
+
+a{
+  text-decoration: none;
+}
+
 
 
 html {
@@ -317,8 +325,6 @@ li{
   align-items: center;
   font-size: 25px;
   font-weight: bold;
-
-
 }
 
 .community-post-headline img{
@@ -1438,8 +1444,81 @@ footer ul li a{
   font-family: sans-serif;
   font-size: 1.5rem;
   font-weight: 310;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
 }
+
+.external-link-container{
+ 
+  /* display: inline-flex; */
+  /* position: relative;  */
+  /* flex-direction: column; */
+  /* height: fit-content; */
+  margin-bottom: 0.5rem;
+  align-items: center;
+
+  /* width: 90%; */
+  /* transition: .5s ease-out; */
+
+
+  display: inline-flex;
+
+  width: 50%;
+  justify-content: center;
+  height: 4rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+
+.googles-link {
+  background-color: red;
+}
+
+.googles-link:hover {
+  background-color: rgb(245, 101, 101);
+}
+
+.github-link{
+  background-color: #090909;
+}
+
+.github-link:hover{
+  background-color: #555454;
+}
+
+.external-link-container button {
+  height: 100%;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+  text-decoration: none;
+}
+
+
+
+
+.external-link{
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.external-link-container a{
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.external-link-container i{
+  color: #fff;
+  position: absolute;
+  font-size: 1.9rem;
+  left: 0.5rem ;
+  right: calc(16rem - 0.5rem);
+}
+
 
 
 .login-form-new{

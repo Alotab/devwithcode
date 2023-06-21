@@ -187,14 +187,13 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
+# removes the warning about potential signing in using a 3rd party account
+SOCIALACCOUNT_LOGIN_ON_GET=True
+
 
 LOGIN_REDIRECT_URL = 'home-home'
 LOGOUT_REDIRECT_URL = 'login'
 
 
-
-
 # 218998905670-4v62caqb2ld3i726u06t6cf8lv4ppgcc.apps.googleusercontent.com
-
-
 # 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
