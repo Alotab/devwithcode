@@ -56,12 +56,13 @@
         <div class="signup-wrapper">
             <div class="signup-container">
                 <div class="signup-left-info">
-                    <video  src="vids/vid1.mp4" class="video-slide" autoplay muted loop></video>
+                    <video  src="vids/vid2.mp4" class="video-slide" autoplay muted loop></video>
                 </div>
 
 
 
                 <div class="signup-right-info">
+
                     <div class="login-link">
                         <p>Have an Account?</p>
                         <a href="#" class="login-button-link button--flex">
@@ -70,15 +71,35 @@
                     </div>
 
                     <div class="create-account-page">
-                        <h2>Create your account</h2>
-                        <hr class="line">
 
+                        <div class="signup-external-link">
+                            
+                            <div class="signup-link-container signup-google">  <!--- register googles-link -->
+                                <a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">
+                                    <i class="ri-google-fill"></i>
+                                    <button class="signup-button-external-link">Sign up with Google</button>
+                                </a>
+                            </div>
+
+                            <div class="signup-link-container signup-github">  <!--- register googles-link -->
+                                <a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">
+                                    <i class="ri-github-fill"></i>
+                                    <button class="signup-button-external-link">Sign up with Github</button>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <h3>Sign up with email</h3>
+                         <!--- 
+                        <hr class="line">
+                       
                         <div class="agree-terms">
                             <p class="terms-accept">
                                 <input type="checkbox" name="checkbox_name" id="checkbox_id">
                                 <label for="checkbox_id">I agree to DevWithCode's <a href="#"><span class="privacy">Agreement</span></a> and acknowledge DevWithCode's <a href="#"><span class="privacy">Privacy Policy</span></a></label>
                             </p>
                         </div>
+                        -->
 
                         <form action="#" class="input-container">
                             <div class="input-field">
