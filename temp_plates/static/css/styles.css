@@ -55,7 +55,7 @@ header {
 
 .logo{
   display: flex;
-  gap: 1.5em;
+  gap: 0.5em;
   margin-left: 1rem;
   padding: 0;
  
@@ -234,7 +234,7 @@ li{
   gap: 15px;
   justify-content: space-between;
   position: relative;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 
@@ -290,25 +290,60 @@ li{
 }
 
 .middle-colume{
-  margin: 90px 0px;
-  
+  /* margin: 90px 0px; */
+  margin-top: 7rem;
+
   border-radius: 5px;
   width: 55%;
 }
 
+
 .middle-colume-search{
-  display: none;
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  visibility: hidden;
+  margin-bottom: 0.5rem;
 }
+
+.middle-colume-search input{
+  width: 95%;
+  height: 3.5rem;
+  font-size: 16px;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(188, 188, 193);
+  padding-left: 6px;
+  outline: gray;
+}
+
+.middle-colume-search input:focus{
+  border: 2px solid rgb(71, 71, 240);
+}
+
+.middle-colume-search i{
+    position: absolute;
+    font-size: 1.8rem;
+    right: 1.9rem;
+    bottom: 0.2rem;
+    padding: 5px;
+    border-radius: 0.578rem;
+    cursor: pointer;
+}
+
+.middle-colume-search i:hover{
+  background-color: rgba(231, 243, 247);
+  transition: .5s;
+}
+
 
 .community-post{
     
   padding-top: 10px;
   margin-bottom: 8px;
-  /* background-color: #FCFCF6; */
-  background-color: var(--middleColume-backgroundColor);
-  border-radius: 10px;
-  /* padding-bottom: 10px; */
-  /* padding-right: 15px; */
+  background-color: #FCFCF6;
+  /* background-color: var(--middleColume-backgroundColor); */
+  border-radius: 0.5rem;
   overflow: auto;
 }
 .community-post .community-name{
@@ -381,12 +416,11 @@ li{
   background-color: var(--middleColume-backgroundColor);
   padding-top: 15px;
   padding-left: 25px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
 }
 
 .post{
-  margin-bottom: 8px;
-   
+  margin-bottom: 8px; 
 }
 
 
@@ -1906,7 +1940,7 @@ footer ul li a{
 }
 
 
-/*======================= Desktop ==================================*/
+/*==================== Desktop ==================================*/
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* Styles for desktops */
   body{
@@ -2158,7 +2192,7 @@ footer ul li a{
       /* background-color: #FCFCF6; */
       margin-right: 10px;
       background-color: var(--middleColume-backgroundColor);
-      border-radius: 10px;
+      border-radius: 0.5rem;
       overflow: auto;
   }
 
@@ -2332,9 +2366,9 @@ footer ul li a{
 /*========================== Mini Ipads / some large mobile devices =========================*/
 @media (min-width: 481px) and  (max-width: 768px) {
   
-  body {
+  /* body {
     background-color: green;
-  }
+  } */
 
 
   .toggle-menu .nav__toggle {
@@ -2348,10 +2382,6 @@ footer ul li a{
       display: none! important;
     
   }
-
-  /* .search img{
-      display: none! important;
-  } */
 
 
   .home-link{
@@ -2392,50 +2422,22 @@ footer ul li a{
 
   /* middle content  on small device */
   .middle-colume{
-      margin-top: 5rem;
-      width: 100%;
+    margin-top: 5rem;
+    width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .middle-search{
+    margin-top: 1rem;
+    /* visibility: inherit !important; */
+    visibility: inherit!important;
   }
 
   /* JS- when search icon is click in mobile mode */
-  .community-post{
+  /* .community-post{
       display: none! important;
-  }
-
-  /* JS- when search icon is click in mobile mode */
-  .middle-colume-search{
-      width: 100%;
-      height: 50px;
-      margin-bottom: 10px;
-      text-align: center;
-      align-items: center;
-      position: relative;
-      display: block !important;
-  }
-
-  .middle-colume-search input{
-      width: 95%;
-      height: 4rem;
-      font-size: 16px;
-      border-radius: 0.5rem;
-      padding-left: 5px;
-      outline: none;
-      border: 1px solid gray
-
-  }
-
-  .middle-colume-search i{
-    position: absolute;
-    left: 45rem;
-    bottom: 1.11rem;
-    border-radius: 0.4rem;
-    padding: 0.65rem;
-    cursor: pointer;
-  }
-
-  .middle-colume-search i:hover{
-    background-color: var(--buttonIconHover);
-    transition: .5s;
-  }
+  } */
 
 
   .post-share{
@@ -2626,10 +2628,10 @@ footer ul li a{
 
 /*================ mobile devices ==============*/
 @media (min-width: 320px) and (max-width: 480px) {
-  body{
+  /* body{
    
     background-color: violet;
-  }
+  } */
 
   /* header{
  
@@ -2643,6 +2645,7 @@ footer ul li a{
     display: block !important;
   }
 
+
   /* .nav__close{
     position: absolute;
     top: 1rem;
@@ -2651,81 +2654,18 @@ footer ul li a{
     color: red;
     cursor: pointer;
   } */
+
+  
   
 
   .show-menu{
     right: 0;
   } 
   
-  .logo{
-    display: flex;
-    justify-content: space-between;
-    width: 80px;
-    border-radius: .5rem;
-  }
-
-  .main-logo a{
-    /* font-size: 2rem; */
-    /* height: 10rem; */
-    width: 12rem;
-    border-radius: 0.5rem;
-    margin: 0rem;
-    padding: 0rem;
-  }
-
-
-
-
-  /* .logo{
-    display: flex;
-    gap: 1.5em;
-    width: 50rem;
-    margin: 0rem;
-    padding: 0;
-    background-color: red;
-    margin-left: 0.7rem;  
-  } */
-  
-  /* .main-logo a img{
-    font-size: 15px;
-    height: 4rem;
-    border-radius: .5rem;
-  }
-  
-  .search{
-    display: flex;
-    position: relative;
-  
-  } */
-
-  .search{
-    display: none !important;
-  }
 
   .search input {
       display: none! important;
   }
-
-  .search img{
-      display: none! important;
-  }
-
-  /* .subheader-search img{
-    color: brown;
-    right: 14em;
-    top: 1.2em;
-    margin-right: 1em;
-    padding: 0.8em;
-    border-radius: 0.578em;
-    background-color: #85b4e7;
-    cursor: pointer;
-    display: block! important;
-  }
-
-  .subheader-search img:hover{
-    background-color: #5293d7;
-    transition: .5s;
-  } */
 
   .home-link{
     display: none! important;
@@ -2765,47 +2705,16 @@ footer ul li a{
 
   /* middle content  on small device */
   .middle-colume{
-    margin-top: 5rem;
+    margin-top: 6rem;
     width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
-  /*-------- JS- when search icon is click ----------*/
-  .community-post{
-    display: none! important;
-  }
 
-  /* JS- when search icon is click in mobile mode */
-  .middle-colume-search{
-    width: 100%;
-    height: 50px;
-    margin-bottom: 10px;
-    text-align: center;
-    align-items: center;
-    position: relative;
-    display: block !important;
-  }
-
-  .middle-colume-search input{
-    width: 95%;
-    height: 4rem;
-    font-size: 16px;
-    border-radius: 0.578rem;
-    padding-left: 5px;
-
-  }
-
-  .middle-colume-search img{
-      position: absolute;
-      right: 12px;
-      bottom: 11px;
-      padding: 9px;
-      border-radius: 0.578rem;
-      cursor: pointer;
-  }
-
-  .middle-colume-search img:hover{
-    background-color: lightblue;
-    transition: .5s;
+  .middle-search{
+    visibility: inherit!important;
+  
   }
 
   .middle-colume .post{
@@ -2816,6 +2725,8 @@ footer ul li a{
 
 
   /*---------------------- post content ------------------------*/
+
+
   .author-profile{
     padding: 0px 5px;
   }
@@ -3072,7 +2983,6 @@ footer ul li a{
     /* display: inline-flex; */
     text-align: center;
   }
-
 
   .register-button{     
     width: 100%;

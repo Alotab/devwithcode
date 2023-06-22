@@ -3,6 +3,11 @@ const navMenu = document.getElementById('nav-menu')
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 
+// const elSearcIcon = document.getElementById('icon')
+// document.querySelector('#element').style.display = 'none';  bard
+const elSearcIcon = document.querySelector('.search-icon')
+const elSearchMenu = document.querySelector('.middle-colume-search')
+
 
 if (navToggle){
     navToggle.addEventListener('click', () =>{
@@ -11,12 +16,29 @@ if (navToggle){
    
 }
 
-
 if(navClose){
     navClose.addEventListener('click', () =>{
         navMenu.classList.remove('show-menu')
     })
 }
+/*============ middle search bar =================*/
+
+if(elSearcIcon){
+    elSearcIcon.addEventListener('click', ()=>{
+        elSearchMenu.classList.add('middle-search')
+    })
+}
+
+// if(elSearcIcon){
+//     elSearcIcon.addEventListener('click', ()=>{
+//         elSearchMenu.classList.remove('middle-search')
+//     })
+// }
+
+
+
+
+
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
