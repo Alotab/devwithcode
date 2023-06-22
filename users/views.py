@@ -35,16 +35,32 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
+from allauth.account.views import SignupView
 
 
 
 
-# from allauth.socialaccount.adapter import SocialAccountAdapter
 
-# class MySocialAccountAdapter(SocialAccountAdapter):
+class AccountSignupView(SignupView):
+    # Signup View extended
 
-#     def get_login_url(self, request, socialaccount):
-#         return reverse('social:begin', args=[socialaccount.provider])
+    # change template's name and path
+    template_name = "users/register.html"
+
+    # You can also override some other methods of SignupView
+    # Like below:
+    # def form_valid(self, form):
+    #     ...
+    #
+    # def get_context_data(self, **kwargs):
+    #     ...
+
+account_signup_view = AccountSignupView.as_view()
+
+
+
+
+
 
 
 def portfolio(request):
@@ -62,18 +78,18 @@ def register(request, *args, **kwargs):
         form = CustomUserCreationsForm(request.POST)
         if form.is_valid():
             form.save()
-            # email = form.cleaned_data.get('email').lower()
-            # raw_password = form.cleaned_data.get('password1')
-            # log_user = authenticate(email=email, password=raw_password)
-            # login(request, log_user)
-            # destination = get_redirect_if_exists(request) #kwargs.get('next')
-            # if destination:
-            #     redirect(destination)
+            email = form.cleaned_data.get('email').lower()
+            raw_password = form.cleaned_data.get('password1')
+            log_user = authenticate(email=email, password=raw_password)
+            login(request, log_user)
+            destination = get_redirect_if_exists(request) #kwargs.get('next')
+            if destination:
+                redirect(destination)
             return redirect('blog:home')
         else:
             context['custom_user_creations_form'] = form
-
-    return render(request, "users/register.html", context)
+    return render(request, "users/register.html")
+    #return render(request, "users/register.html", context)
 
 
 # def logout_view(request):
@@ -116,7 +132,7 @@ def login_view(request):
                 return redirect('blog:home')
         else:
             context['login_form'] = form
-    return render(request, "users/login.html", context)
+    return render(request, "account/login.html", context)
 
 
 def get_redirect_if_exists(request):

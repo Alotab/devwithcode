@@ -1,61 +1,49 @@
-{% comment %} {% extends "account/base.html" %}
+{% extends "blog/base.html" %}
 
 {% load i18n %}
 {% load account socialaccount %}
+
 {% load static %}
 {%  block content %}
 
 
-
+   <!------------------ login section ------------------>
     <div class="login-wrapper">
         <div class="login-container">
             <div class="login-headline-info">
-                <h3></h3>
+                    <h3></h3>
 
-                <div class="signup-link">
-                    <p>Don't have an Account?</p>
-                    <a href="{% url 'register' %}" class="signup-button button--flex">
-                        Sign up <i class="ri-arrow-right-fill"></i>
-                    </a>
-                </div>
+                    <div class="signup-link">
+                        <p>Don't have an Account?</p>
+                        <a href="#" class="signup-button button--flex">
+                            Sign up <i class="ri-arrow-right-fill"></i>
+                        </a>
+                    </div>
             </div>
-
 
             <div class="login-info">
                 <div class="login-account-page">
 
 
-                    {% get_providers as socialaccount_providers %}
-
-                    {% if socialaccount_providers %}
-                    <p>{% blocktrans with site.name as site_name %}Please sign in with one
-                    of your existing third party accounts.<br>Or, <a href="{{ signup_url }}">sign up</a>
-                    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-                
-                    <div class="socialaccount_ballot">
-                
-                      <div class="socialaccount_providers">
-                        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                      </div>
-                
-                      <div class="login-or border-top border-bottom my-3">{% trans 'OR' %}</div>
-                
+                    <div class="external-link-container googles-link">  <!--- register -->
+                        <a href="{% provider_login_url  'google' %}">
+                            <i class="ri-google-fill party-link"></i>
+                            <button class="external-link">Sign in with Google</button>
+                        </a>
                     </div>
 
-
-                    <a href="{% provider_login_url 'google' process='connect' %}">Google</a>
-
-
-                    {% else %}
-                    <p>Log in to your account</p>
-                    {% get_providers as socialaccount_providers %}
-                    <a href="{% provider_login_url 'google' process='connect' %}">Connect a Twitter account</a>
-                   
-                   
-                    <form method="post" action="#" class="login-form-new">  
+                    <div class="external-link-container github-link">  <!--- register -->
+                        <a href="">
+                            <i class="ri-github-fill party-link"></i>
+                            <button class="external-link">Sign in with Github</button>
+                        </a>
+                    </div>
+                
+                    <p>Login with password and email address</p>
+                    <form method="post" class="login-form-new">  <!--- login-account-page -->
                         {% csrf_token %}
-                        <div class="login-input-container"> 
-                            <input type="email" name="email"  placeholder="Email" required>
+                        <div class="login-input-container">  <!---input-field -->
+                            <input type="email" name="email" placeholder="Email" required>
                             <i class="ri-mail-fill icon"></i>
                         </div>
                         
@@ -64,64 +52,15 @@
                             <input type="password" name="password" class="password" placeholder="Password" required>
                             <i class="ri-lock-line icon"></i>
                         </div>
-                        <div class="user-login-button"> 
+                        
+                        </div>
+                        <div class="user-login-button">  <!--- register -->
                             <button type="submit" class="user-signup-button">Login</button>
                         </div>
-
-                        <a href="#" class="reset-password-link">Forget password ?</a>
                     </form>
-                    {% endif %}
                 </div>
             </div>
         </div>
-
     </div>
-{% endblock %} {% endcomment %}
-
-{% comment %} {% extends "account/base.html" %} {% endcomment %}
-
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
-{% block content %}
-
-<h1>{% trans "Sign In" %}</h1>
-
-{% get_providers as socialaccount_providers %}
-
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
 
 {% endblock %}
-

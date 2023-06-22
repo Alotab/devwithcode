@@ -23,13 +23,19 @@ from django.views.generic import TemplateView
 from users import views as user_views
 
 
+
 urlpatterns = [
+  
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='dash/home.html'), name='home-home'),
+
+    path('signup/', user_views.account_signup_view, name='signup' ),
+
+
+    path('home/', TemplateView.as_view(template_name='dash/homes.html'), name='homes'),
     path('accounts/', include('allauth.urls')),
     
     path('register/', user_views.register, name='register'),
-    path('login/', user_views.login_view, name='login'),
+    # path('login/', user_views.login_view, name='login'),
     path('logout/', user_views.logout_view, name= 'logout'),
     path('portfolio/', user_views.portfolio, name= 'portfolio'),
 

@@ -1,62 +1,93 @@
 {% extends "blog/base.html" %}
-{% load static %}
-{%  block content %}
 
-    <!---------- Register --------------->
+{% load i18n %}
+{% load account socialaccount %}
+
+{% load static %}
+
+
+{% block content %}
+
+
     <div class="signup-wrapper">
     <div class="signup-container">
-    <div class="signup-left-info">
-        <video  src="{% static 'images/vid1.mp4' %}" class="video-slide" autoplay muted loop></video>
-    </div>
-
-
-
-    <div class="signup-right-info">
-        <div class="login-link">
-            <p>Have an Account?</p>
-            <a href="{% url 'login' %}" class="login-button-link button--flex">
-                Log in <i class="ri-arrow-right-line"></i>
-            </a>
+        <div class="signup-left-info">
+            <video  src="{% static 'images/vid1.mp4' %}" class="video-slide" autoplay muted loop></video>
         </div>
 
-        <div class="create-account-page">
-            <h2>Create your account</h2>
-            <hr class="line">
 
-            <div class="agree-terms">
-                <p class="terms-accept">
-                    <input type="checkbox" name="checkbox_name" id="checkbox_id">
-                    <label for="checkbox_id">I agree to DevWithCode's <a href="#"><span class="privacy">Agreement</span></a> and acknowledge DevWithCode's <a href="#"><span class="privacy">Privacy Policy</span></a></label>
-                </p>
+
+        <div class="signup-right-info">
+
+            <div class="login-link">
+                <p>Have an Account?</p>
+                <a href="#" class="login-button-link button--flex">
+                    Log in <i class="ri-arrow-right-line"></i>
+                </a>
             </div>
 
-            <form action="#" class="input-container">
-                <div class="input-field">
-                    <input type="text" placeholder="Email" required>
-                    <i class="ri-mail-fill icon"></i>
+            <div class="create-account-page">
+
+                <div class="signup-external-link">
+                    
+                    <div class="signup-link-container signup-google">  <!--- register googles-link -->
+                        <a href="{% provider_login_url 'google' %}">
+                            <i class="ri-google-fill"></i>
+                            <button class="signup-button-external-link">Sign up with Google</button>
+                        </a>
+                    </div>
+
+                    <div class="signup-link-container signup-github">  <!--- register googles-link -->
+                        <a href="{% provider_login_url  'google' %}">
+                            <i class="ri-github-fill"></i>
+                            <button class="signup-button-external-link">Sign up with Github</button>
+                        </a>
+                    </div>
                 </div>
                 
+                <div class="signup-ext">
+                    <h3>Sign up with email</h3>
+                </div>
+                
+                    <!--- 
+                <hr class="line">
+                
+                <div class="agree-terms">
+                    <p class="terms-accept">
+                        <input type="checkbox" name="checkbox_name" id="checkbox_id">
+                        <label for="checkbox_id">I agree to DevWithCode's <a href="#"><span class="privacy">Agreement</span></a> and acknowledge DevWithCode's <a href="#"><span class="privacy">Privacy Policy</span></a></label>
+                    </p>
+                </div>
+                -->
 
-                <div class="input-field">
-                    <input type="password" class="password" placeholder="Password" required>
-                    <i class="ri-lock-line icon"></i>
+                <form method="POST" class="input-container">
+                    {% csrf_token %}
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="Email" required>
+                        <i class="ri-mail-fill icon"></i>
+                    </div>
                     
-                </div>
-                <div class="input-field">
-                    <input type="password" class="password" placeholder="Password" required>
-                    <i class="ri-lock-line icon"></i>
-                    
-                </div>
-                <div class="register">
-                    <button type="submit" class="register-button">Register</button>
-                </div>
-            </form>
 
-           
+                    <div class="input-field">
+                        <input type="password" name="password1" class="password" placeholder="Password" required>
+                        <i class="ri-lock-line icon"></i>
+                        
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password2" class="password" placeholder="Password" required>
+                        <i class="ri-lock-line icon"></i>
+                        
+                    </div>
+                    <div class="register">
+                        <button type="submit" class="register-button">Register</button>
+                    </div>
+                </form>
+
+                <a href="#" class="reset-password-link">Forget password ?</a>
+            </div>
+            
+
         </div>
-        
-
-    </div>
     </div>
     </div>
 

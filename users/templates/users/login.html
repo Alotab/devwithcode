@@ -1,12 +1,16 @@
 {% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
 {% load static %}
 {%  block content %}
 
 
 
     <!------------------ login section ------------------>
-    <div class="login-wrapper">
-        <div class="login-container">
+    {% comment %} <div class="login-wrapper">
+        <div class="login-container" style="margin-top: 2rem">
             <div class="login-headline-info">
                 <h3></h3>
 
@@ -49,5 +53,62 @@
             </div>
         </div>
 
+    </div> {% endcomment %}
+
+
+
+    <div class="login-wrapper">
+        <div class="login-container" style="margin-top: 2rem">
+            <div class="login-headline-info">
+                    <h3></h3>
+
+                    <div class="signup-link">
+                        <p>Don't have an Account?</p>
+                        <a href="#" class="signup-button button--flex">
+                            Sign up <i class="ri-arrow-right-fill"></i>
+                        </a>
+                    </div>
+            </div>
+
+            <div class="login-info">
+                <div class="login-account-page">
+
+
+                    <div class="external-link-container googles-link">  <!--- register -->
+                        <a href="{% provider_login_url  'google' %}">
+                            <i class="ri-google-fill party-link"></i>
+                            <button class="external-link">Sign in with Google</button>
+                        </a>
+                    </div>
+
+                    <div class="external-link-container github-link">  <!--- register -->
+                        <a href="">
+                            <i class="ri-github-fill party-link"></i>
+                            <button class="external-link">Sign in with Github</button>
+                        </a>
+                    </div>
+                
+                    <p>Login with password and email address</p>
+                    <form method="post" class="login-form-new">  <!--- login-account-page -->
+                        {% csrf_token %}
+                        <div class="login-input-container">  <!---input-field -->
+                            <input type="email" name="email" placeholder="Email" required>
+                            <i class="ri-mail-fill icon"></i>
+                        </div>
+                        
+
+                        <div class="login-input-container">
+                            <input type="password" name="password" class="password" placeholder="Password" required>
+                            <i class="ri-lock-line icon"></i>
+                        </div>
+                        
+                        </div>
+                        <div class="user-login-button">  <!--- register -->
+                            <button type="submit" class="user-signup-button">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

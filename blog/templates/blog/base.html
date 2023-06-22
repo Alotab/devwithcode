@@ -50,10 +50,21 @@
                     <div class="subheader" id="nav-menu">
                         <nav>
                             <ul>
+                                {% if request.user.is_authenticated %}
+                                <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
+                                <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="{% url 'logout' %}" class="sign-in-link" id="sign-in">LogOut</a></li>
+                                {% else %}
                                 <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
                                 <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
                                 <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
-                                <li><a href="{% url 'register' %}" class="create-account-link">Create account</a></li>
+                                <li><a href="{% url 'signup' %}" class="create-account-link">Create account</a></li>
+                                {% endif %}
+
+                                {% comment %} <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
+                                <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
+                                <li><a href="{% url 'register' %}" class="create-account-link">Create account</a></li> {% endcomment %}
                                 
                             </ul>
                         </nav>
