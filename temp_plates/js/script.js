@@ -8,11 +8,27 @@ const navToggleMobile = document.querySelector('.mobile-nav-toggle');
 const navCloseToggle = document.querySelector('.mobile-nav-toggle-close');
 
 
-// document.querySelector('#element').style.display = 'none';  bard
+//document.querySelector('#element').style.display = 'none';  bard
 const elSearcIcon = document.querySelector('.search-icon')
 const elSearchMenu = document.querySelector('.middle-colume-search')
 
 
+
+// prevent and enable scrolling when hambuger menu is clicked
+function disableScroll() {
+    // Get the current page scroll position
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+  
+        // if any scroll is attempted, set this to the previous value
+        window.onscroll = function() {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+  }
+  
+function enableScroll() {
+    window.onscroll = function() {};
+}  
 
 
 
@@ -32,7 +48,7 @@ navToggleMobile.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
     // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
     // const closeMenuVisiblity =  navCloseToggle.getAttribute('data-visible');
-
+    disableScroll() 
     if(visibility === "false"){
         primaryNav.setAttribute('data-visible', true);
         navToggleMobile.setAttribute('aria-expanded', true);
@@ -44,6 +60,7 @@ navToggleMobile.addEventListener('click', () => {
 navCloseToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
 
+    enableScroll()
     if(visibility === 'true'){
         navCloseToggle.setAttribute('aria-expanded', false);
         primaryNav.setAttribute('data-visible', false);  
@@ -51,6 +68,24 @@ navCloseToggle.addEventListener('click', () => {
     }
 });
 
+
+
+
+
+function preventScrolling() {
+    document.addEventListener('click', function(event) {
+      if (event.target.classList.contains('mobile-nav-toggle')) {
+        event.preventDefault();
+        document.body.classList.add('no-scroll');
+      } else if (event.target.classList.contains('close-menu')) {
+        document.body.classList.remove('no-scroll');
+      }
+    });
+  }
+  
+  window.onload = preventScrolling;
+  
+  
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/

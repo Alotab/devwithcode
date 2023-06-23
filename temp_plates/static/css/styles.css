@@ -131,11 +131,12 @@ input[type="search"]::-webkit-search-cancel-button {
   align-items: center;
 }
 
+
 .subheader nav ul{
   display: flex;
   gap: 3em;
   /* margin-right: 3em; */
-}
+} 
 
 .subheader nav ul li a{
   text-decoration: none;
@@ -158,21 +159,12 @@ li{
   color: #090909;
   border-radius: 0.5em;
   background: #e8e8e8;
-  border: 1px solid red;
+  border: 1px solid blue;
   padding: 1.1rem;
-  /* padding: 0.5em 1.2em; */
   cursor: pointer;
   transition: all 0.2s ease-in;
-  /* display: none; */
 }
 
-
-
-.subheader nav .create-account-link:hover{
-  color: #fff;
-    /* transition: .5s; */
-    background-color: var(--buttonIconHover);
-}
 
 
 .nav-links-menu{
@@ -189,19 +181,6 @@ li{
   display: none;
 }
 
-.toggle-menu .nav__toggle i{
-  font-size: 2.5rem;
-  margin-left: 0.5rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
-  cursor: pointer;
-  display: none !important;
-}
-
-
-.toggle-menu .nav__toggle i:hover{
-  background-color: var(--buttonIconHover);
-}
 
 /* Show menu */
 .show-menu{
@@ -2378,14 +2357,34 @@ footer ul li a{
   }
 
 
+  
+
   .subheader nav > ul > li > a {
     display: block;
     text-align: left;
+    font-weight: 400;
+    font-family: 'Poppins';
+    letter-spacing: 0.5px;
+    
   }
 
-  .subheader nav > ul > li {
-    float: left;
+  .primary-navigation li{
     width: 25%;
+  }
+
+
+
+  .subheader .create-account-link{
+    justify-content: center;
+    color: #026eda;
+    align-items: center;
+    text-align: center;
+    transition: transform .5ms ease-in;
+  }
+
+  .subheader .create-account-link:hover{
+    color: #fff;
+    background-color: #69abed;
   }
 
 
@@ -2712,13 +2711,27 @@ footer ul li a{
   .subheader nav > ul > li > a {
     display: block;
     text-align: left;
+    font-weight: 400;
+    font-family: 'Poppins';
+    letter-spacing: 0.5px;
   }
 
-  .subheader nav > ul > li {
-    float: left;
-    width: 25%;
+  .subheader .create-account-link{
+    justify-content: center;
+    color: #026eda;
+    align-items: center;
+    text-align: center;
+    transition: transform .5ms ease-in;
   }
 
+  .subheader .create-account-link:hover{
+    color: #fff;
+    background-color: #69abed;
+  }
+
+  .primary-navigation li{
+    width: 32.5%;
+  }
 
   .mobile-nav-toggle{
     display: block;
@@ -3065,6 +3078,11 @@ footer ul li a{
 
   .register-button{     
     width: 100%;
+  }
+
+
+  .no-scroll {
+    overflow: hidden;
   }
 
 } 
