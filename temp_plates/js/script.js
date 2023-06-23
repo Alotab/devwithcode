@@ -1,26 +1,22 @@
 /*============ SHOW MENU =================== */
-const navMenu = document.getElementById('nav-menu')
-const navToggle = document.getElementById('nav-toggle');
-const navClose = document.getElementById('nav-close');
+// const navMenu = document.getElementById('nav-menu')
+// const navToggle = document.getElementById('nav-toggle');
+// const navClose = document.getElementById('nav-close');
 
-// const elSearcIcon = document.getElementById('icon')
+const primaryNav = document.querySelector('.primary-navigation');
+const navToggleMobile = document.querySelector('.mobile-nav-toggle');
+const navCloseToggle = document.querySelector('.mobile-nav-toggle-close');
+
+
 // document.querySelector('#element').style.display = 'none';  bard
 const elSearcIcon = document.querySelector('.search-icon')
 const elSearchMenu = document.querySelector('.middle-colume-search')
 
 
-if (navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
-   
-}
 
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
-}
+
+
+
 /*============ middle search bar =================*/
 
 if(elSearcIcon){
@@ -29,15 +25,31 @@ if(elSearcIcon){
     })
 }
 
-// if(elSearcIcon){
-//     elSearcIcon.addEventListener('click', ()=>{
-//         elSearchMenu.classList.remove('middle-search')
-//     })
-// }
+
+/*========== Hambuger Menu for small devices =============*/
+
+navToggleMobile.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute('data-visible');
+    // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
+    // const closeMenuVisiblity =  navCloseToggle.getAttribute('data-visible');
+
+    if(visibility === "false"){
+        primaryNav.setAttribute('data-visible', true);
+        navToggleMobile.setAttribute('aria-expanded', true);
+        navCloseToggle.setAttribute('aria-expanded', true);
+    } 
+});
 
 
+navCloseToggle.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute('data-visible');
 
-
+    if(visibility === 'true'){
+        navCloseToggle.setAttribute('aria-expanded', false);
+        primaryNav.setAttribute('data-visible', false);  
+        navToggleMobile.setAttribute('aria-expanded', false);
+    }
+});
 
 
 
