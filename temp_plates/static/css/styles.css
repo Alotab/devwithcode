@@ -165,8 +165,6 @@ li{
   transition: all 0.2s ease-in;
 }
 
-
-
 .nav-links-menu{
   display: flex;
   position: relative;
@@ -230,8 +228,6 @@ li{
   height: 50vh;
 }
 
-
-
 .sidebar-nav-element{
   font-size: 16px;
   padding-top: 17px;
@@ -250,8 +246,7 @@ li{
 
 .middle-colume{
   /* margin: 90px 0px; */
-  margin-top: 7rem;
-
+  /* margin-top: 7rem; */
   border-radius: 5px;
   width: 55%;
 }
@@ -262,8 +257,10 @@ li{
   display: flex;
   position: relative;
   justify-content: center;
-  visibility: hidden;
   margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+
+  display: none;
 }
 
 .middle-colume-search input{
@@ -281,13 +278,13 @@ li{
 }
 
 .middle-colume-search i{
-    position: absolute;
-    font-size: 1.8rem;
-    right: 1.9rem;
-    bottom: 0.2rem;
-    padding: 5px;
-    border-radius: 0.578rem;
-    cursor: pointer;
+  position: absolute;
+  font-size: 1.8rem;
+  right: 2.3rem;
+  bottom: 0.2rem;
+  padding: 5px;
+  border-radius: 0.578rem;
+  cursor: pointer;
 }
 
 .middle-colume-search i:hover{
@@ -2356,9 +2353,6 @@ footer ul li a{
     display: block;
   }
 
-
-  
-
   .subheader nav > ul > li > a {
     display: block;
     text-align: left;
@@ -2371,8 +2365,6 @@ footer ul li a{
   .primary-navigation li{
     width: 25%;
   }
-
-
 
   .subheader .create-account-link{
     justify-content: center;
@@ -2470,10 +2462,23 @@ footer ul li a{
     margin-right: 0.5rem;
   }
 
-  .middle-search{
+  /* middle  content search bar  */
+  .middle-colume-search{
+    margin-left: 1rem;
+  }
+
+  .middle-colume-search i{
+    right: 3.8rem;
+    bottom: 0.2rem;
+  }
+
+  .middle-colume-search{
     margin-top: 1rem;
-    /* visibility: inherit !important; */
-    visibility: inherit!important;
+  }
+
+  /* js code  */
+  .middle-search{
+    display: block;
   }
 
 
@@ -2795,18 +2800,25 @@ footer ul li a{
     margin-right: 0px;
   }
 
+  /* .middle-search-bar{
+    display: block !important;
+  } */
+
   /* middle content  on small device */
   .middle-colume{
-    margin-top: 6rem;
+    margin-top: 5rem;
     width: 100%;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
 
+  .middle-colume-search{
+    margin-top: 1rem;
+  }
 
+  /* js code  */
   .middle-search{
-    visibility: inherit!important;
-  
+    display: block;
   }
 
   .middle-colume .post{
