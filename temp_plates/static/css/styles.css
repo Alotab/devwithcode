@@ -196,57 +196,64 @@ li{
 
 
 .left-colume {
-    margin: 60px 0px;
-    width: 15%; 
+  margin: 50px 0px;
+  width: 15%; 
 }
 
 .left-colume h3{
-    font-size: 18px;
-    font-family: "Caudex", sans-serif;
-    font-weight: 300;
-    color: black;
-    padding-bottom: 10px;
+  font-size: 18px;
+  font-family: "Caudex", sans-serif;
+  font-weight: 300;
+  color: black;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
 
 }
 
-.tag-headling{
-    color: red;
-    
-}
+/* .tag-headling{
+  color: red;
+} */
 
 .tags{
+  padding-top: 2rem;
   /* border: 1px solid; */
   /* border-radius: 5px; */
   word-wrap: break-word;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  /* background-color: #d9dde1; */
+  /* padding-left: 0.5rem; */
 }
+
+.tags h3{
+  color: black;
+  font-size: 2rem;
+  font-family: 'Uncial+Antiqua';
+  font-weight: 400;
+}
+
 
 .sidebar-nav {
   left: 0;
   z-index: 1;
   overflow-x: hidden;
-  height: 50vh;
+  height: 40vh;
 }
 
 .sidebar-nav-element{
   font-size: 16px;
-  padding-top: 17px;
-  padding-left: 8px;
-  align-items: center;
-  text-align: center;
+  text-align: left;
+  padding: 1rem;
   display: block;
-
+  
 }
 
 .sidebar-nav-element:hover{
-  background-color: gray;
-  border-radius: 4px;
-  /* transition: cubic-bezier(0.075, 0.82, 0.165, 1); */
+  background-color: rgb(174, 170, 170);
+  border-radius: 0.5rem;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .middle-colume{
-  /* margin: 90px 0px; */
-  /* margin-top: 7rem; */
   border-radius: 5px;
   width: 55%;
 }
@@ -638,16 +645,16 @@ footer ul li a{
 }
 
 .detail-post .post-image{
-    height: 30rem;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 2rem;
-    border-radius: 5px 5px 0px 0px;
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 2rem;
+  border-radius: 5px 5px 0px 0px;
     
 }
 
 .main-post{
-    margin: 0rem 4rem;
+  margin: 0rem 4rem;
     
 }
 
@@ -658,9 +665,9 @@ footer ul li a{
 }
 
 .main-post-author img{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
       
 }
 
@@ -677,11 +684,10 @@ footer ul li a{
 
 
 .author-name .date{
-    font-size: 12px;
-    /* font-family: sans-serif; */
-    text-align: center;
-    font-weight: 200;
-    
+  font-size: 12px;
+  /* font-family: sans-serif; */
+  text-align: center;
+  font-weight: 200; 
 }
 
 .detail-column{
@@ -689,18 +695,18 @@ footer ul li a{
     /* background-color: red; */
     border-radius: 5px 5px 0px 0px;
 }
-
+å
 
 .main-post-headline{
-    font-size: 25px;
-    line-height: 40px;
-    letter-spacing: -0.016em;
-    font-style: normal;
-    font-weight: 400;
-    color: rgb(41, 41, 41);
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;;
-    margin-top: 5rem;
-    margin-bottom: 1rem;
+  font-size: 25px;
+  line-height: 40px;
+  letter-spacing: -0.016em;
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(41, 41, 41);
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
     
 }
 
@@ -716,20 +722,17 @@ footer ul li a{
 }
 
 .post-main-detail{
-    font-size: 20px;
-    line-height: 32px;
-    letter-spacing: -0.003em;
-    font-style: normal;
-    font-weight: 400;
-    padding-bottom: 20px;
-    color: rgb(41, 41, 41);
-    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
-    overflow-wrap: break-word;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -0.003em;
+  font-style: normal;
+  font-weight: 400;
+  padding-bottom: 20px;
+  color: rgb(41, 41, 41);
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  overflow-wrap: break-word;
     
 }
-
-
-
 
 
 /*====================== sidebar-column - detail-page ===========*/
@@ -809,11 +812,7 @@ footer ul li a{
 }
 
 
-
-
-
 /* ======================== POST COMMENT ======================= */
-
 
 .card {
   width: 450px;
@@ -1060,9 +1059,6 @@ footer ul li a{
 }
 
 
-  
-
-
 
 /*===================== SIGN-UP ========================*/
 
@@ -1091,19 +1087,6 @@ footer ul li a{
   /* background-image: linear-gradient(rgb(176, 72, 176), rgb(151, 98, 202), rgb(246, 227, 191)); */
   
 }
-
-
-  /* .signup-container:before {
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0%;
-    bottom: 60%;
-    width: 100%;
-    /* border-top: 3px solid pink; */
-    /* background: linear-gradient( rgb(225, 107, 10) 50%, */
-      /* rgba(64, 219, 118, 0) 80%, rgb(246, 227, 191, 0.5) 50%); */
-  /* }  */
 
 
 
@@ -1464,13 +1447,13 @@ footer ul li a{
 }
 
 .signup-button{
-    text-decoration: none;
-    color: black;
-    font-weight: 800;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 0.5rem;
-    transition: background .3s;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  transition: background .3s;
 }
 
 .login-info{
@@ -1656,12 +1639,12 @@ footer ul li a{
 
 
 .login-button button{
-    background-color: #026eda;
-    font-family: sans-serif;
-    height: 100%;
-    font-size: 1.2rem;
-    width: 50%;
-    transition: background .3s;
+  background-color: #026eda;
+  font-family: sans-serif;
+  height: 100%;
+  font-size: 1.2rem;
+  width: 50%;
+  transition: background .3s;
 
 }
 
@@ -1922,7 +1905,12 @@ footer ul li a{
     display: none !important;
   }
 
-   /*--------------- portfolio section ------------------*/
+
+  .middle-colume{
+    margin-top: 6rem;
+  }
+
+  /*--------------- portfolio section ------------------*/
    .portfolio-title{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -2085,43 +2073,21 @@ footer ul li a{
       display: block! important;
   }
 
-  /* .create-account-link{
-      padding: 6px;
-      border: 1px solid red;
-      border-radius: 5px;
-      white-space: nowrap;
-      
-  } */
-
   .right-colume{
-      display: none! important;
+    display: none! important;
   }
 
 
   .left-colume {
-      margin: 60px 0px;
+      margin: 50px 0px;
       width: 30%; 
   }
   
-  .left-colume h3{
-    font-size: 18px;
-    font-family: "Caudex", sans-serif;
-    font-weight: 300;
-    color: black;
-    padding-bottom: 10px;
-  
-  }
-  
-  .tag-headling{
-      color: red;
-      
-  }
   
   .tags{
-      /* border: 1px solid; */
-      /* border-radius: 5px; */
-      word-wrap: break-word;
-      padding-bottom: 10px;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+    padding-left: 2rem;
   }
 
   /* main content  on Small screens, laptops  */
@@ -2132,9 +2098,8 @@ footer ul li a{
 
   /* middle content  on Small screens, laptops  */
   .middle-colume{
-    margin-top: 10rem;
+    margin-top: 6rem;
     width: 68%;
-      
   }
 
   .community-post{
@@ -2309,9 +2274,9 @@ footer ul li a{
 /*========================== Mini Ipads / some large mobile devices =========================*/
 @media (min-width: 481px) and  (max-width: 768px) {
   
-  /* body {
+  body {
     background-color: green;
-  } */
+  }
 
 
   /* .toggle-menu .nav__toggle {
@@ -2367,6 +2332,7 @@ footer ul li a{
   .subheader .create-account-link{
     justify-content: center;
     color: #026eda;
+    width: 15rem;
     align-items: center;
     text-align: center;
     transition: transform .5ms ease-in;
@@ -2724,6 +2690,7 @@ footer ul li a{
     color: #026eda;
     align-items: center;
     text-align: center;
+    width: 15rem;
     transition: transform .5ms ease-in;
   }
 
