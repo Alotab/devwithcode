@@ -500,7 +500,7 @@ li{
   justify-content: space-between;
   padding: 0px px;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 1rem;
   margin-top: 10px;
 }
 
@@ -508,19 +508,17 @@ li{
   display: flex;
   text-align: center;
   line-height: 1.5rem;
-  /* align-items: center; */
   gap: 5px;
   text-decoration: none;
-  /* padding: 6px 9px; */
   cursor: pointer;
   overflow-wrap: normal;
+  padding: 4px 5px;
+  border-radius: 0.375rem;
    
 }
 
 .post-comment a:hover{
-  background-color: rgba(27, 124, 227, .5);
-  border-radius: 0.375rem;
-  /* padding: 6px 9px; */
+  background-color: rgba(183, 185, 187, 0.5);
 }
 
 .post-comment img{
@@ -543,20 +541,27 @@ li{
     
 }
 
+.post-share{
+  margin-right: 1rem;
+}
+
 .post-share a img{
   max-width: 36px;
   max-height: 36px;
 
   padding: 6px 9px;
-  /* color: rgb(5, 5, 203); */
   cursor: pointer;
-}
-
-.post-share a img:hover{
-  background-color: rgba(27, 124, 227, .5);
   border-radius: 0.375rem;
 }
 
+.post-share a img:hover{
+  background-color: rgba(183, 185, 187, 0.5);
+ 
+}
+
+.load-post{
+  margin-bottom: 1rem;
+}
 .load-post a {
   text-decoration: none;
 }
@@ -570,11 +575,14 @@ li{
   cursor: pointer;
   margin-top: 50px;
   padding: 5px;
+  background-color: rgb(157, 153, 160);
   border-radius: 5px;
+
 }
 
 .load-post a p:hover{
-  background-color: #969CA3;
+  /* background-color: #969CA3; */
+  background-color: var(--buttonIconHover);
   transition: .3s;
 }
 
@@ -2551,19 +2559,17 @@ button .trending-post-headline h2{
   }
 
   .load-post{
-      background-color: gray;
-      text-align: center;
-      margin-left: 18rem;
-      margin-right: 18rem;
-      border-radius: 0.375rem;
+    text-align: center;
+    margin-left: 18rem;
+    margin-right: 18rem;
   }
   .load-post a p{
-      font-size: 15px;
-      text-align: center;
-      color: white;
-      font-family: inherit;
-      padding: 8px;
-      white-space: nowrap;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    font-family: inherit;
+    padding: 8px;
+    white-space: nowrap;
   }
 
 
@@ -2973,12 +2979,11 @@ button .trending-post-headline h2{
   }
 
   .load-post{
-    background-color: gray;
     text-align: center;
     margin-left: 18rem;
     margin-right: 18rem;
-    border-radius: 0.375rem;
   }
+
   .load-post a p{
     font-size: 13px;
     text-align: center;
