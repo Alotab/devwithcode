@@ -635,7 +635,7 @@ footer ul li a{
 .main-detail-post{
   display: flex;
   gap: 5rem;
-  padding: 10rem 10rem;
+  padding: 7rem 1rem;
   width: 100%;
 }
 
@@ -673,21 +673,28 @@ footer ul li a{
 
 .author-name{
     display: flex;
-    gap: 9px;
-    text-align: center;
+    align-items: center;
+    gap: 3px;
+    /* position: relative; */
+    /* text-align: center; */
+    /* justify-content: center; */
     /* background-color: blueviolet; */
 }
 
 .author-name .author-name-link{
     font-size: 15px;
+    font-weight: 600;
 }
 
 
 .author-name .date{
-  font-size: 12px;
-  /* font-family: sans-serif; */
-  text-align: center;
-  font-weight: 200; 
+  font-size: 11px;
+  position: absolute;
+  font-family: sans-serif;
+  left: 19rem;
+  top: 40.8rem;
+  font-weight: 250; 
+  padding: 0;
 }
 
 .detail-column{
@@ -695,41 +702,62 @@ footer ul li a{
     /* background-color: red; */
     border-radius: 5px 5px 0px 0px;
 }
-å
 
-.main-post-headline{
-  font-size: 25px;
-  line-height: 40px;
-  letter-spacing: -0.016em;
+
+.main-post-headline h2{
+  font-family: 'Roboto';
+  font-size: 4rem;
+  line-height: 1.2; 
   font-style: normal;
-  font-weight: 400;
+  font-weight: 900;
+  letter-spacing: 0.5px;
   color: rgb(41, 41, 41);
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
-    
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .main-post-tags{
-    display: flex;
-    gap: 2.5rem;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
 }
 
-.main-post-tags p{
+.main-post-tags button{
+  font-size: 15px;
+  font-weight: 250;
+  border: none;
+  background:none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.main-post-tags button:hover{
+  /* padding: 0.5rem; */
+  background-color: #7cb4ec;
+}
+
+/* .main-post-tags p{
     font-size: 15px;
     font-weight: 300;
-}
+} */
+
 
 .post-main-detail{
-  font-size: 20px;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+
+.post-main-detail p{
+  font-family: sans-serif;
+  font-size: 1.8rem;
   line-height: 32px;
-  letter-spacing: -0.003em;
   font-style: normal;
-  font-weight: 400;
-  padding-bottom: 20px;
+  font-weight: 350;
+ 
   color: rgb(41, 41, 41);
-  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   overflow-wrap: break-word;
     
 }
@@ -740,58 +768,16 @@ footer ul li a{
     width: 33%;
 }
 
-.trending-post img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.related-side-post{
+  background-color: var(--middleColume-backgroundColor);
+  border-radius: 5px;
+  margin-top: 6rem;
+  border-radius: 5px;
+  padding: 3rem;
+  margin-bottom: 2rem;
 }
 
-.sidebar-post1{
-    border-radius: 5px;
-    background-color: var(--middleColume-backgroundColor);
-    padding: 0px 2rem;
-    /* margin-bottom: 3rem; */
-    padding-bottom: 1rem;
-    border-radius: 5px;
-}
-
-.sidebar-post1 h3{
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: 400;
-    padding-top: 2rem;
-    text-transform: uppercase;
-}
-
-.trending-post{
-    margin-top: 3rem;
-    display: flex;
-    gap: 2rem;
-}
-
-.trending-post-author-date{
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.trending-post-author-date p{
-    font-family: "Poppins", sans-serif;
-    font-size: 10px;
-    font-weight: 100;
-}
-
-
-
-.sidebar-post2{
-    background-color: var(--middleColume-backgroundColor);
-    border-radius: 5px;
-    margin-top: 6rem;
-    border-radius: 5px;
-    padding: 3rem;
-}
-
-.sidebar-post2 h3{
+.related-side-post h3{
     font-size: 15px;
     font-family: sans-serif;
     font-weight: 400;
@@ -800,9 +786,19 @@ footer ul li a{
 }
 
 .related-post{
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 0rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem 0.5rem;
+  width: 100%;
+  background: none;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.related-post:hover{
+  background-color: rgb(233, 229, 229);
 }
 
 .related-post img{
@@ -811,18 +807,98 @@ footer ul li a{
   border-radius: 50%;
 }
 
+.related-post-headline{
+  text-align: left;
+}
+
+.related-post-author-date{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.related-author, 
+.related-date,
+.trending-author,
+.trending-date {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+
+.trending-post{
+  display: flex;
+  margin-top: 2rem;
+  border: none;
+  gap: 2rem;
+  background: none;
+  cursor: pointer;
+}
+
+.trending-side-post{
+  border-radius: 5px;
+  background-color: var(--middleColume-backgroundColor);
+  padding: 0px 2rem;
+  padding-bottom: 3rem;
+
+}
+
+.trending-post img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.trending-side-post h3{
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  padding-top: 2rem;
+  text-transform: uppercase;
+}
+
+button .trending-post-headline h2{
+  font-size: 2rem;
+  text-align: left;
+}
+
+.trending-post-headline a{
+  color: #090909;
+}
+
+.trending-post-headline a:hover{
+  color: #76b3f0;
+}
+
+.trending-post-author-date{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
+
 
 /* ======================== POST COMMENT ======================= */
-
+/* 
 .card {
   width: 450px;
   height: fit-content;
   background-color: white;
   box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 17px 17px 27px 27px;
+} */
+
+.main-post-comments{
+  background-color: var(--middleColume-backgroundColor);
+  margin-top: 2px;
 }
   
 .title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #47484b;
   width: 100%;
   height: 50px;
   position: relative;
@@ -830,9 +906,7 @@ footer ul li a{
   align-items: center;
   padding-left: 20px;
   border-bottom: 1px solid #f1f1f1;
-  font-weight: 700;
-  font-size: 13px;
-  color: #47484b;
+  
 }
   
 .title::after {
@@ -845,9 +919,12 @@ footer ul li a{
 }
 
 .comments {
-  display: grid;
-  grid-template-columns: 35px 1fr;
-  gap: 20px;
+  /* display: grid; */
+
+  /* grid-template-columns: 35px 1fr; */
+  /* gap: 20px; */
+  /* padding: 20px; */
+
   padding: 20px;
 }
 
@@ -927,8 +1004,12 @@ footer ul li a{
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 0;
+  padding: 1rem 0;
   margin: 0;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  background: rgb(239, 238, 236);
 }
 
 .comment-container .user {
@@ -970,22 +1051,27 @@ footer ul li a{
 }
 
 .comment-container .user .user-info span {
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-size: 14px;
   color: #47484b;
 }
 
 .comment-container .user .user-info p {
-  font-weight: 600;
-  font-size: 10px;
-  color: #acaeb4;
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-size: 11px;
+  color: #949393;
 }
 
 .comment-container .comment-content {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  /* line-height: 16px; */
+  font-family: sans-serif;
+  /* font-weight: 600; */
+  line-height: 2rem;
   color: #5f6064;
+  padding-left: 5rem;
 }
 
 .text-box {
@@ -1013,10 +1099,10 @@ footer ul li a{
   caret-color: #0a84ff;
 }
 
-.text-box .formatting {
+/* .text-box .formatting {
   display: grid;
   grid-template-columns: auto auto auto auto auto 1fr;
-}
+} */
 
 .text-box .formatting button {
   width: 30px;
@@ -1057,6 +1143,10 @@ footer ul li a{
     opacity: 0;
   }
 }
+
+
+
+
 
 
 
@@ -2630,11 +2720,6 @@ footer ul li a{
     background-color: violet;
   } */
 
-  /* header{
- 
-  } */
-  
-
   .search input {
       display: none! important;
   }
@@ -2920,10 +3005,21 @@ footer ul li a{
     padding: 7rem 1rem;
   }
 
+  .author-name .date{
+    left: 17rem;
+    /* top: 40.7rem; */
+  }
+
+
   .detail-column{
     width: 100%;
     /* background-color: red; */
     border-radius: 5px 5px 0px 0px;
+  }
+
+  .main-post{
+    margin: 0rem 1.5rem;
+      
   }
   
 
@@ -2933,6 +3029,21 @@ footer ul li a{
     /* object-fit: cover;
     margin-bottom: 2rem;
     border-radius: 5px 5px 0px 0px; */
+  }
+
+  .main-post-headline h2{
+    font-family: 'Roboto';
+    font-size: 2.8rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+    
+  }
+
+  .post-main-detail p {
+    font-size: 1.7rem;
+    font-weight: 100;
+    line-height: 1.5;
+    font-family: sans-serif;
   }
 
 
@@ -2951,6 +3062,7 @@ footer ul li a{
     border-radius: 5px;
     padding: 3rem;
   }
+
 
   /*------------------ portfolio section--------------------*/
   .portfolio-title{
