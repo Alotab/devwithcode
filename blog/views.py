@@ -1,18 +1,47 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.views.generic import DetailView
+# from django.views.generic import DetailView
 from django.urls import reverse
-from django.views.generic.edit import FormMixin, FormView
+# from django.views.generic.edit import FormMixin, FormView
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
-from users.models import CustomUser
+# from users.models import CustomUser
 from taggit.models import Tag
+from .forms import PostForm
 
 # from blog.forms import CommentForm
+# from users.forms import CommentForm
 
-from users.forms import CommentForm
 
+def post_blog(request):
+  if request.method == 'POST':
+    form = PostForm(request.POST)
 
+    if form.is_valid():
+        post = form.save(commit=False)
+        # post.user = request.user
+        post.save()
+        return redirect('blog:home')
+      
+  else:
+    form = PostForm()
+  return render(request, 'blog/createPost.html', {'form': form})
+
+# @login_required
+# def post_blog(request):
+#     if request.method == 'POST':
+#         title = request.POST['title']
+#         content = request.POST['content']
+#         slug = request.POST['slug']
+#         posts = Post.objects.create(
+#             title=title,
+#             content=content,
+#             author=request.user
+#         )
+#         posts.save()
+#         return redirect('blog:home')
+#     else:
+#         return render(request, 'blog/createPost.html')
 
 
 def lowercase_first_name(author_first_name):

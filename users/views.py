@@ -5,10 +5,7 @@ from django.contrib.auth import get_user_model  # get the custome user model
 from .forms import CustomeUserChangeForm, CustomUserCreationsForm, AccountAuthenticationForm
 # from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
-import re
-
 import warnings
-from urllib.parse import urlparse, urlunparse
 
 from django.conf import settings
 # Avoid shadowing the login() and logout() views below.
@@ -35,7 +32,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
-from allauth.account.views import SignupView
+from allauth.account.views import SignupView, LoginView
 
 
 
@@ -56,6 +53,32 @@ class AccountSignupView(SignupView):
     #     ...
 
 account_signup_view = AccountSignupView.as_view()
+
+
+
+class AccountLoginView(LoginView):
+
+    template_name = "users/login.html"
+    # success_url = 'blog:home'
+
+account_login_view = AccountLoginView.as_view()
+
+
+
+# class AccountSignView(SignupView):
+    # Signup View extended
+
+    # change template's name and path
+    # template_name = "users/register.html"
+
+    # You can also override some other methods of SignupView
+    # Like below:
+    # def form_valid(self, form):
+    #     ...
+    #
+    # def get_context_data(self, **kwargs):
+    #     ...
+
 
 
 

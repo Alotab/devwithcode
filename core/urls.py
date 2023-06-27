@@ -29,17 +29,20 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('signup/', user_views.account_signup_view, name='signup' ),
+    # path('signin/', user_views.account_login_view, name='login'),
 
 
     path('home/', TemplateView.as_view(template_name='dash/homes.html'), name='homes'),
     path('accounts/', include('allauth.urls')),
     
-    path('register/', user_views.register, name='register'),
-    # path('login/', user_views.login_view, name='login'),
+    # path('register/', user_views.register, name='register'),
+    path('login/', user_views.login_view, name='login'),
     path('logout/', user_views.logout_view, name= 'logout'),
     path('portfolio/', user_views.portfolio, name= 'portfolio'),
 
     path('', include('blog.urls', namespace='blog')),
+
+    path('ckeditor/', include('ckeditor_uploader.urls')),
    
     # path('register/', user_views.register, name='register'),
     # path('login/', user_views.login_view, name='login'),

@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.tiny.cloud/1/igtuum1imr7vqqzryzkog6p5m1xsjuhlhn92fzsvzvbm885j/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-</head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Python, Docker, AWS">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--=============== REMIXICON ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet"></head>
 <body>
 
   <header>
@@ -61,22 +73,108 @@
     <!-- </div> -->
   </header>
 
-  <textarea>
-    Welcome to TinyMCE!
-  </textarea>
+  
+    <div class="wrapper">
+        <header>
+            <!--------- main navigation / logo -------->
+            <!-- <div class="main-nav"> -->
+                <div class="logo">
+                    <div class="main-logo">
+                        <a href="#"><img src="images/logo2.svg" alt="logo" ></a>
+                    </div>
+                    <div class="search">
+                        <input type="search" id="gsearch" name="gsearch">
+                        <i class="ri-search-line search-icon"></i>
+                    </div>
+                </div>
 
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-      mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-      ],
-    });
-  </script>
+
+                <!-- menu logo -->
+                <button class="mobile-nav-toggle" 
+                    aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="sr-only">
+                        <img src="hambuger-menu.svg" alt="menu-logo"/>
+                    </span> 
+                    <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+                </button>
+                <!-- aria-controls="primary-navigation" -->
+                <button class="mobile-nav-toggle-close" aria-expanded="false">
+                    <span class="sr-only">
+                        <img src="images/x-10327.svg" alt="menu-logo"/>
+                    </span> 
+                    <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+                </button>
+                
+                <div class="nav-links-menu">
+                    <div class="subheader" id="nav-menu">
+                        <nav>
+                            <ul id="primary-navigation" data-visible="false"  class="primary-navigation">
+                                <li class="active"><a href="index.html" class="home-link">Home</a></li>
+                                <li><a href="porfolio.html" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="login.html" class="sign-in-link">Sign-In</a></li>
+                                <li><a href="signup.html" class="create-account-link">Create account</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </header>
+   
+
+        <div class="create-content">
+            <div class="new-post">
+                <h3>Create a New Post</h3>
+            </div>
+            <form method="POST">
+                <!-- {% csrf_token %} -->
+                <div class="placeholder">
+                    <h4>Title</h4>
+                    <input type="text" name="title" >
+                </div>
+                <div class="placeholder">
+                    <h4>content</h4>
+                    <!-- <input type="text" name="content"> -->
+                    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                </div>
+              
+                <div class="placeholder">
+                    <h4></h4>
+                    <input class="content-submit" type="submit" value="Post">
+                </div>
+               
+                
+            </form>
+        </div>
+
+   
+
+    
+
+
+
+        <!-- footer section-->
+        <footer>
+            <p class="website-slogan"><a href="#" class="footer-website-name">DevWithCode</a>
+                - A community that refines your programming journey.
+            </p>
+
+            <ul class="footer-nav">
+                <li class="footer-nav-link"><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms of use</a></li>
+            </ul>
+
+            <div class="signarture">
+                @ DevWithCode, Inc. 2023
+            </div>
+        </footer>
+    </div>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="js/scrollreveal.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="js/script.js"></script>
 </body>
 </html>

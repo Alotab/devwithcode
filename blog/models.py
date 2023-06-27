@@ -7,7 +7,10 @@ from django.urls import reverse
 from django.conf import settings
 from django.http import Http404
 from django.utils.text import slugify
+from django.db.models.signals import pre_save
 from PIL import Image
+# from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -33,8 +36,11 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
     title = models.CharField(max_length=200)
-    slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True)
-    content = models.TextField()
+    slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True, blank=True)
+    # content = models.TextField()
+    # content = RichTextField(blank=True, null=True)
+    content = RichTextUploadingField(blank=True, null=True)
+    # content = RichTextUploadingField(config_name='awesome_ckeditor')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
     image = models.ImageField(default="default.jpg", upload_to='post_pics')
@@ -51,10 +57,18 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post-detail', args=[self.slug])
+    
+
+    def create_slug(sender, instance, **kwargs):
+        if not instance.slug:
+            instance.slug = slugify(instance.title)
+
+
 
     # override the save method in post class and reduce the size of the image size
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
@@ -63,8 +77,8 @@ class Post(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
         
-        if not self.slug:
-            self.slug = slugify(self.title)
+        # if not self.slug:
+        #     self.slug = slugify(self.title)
     
 
 

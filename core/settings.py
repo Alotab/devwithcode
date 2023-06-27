@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.github',
+    'ckeditor',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -191,15 +193,26 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 SOCIALACCOUNT_LOGIN_ON_GET=True
 
 
-LOGIN_REDIRECT_URL = 'homes'
+LOGIN_REDIRECT_URL = '/' #'homes'
 LOGOUT_REDIRECT_URL = 'home'
 
 
 ACCOUNT_ACTIVATION_DAYS = 0
 ACCOUNT_EMAIL_VERIFICATION = False
 
+# user.is_active set to
 ACCOUNT_DEFAULT_USER_STATUS = 'active'
 
 
 # 218998905670-4v62caqb2ld3i726u06t6cf8lv4ppgcc.apps.googleusercontent.com
 # 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
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+
+# CKEDITOR_CONFIGS = {
+#     'awesome_ckeditor': {
+#         'toolbar': 'Basic',
+#     },
+# }

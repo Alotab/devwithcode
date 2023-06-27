@@ -1,5 +1,4 @@
 {% extends "blog/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -73,7 +72,6 @@
             <div class="login-info">
                 <div class="login-account-page">
 
-
                     <div class="external-link-container googles-link">  <!--- register -->
                         <a href="{% provider_login_url  'google' %}">
                             <i class="ri-google-fill party-link"></i>
@@ -89,7 +87,7 @@
                     </div>
                 
                     <p>Login with password and email address</p>
-                    <form method="post" class="login-form-new">  <!--- login-account-page -->
+                    <form method="post"  class="login-form-new">  <!--- login-account-page -->
                         {% csrf_token %}
                         <div class="login-input-container">  <!---input-field -->
                             <input type="email" name="email" placeholder="Email" required>
