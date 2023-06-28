@@ -11,8 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="{% static 'js/script.js' %}"></script>
+   
 
     <!--=============== SCROLLREVEAL ===============-->
     {% comment %} <script src="{% static 'js/scrollreveal.min.js' %}"></script> {% endcomment %}
@@ -20,14 +19,15 @@
     <!-- <script src="js/scrollreveal.min.js"></script> -->
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     <!--=============== REMIXICON ===============-->
+   
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
     <title>DevWithCode | Home</title>
 </head>
@@ -46,42 +46,44 @@
                         <i class="ri-search-line search-icon"></i>
                     </div>
                 </div>
-                
+
+                <!-- menu logo -->
+                <button class="mobile-nav-toggle" 
+                   aria-controls="primary-navigation" aria-expanded="false">
+                   <span class="sr-only">
+                       <img src="{% static 'images/hambuger-menu.svg' %}" alt="menu-logo"/>
+                   </span> 
+                   <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+               </button>
+
+               <!-- aria-controls="primary-navigation" -->
+               <button class="mobile-nav-toggle-close" aria-expanded="false">
+                   <span class="sr-only">
+                       <img src="{% static 'images/x-10327.svg' %}" alt="menu-logo"/>
+                   </span> 
+                   <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+               </button>
+
+
+
                 <div class="nav-links-menu">
                     <div class="subheader" id="nav-menu">
                         <nav>
-                            <ul>
+                            <ul id="primary-navigation" data-visible="false"  class="primary-navigation">
                                 {% if request.user.is_authenticated %}
-                                <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
+                                <li class="active"><a href="{% url 'blog:home' %}"class="home-link">Home</a></li>
                                 <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
                                 <li><a href="{% url 'logout' %}" class="sign-in-link" id="sign-in">LogOut</a></li>
                                 {% else %}
-                                <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
+                                <li class="active"><a href="{% url 'blog:home' %}"class="home-link">Home</a></li>
                                 <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
                                 <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
                                 <li><a href="{% url 'signup' %}" class="create-account-link">Create account</a></li>
                                 {% endif %}
-
-                                {% comment %} <li><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
-                                <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
-                                <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
-                                <li><a href="{% url 'register' %}" class="create-account-link">Create account</a></li> {% endcomment %}
-                                
                             </ul>
                         </nav>
                     </div>
-
-                    <!---- toggle/close icon ---->
-                    <div class="toggle-menu">
-                        <div class="nav__toggle" id="nav-toggle">
-                            <i class="ri-menu-line"></i>
-                        </div>
-                        <div class="nav__close" id="nav-close">
-                            <i class="ri-close-line"></i>
-                        </div>
-                    </div>
                 </div>
-            <!-- </div> -->
         </header>
 
 
@@ -110,5 +112,11 @@
             @ DevWithCode, Inc. 2023
         </div>
     </footer>
+
+     <!--=============== MAIN JS ===============-->
+     <script src="{% static 'js/script.js' %}"></script>
+
+       <!--=============== SCROLLREVEAL ===============-->
+    <script src="{% static 'js/scrollreveal.min.js' %}"></script>
 </body>
 </html>

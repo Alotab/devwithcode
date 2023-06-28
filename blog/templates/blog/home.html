@@ -8,7 +8,7 @@
         <div class="left-colume">
 
             <div class="tags">
-                <h3 class="tag-headling">Tags</h3>
+                <h3 class="tag-headling">Popular Tags</h3>
                 <div class="sidebar-nav">
                     <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
                     <div  id="default-sidebar" class="sidebar-nav-element">#python</div>
@@ -36,29 +36,32 @@
         <!-- middle-colume content -->
         <div class="middle-colume">
 
-            <!-- search-icon to display in media query -->
-            <div class="middle-colume-search">
+             <!-- search-icon to display in media query -->
+             <div class="middle-colume-search"  id="mid-search">
                 <input type="search" id="gsearch" name="gsearch" placeholder="Search...">
-                <i class="ri-search-line search-icon"></i>
-                <!-- <img src="images/shareBabe.svg" alt="search" class="share-search input-link"> -->
+                <i class="ri-search-line search-icon" id="icon"></i>
             </div>
 
             <div class="community-post">
                 <h2 class="community-name">DevWithCode</h2>
                 <div class="community-post-headline">
                     <img src="images/author.jpg">
-                    <h4>Lorem ipsum dolor sit, amet consectetur adi elit. Pariatur sit sapiente consequuntur, nemo iste esse vel eligendi voluptatem necessitatibus ut impedit fugiat reprehenderit fugit architecto.</h4>
+                    <h4>
+                        Welcome to 📚 DevWithCode 🚀!
+                        <br>
+                        I'm so glad you're here. This is a place where I share my thoughts and ideas, showcase my work, and connect with other like-minded people.</h4>
                 </div>
-            
+               
 
                 <div class="community-tags">
                     <h5>Code 👌</h5>
-                    <h5>Fix Bugs 🐛</h5>
+                    <h5>Articles ✍️</h5>
                     <h5>Documentation 📚</h5>
                     <h5>Production 🚀</h5>
                 </div>
                 <p>Create Account</p>
             </div>
+
             
             {% for post in posts %}
                 <div class="post">
@@ -66,13 +69,13 @@
                         <div class="author-image">
                             <a href="#"><img src="{{ post.image.url }}" alt="author"></a>
                         </div>
-                        <div class="author-name">
+                        <div class="post-author-details">
                             {% with author=post.author %}
                                 <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
-                            <p class="post-date">Apr 11, 2023</p>
+                                <p class="post-date">Apr 11, 2023</p>
                             {% endwith %}
-                        </div> 
-                    
+                        </div>
+                       
                     </div>
                     <div class="post-header">
                         <a href="{% url 'blog:post_detail' post.slug %}">
@@ -80,6 +83,7 @@
                         </a>
                     </div>
                     <div class="post-tags">
+
                         {% for tag in tags %}
                             <a class="post-tag-chrome" href="#"><span>#</span>{{ tag }}</a>
                         {% endfor %}
@@ -96,9 +100,8 @@
                             <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
                         </div>
                     </div>
-                
                 </div>
-        {% endfor %}
+            {% endfor %}
 
 
 
@@ -109,15 +112,9 @@
         </div>
 
 
-        <!--left-colume content-->
-        <div class="right-colume">
-            <div class="left-icons">
-                <a href="#"><img src="images/coloTwitter.svg"></a>
-                <a href="#"><img src="images/coloFacebok.svg"></a>
-                <a href="#"><img src="images/coloGithub.svg"></a>
-                <a href="#"><img src="images/coloTwitch.svg"></a>
-            </div>
+         <!--left-colume content-->
+         <div class="right-colume">
 
-        </div>
+         </div>
     </div>
 {% endblock %}
