@@ -48,7 +48,7 @@ urlpatterns = [
     # path('login/', user_views.login_view, name='login'),
     # path('logout/', user_views.logout_view, name= 'logout'),
 
-
+    path('search/', include('haystack.urls')),
 
 
     ## Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)

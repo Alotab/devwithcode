@@ -8,27 +8,12 @@
         <div class="left-colume">
 
             <div class="tags">
+                
                 <h3 class="tag-headling">Popular Tags</h3>
                 <div class="sidebar-nav">
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#python</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#azure</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#docker</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#aws</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#machinelearning</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#Software</div>
-                    <div  id="default-sidebar" class="sidebar-nav-element">#django</div>
+                    {% for tag in tags %}
+                    <div  id="default-sidebar" class="sidebar-nav-element">#{{ tag }}</div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -45,7 +30,7 @@
             <div class="community-post">
                 <h2 class="community-name">DevWithCode</h2>
                 <div class="community-post-headline">
-                    <img src="images/author.jpg">
+                    <img src="{% static 'images/postImage.jpg'%}">
                     <h4>
                         Welcome to 📚 DevWithCode 🚀!
                         <br>
@@ -84,8 +69,8 @@
                     </div>
                     <div class="post-tags">
 
-                        {% for tag in tags %}
-                            <a class="post-tag-chrome" href="#"><span>#</span>{{ tag }}</a>
+                        {% for post in post.tags.all %}
+                            <a class="post-tag-chrome" href="#"><span>#</span>{{ post }}</a>
                         {% endfor %}
                     </div>
 

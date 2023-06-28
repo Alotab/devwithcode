@@ -1,3 +1,9 @@
+@font-face{
+  font-family: PostHeading;
+  src: url(hellvet.ttf);
+}
+
+
 :root{
   --navBar-color: #f7f4f3;
   --footer-Color: #23377E;
@@ -669,10 +675,6 @@ footer ul li a{
 
 
 
-
-
-
-
 /*==================== post-detail ========================*/
 
 .main-detail-post{
@@ -748,15 +750,24 @@ footer ul li a{
 
 
 .main-post-headline h2{
-  font-family: 'Roboto';
-  font-size: 4rem;
-  line-height: 1.2; 
+  /* font-family: IrvinHeadingPro, "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: 'Irvin', sans-serif, Arial, Helvetica, sans-serif;
+  /* font-family: 'Roboto'; */
+  /* font-size: 4rem;
+  line-height: 1.2;  */
   font-style: normal;
-  font-weight: 900;
-  letter-spacing: 0.5px;
+  /* font-weight: 900;
+  letter-spacing: 0.5px; */
   color: rgb(41, 41, 41);
   margin-top: 3rem;
   margin-bottom: 1.5rem;
+
+
+  line-break: auto;
+  line-height: 1.06667em;
+  font-weight: 400;
+  font-size: 30px;
+  overflow-wrap: normal;
 }
 
 .main-post-tags{
@@ -794,14 +805,23 @@ footer ul li a{
 
 
 .post-main-detail p{
-  font-family: sans-serif;
-  font-size: 1.8rem;
-  line-height: 32px;
+  /* font-family: sans-serif; */
+  font-family: TNYAdobeCaslonPro,'Times New Roman', Times, serif;
+  /* font-size: 1.8rem; */
+  
+  /* line-height: 32px; */
   font-style: normal;
-  font-weight: 350;
- 
-  color: rgb(41, 41, 41);
-  overflow-wrap: break-word;
+  font-weight: 400;
+  text-transform: none;
+  /* color: rgb(41, 41, 41); */
+  /* overflow-wrap: break-word; */
+  font-feature-settings: normal;
+  font-size: 21px;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.7em;
+  overflow: normal;
+  color: rgb(0, 0, 0);
     
 }
 
@@ -3072,10 +3092,10 @@ button .trending-post-headline h2{
   }
 
   .main-post-headline h2{
-    font-family: 'Roboto';
-    font-size: 2.8rem;
+    
+    /* font-size: 2.8rem;
     letter-spacing: 0;
-    line-height: 1.4;
+    line-height: 1.4; */
     
   }
 
@@ -3083,7 +3103,6 @@ button .trending-post-headline h2{
     font-size: 1.7rem;
     font-weight: 100;
     line-height: 1.5;
-    font-family: sans-serif;
   }
 
 

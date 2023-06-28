@@ -22,7 +22,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title','content', 'image', 'author', 'status','tags', )
+        fields = ('title','content', 'image', 'status','tags', )
         prepopulated_fields = {'slug': ('title',)}
         # fields = '__all__'
         # exclude = ('author', 'slug',)

@@ -9,6 +9,8 @@ from .models import Post, Comment
 from taggit.models import Tag
 from .forms import PostForm
 
+from haystack.models import SearchResult
+
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
 
@@ -19,7 +21,7 @@ def post_blog(request):
 
     if form.is_valid():
         post = form.save(commit=False)
-        # post.user = request.user
+        post.author = request.user
         post.save()
         return redirect('blog:home')
       
@@ -55,11 +57,12 @@ def post_list(request):
     trending_post = Post.published.all().order_by('-publish')[:6]
     latest_post = Post.published.all().order_by('-publish')[:3]
     tags = Tag.objects.all()
+
     return render(request, 
                   'blog/home.html', 
                   {'posts': posts, 
                    'trending_post': trending_post,
-                   'tags': tags
+                   'tags': tags,
                    })
 
 
@@ -67,6 +70,7 @@ def post_detail(request, slug):
  
   blog = get_object_or_404(Post, slug=slug)
   comments = Comment.objects.filter(blog=blog)
+  post_tags = blog.tags.all()
 
   # author = blog.author
   # first_name = author.get_short_name()
@@ -85,6 +89,7 @@ def post_detail(request, slug):
   context = {
     'blog': blog,
     'comments': comments,
+    'post_tags': post_tags,
   }
   return render(request, 'blog/post_detail.html', context)
 

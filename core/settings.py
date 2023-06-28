@@ -57,17 +57,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    # main apps
     'blog',
     'users',
-    "taggit",
 
+    # 3rd party app
+    "taggit",
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.github',
     'ckeditor',
     'django_extensions',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -216,3 +219,13 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 #         'toolbar': 'Basic',
 #     },
 # }
+
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        
+    },
+}
