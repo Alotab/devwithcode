@@ -2174,36 +2174,36 @@ button .trending-post-headline h2{
 
 
   .logo{
-      display: flex;
-      /* margin-left: 1em; */
+    display: flex;
+    /* margin-left: 1em; */
   }
 
   .search{
-      flex: 1;
+    flex: 1;
   }
 
   .search input {
-      display: block! important;
-      border-radius: 0.578rem;
-      margin-left: 0px;
-      margin-right: 0px;
-      width: 100%;
+    display: block! important;
+    border-radius: 0.578rem;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
   }
 
   .search img{
-      display: block! important;
+    display: block! important;
   }
 
 
   .home-link{
-      display: none! important;
+    display: none! important;
   }
 
   .portfolio-link{
-      display: block! important;
+    display: block! important;
   }
   .sign-in-link{
-      display: block! important;
+    display: block! important;
   }
 
   .right-colume{
@@ -2212,8 +2212,8 @@ button .trending-post-headline h2{
 
 
   .left-colume {
-      margin: 50px 0px;
-      width: 30%; 
+    margin: 50px 0px;
+    width: 30%; 
   }
   
   
@@ -2225,8 +2225,8 @@ button .trending-post-headline h2{
 
   /* main content  on Small screens, laptops  */
   .main-content{
-      margin-left: 0px;
-      margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   /* middle content  on Small screens, laptops  */
@@ -2246,59 +2246,59 @@ button .trending-post-headline h2{
   }
 
   .post{
-      margin-right: 10px;
+    margin-right: 10px;
   }
 
   .load-post{
-      background-color: gray;
-      text-align: center;
-      margin-left: 18rem;
-      margin-right: 18rem;
-      border-radius: 0.375rem;
+    background-color: gray;
+    text-align: center;
+    margin-left: 18rem;
+    margin-right: 18rem;
+    border-radius: 0.375rem;
   }
 
   .load-post a p{
-      font-size: 15px;
-      text-align: center;
-      color: white;
-      font-family: inherit;
-      padding: 8px;
-      white-space: nowrap;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    font-family: inherit;
+    padding: 8px;
+    white-space: nowrap;
   }
 
   /* detail page */
   .main-detail-post{
-      display: inline-block;
-      padding: 7rem 1rem;
+    display: inline-block;
+    padding: 7rem 1rem;
   }
 
   .detail-column{
-      width: 100%;
-      /* background-color: red; */
-      border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    /* background-color: red; */
+    border-radius: 5px 5px 0px 0px;
   }
 
   .detail-post .post-image{
-      height: 30rem;
-      width: 100%
-      /* object-fit: cover;
-      margin-bottom: 2rem;
-      border-radius: 5px 5px 0px 0px; */
+    height: 30rem;
+    width: 100%
+    /* object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 5px 5px 0px 0px; */
   }
 
   /* sidebar-column - detail-page */
   .sidebar-column{
-      width: 100%;
-      margin-top: 3.5rem;
-      /* margin-right: 10px; */
+    width: 100%;
+    margin-top: 3.5rem;
+    /* margin-right: 10px; */
   }
 
   .sidebar-post2{
-      background-color: var(--middleColume-backgroundColor);
-      border-radius: 5px;
-      margin-top: 2rem;
-      border-radius: 5px;
-      padding: 3rem;
+    background-color: var(--middleColume-backgroundColor);
+    border-radius: 5px;
+    margin-top: 2rem;
+    border-radius: 5px;
+    padding: 3rem;
   }
 
   /*--------------- portfolio section ------------------*/
@@ -2407,9 +2407,9 @@ button .trending-post-headline h2{
 /*========================== Mini Ipads / some large mobile devices =========================*/
 @media (min-width: 481px) and  (max-width: 768px) {
   
-  body {
+  /* body {
     background-color: green;
-  }
+  } */
 
 
   /* .toggle-menu .nav__toggle {
@@ -2527,28 +2527,28 @@ button .trending-post-headline h2{
   } */
 
   .community-post-headline h4{
-      font-size: 16px;
-      font-family: "Caudex", sans-serif;
-      font-weight: 500;
+    font-size: 16px;
+    font-family: "Caudex", sans-serif;
+    font-weight: 500;
   }
 
   .community-tags {
-      border-radius: 5px;
-      background-color: #94818A;
+    border-radius: 5px;
+    background-color: #94818A;
       
   }
   
   .community-tags h5{
-      font-size: 18px;
-      font-family: 'Courier New', Courier, monospace;
-      font-weight: 600;
-      line-height: 150%;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    line-height: 150%;
   }
 
   /* main content  on small device */
   .main-content{
-      margin-left: 0px;
-      margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   /* middle content  on small device */
@@ -2580,17 +2580,17 @@ button .trending-post-headline h2{
 
 
   .post-share{
-      margin-right: 1.5rem;
+    margin-right: 1.5rem;
   }
 
   /* left colume content  on small device */
   .left-colume{
-      display: none! important;
+    display: none! important;
   }
 
   /* right colument content on small device */
   .right-colume{
-      display: none! important;
+    display: none! important;
   }
 
   .load-post{
@@ -2608,42 +2608,42 @@ button .trending-post-headline h2{
   }
 
 
-    /* detail page */
-    .main-detail-post{
-      display: inline-block;
-      padding: 7rem 1rem;
+  /* detail page */
+  .main-detail-post{
+    display: inline-block;
+    padding: 7rem 1rem;
   }
 
   .detail-column{
-      width: 100%;
-      /* background-color: red; */
-      border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    /* background-color: red; */
+    border-radius: 5px 5px 0px 0px;
   }
   
 
   .detail-post .post-image{
-      height: 30rem;
-      width: 100%
-      /* object-fit: cover;
-      margin-bottom: 2rem;
-      border-radius: 5px 5px 0px 0px; */
+    height: 30rem;
+    width: 100%
+    /* object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 5px 5px 0px 0px; */
   }
 
 
   /* sidebar-column - detail-page */
   .sidebar-column{
-      width: 100%;
-      margin-top: 3.5rem;
-      /* margin-right: 10px; */
+    width: 100%;
+    margin-top: 3.5rem;
+    /* margin-right: 10px; */
   }
 
   /* sidebar-column - detail-page */
   .sidebar-post2{
-      background-color: var(--middleColume-backgroundColor);
-      border-radius: 5px;
-      margin-top: 2rem;
-      border-radius: 5px;
-      padding: 3rem;
+    background-color: var(--middleColume-backgroundColor);
+    border-radius: 5px;
+    margin-top: 2rem;
+    border-radius: 5px;
+    padding: 3rem;
   }
 
   .portfolio-title{
