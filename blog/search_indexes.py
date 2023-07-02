@@ -22,11 +22,24 @@ from .models import Post
 
 
 class PostIndex(indexes.SearchIndex, indexes.Indexable):
-    text = models.CharField(max_length=255)
-    author = models.ForeignKey(AUTH_USER_MODEL, related_name='posts')
+    text = indexes.CharField(document=True, use_template=True)
+    content = indexes.CharField(model_attr="content")
+
+    content_auto = indexes.EdgeNgramField(model_attr='title')
 
     def get_model(self):
         return Post
+    
+    def index_queryset(self, using=None):
+        '''Used when the entire index for model is'''
+        return self.get_model().objects.all()
 
     def get_search_fields(self):
         return ('title', 'content')
+    
+
+    def __init__(self, *args, **kwargs):
+        if 'document' in kwargs:
+            del kwargs['document']
+        super().__init__(*args, **kwargs)
+    

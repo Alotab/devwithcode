@@ -1,0 +1,134 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+    <!-- Main Content     main-content-->
+    <div class="search-main-content">
+
+        <!-- middle-colume content -->
+        <div class="middle-colume-content">
+
+            <!-- search-icon to display in media query -->
+            <div class="middle-colume-search"  id="mid-search">
+                <input type="search" id="gsearch" name="gsearch" placeholder="Search...">
+                <i class="ri-search-line search-icon" id="icon"></i>
+            </div>
+
+            {% if posts.count > 0 %}
+            <div class="search-result-info">
+                <section>123 result for "python"</section>
+                <div class="search-advance"></div>
+            </div>
+        
+            <div class="search-container">
+               {% for post in posts %}
+                <a href="{{ post.get_absolute_url }}" class="search-list">
+                    <img src="images/author.jpg" alt="">
+                    <div class="search-list-content">
+                        <div class="content-title">
+                            <h2>{{ post.object.title }}</h2>
+                        </div>
+                        <div class="content-date-tags">
+                            <p>Apr 13, 2020</p>
+                            <div class="tag">
+                                <p>python</p>
+                                <p>python</p>
+                                <p>python</p>
+                            </div>
+                        
+                        </div>
+                        <div class="content-snippet">
+                            <p>
+                                In this step-by-step tutorial, you'll learn the basics of how to use Python. With this knowledge, you'll be able to start coding your Python applications.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+
+                {% else %}
+                <li>None to show</li>
+                
+                <!--
+                <a class="search-list">
+                    <img src="images/author.jpg" alt="">
+                    <div class="search-list-content">
+                        <div class="content-title">
+                            <h2>Python Virtual Environments: A Primer Primer</h2>
+                        </div>
+                        <div class="content-date-tags">
+                            <p>Apr 13, 2020</p>
+                            <div class="tag">
+                                <p>python</p>
+                                <p>python</p>
+                                <p>python</p>
+                            </div>
+                        
+                        </div>
+                        <div class="content-snippet">
+                            <p>
+                                In this step-by-step tutorial, you'll learn the basics of how to use Python. With this knowledge, you'll be able to start coding your Python applications.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse officia fugiat molestiae libero numquam quod provident ab dicta quos error?
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            
+                <a class="search-list">
+                    <img src="images/author.jpg" alt="">
+                    <div class="search-list-content">
+                        <div class="content-title">
+                            <h2>Python Virtual Environments: A Primer Primer</h2>
+                        </div>
+                        <div class="content-date-tags">
+                            <p>Apr 13, 2020</p>
+                            <div class="tag">
+                                <p>python</p>
+                                <p>python</p>
+                                <p>python</p>
+                            </div>
+                        
+                        </div>
+                        <div class="content-snippet">
+                            <p>
+                                In this step-by-step tutorial, you'll learn the basics of how to use Python. With this knowledge, you'll be able to start coding your Python applications.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse officia fugiat molestiae libero numquam quod provident ab dicta quos error?
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="search-list">
+                    <img src="images/author.jpg" alt="">
+                    <div class="search-list-content">
+                        <div class="content-title">
+                            <h2>Python Virtual Environments: A Primer Primer</h2>
+                        </div>
+                        <div class="content-date-tags">
+                            <p>Apr 13, 2020</p>
+                            <div class="tag">
+                                <p>python</p>
+                                <p>python</p>
+                                <p>python</p>
+                            </div>
+                        
+                        </div>
+                        <div class="content-snippet">
+                            <p>
+                                In this step-by-step tutorial, you'll learn the basics of how to use Python. With this knowledge, you'll be able to start coding your Python applications.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse officia fugiat molestiae libero numquam quod provident ab dicta quos error?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi voluptas cumque, sit eaque asperiores praesentium dolores dicta facilis aut!
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                 -->
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="search-right-content">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi doloribus expedita ducimus consequatur ab delectus. Quis, itaque! Iusto, ducimus sunt?</h1>
+        </div>
+    </div>
+
+{%  block content %}

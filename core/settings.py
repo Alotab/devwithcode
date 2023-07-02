@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django_extensions',
     'haystack',
+    'whoosh',
 ]
 
 MIDDLEWARE = [
@@ -221,11 +222,15 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 # }
 
 
+HAYSTACK_TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates', 'search'),
+)
+
+# HAYSTACK_SEARCH_URL = '/search/'
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': 'http://127.0.0.1:8983/solr'
-        
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }

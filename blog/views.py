@@ -10,6 +10,7 @@ from taggit.models import Tag
 from .forms import PostForm
 
 from haystack.models import SearchResult
+from haystack.query import SearchQuerySet
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -94,6 +95,11 @@ def post_detail(request, slug):
   return render(request, 'blog/post_detail.html', context)
 
 
+
+def search_titles(request):
+   post = SearchQuerySet().autocomplete(content_auto=request.POST.get('search_text', ''))
+
+   return render('search.html', {'post': post})
 
 # class PostDetailView(DetailView):
 #     """ show the detail of a specific post """

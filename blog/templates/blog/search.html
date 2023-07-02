@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load haystack %}
+
+{% block content %}
+
+<form action="/search/" method="GET">
+    <input type="text" name="q" placeholder="Search...">
+    <input type="submit" value="Search">
+</form>
+
+{% if results %}
+    <ul>
+        {% for result in results %}
+            <li>
+                <a href="{{ result.url }}">{{ result.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+   
+{% endblock %}
