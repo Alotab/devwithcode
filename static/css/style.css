@@ -792,12 +792,6 @@ footer ul li a{
   background-color: #7cb4ec;
 }
 
-/* .main-post-tags p{
-    font-size: 15px;
-    font-weight: 300;
-} */
-
-
 .post-main-detail{
   padding-top: 1.5rem;
   padding-bottom: 2.5rem;
@@ -3014,18 +3008,6 @@ button .trending-post-headline h2{
   .search input {
       display: none! important;
   }
-
-  /* .home-link{
-    display: none! important;
-  }
-
-  .portfolio-link{
-    display: none! important;
-  }
-  .sign-in-link{
-    display: none! important;
-  } */
-
 
   .primary-navigation{
     inset: 0 0 0 10%;
