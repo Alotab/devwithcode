@@ -3,13 +3,14 @@
 {% block content %}
 
 
-<div class="create-content" style="padding-top: 15rem">
+<div class="create-content" style="padding-top: 50rem">
     <div class="new-post">
         <h3>Create a New Post</h3>
     </div>
    <form method='post'>
         {% csrf_token %}
         {{ form }}
+        {{form.media}}
         <input type='submit' value='submit'>
 
    </form>
