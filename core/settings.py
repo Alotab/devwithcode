@@ -214,11 +214,34 @@ ACCOUNT_DEFAULT_USER_STATUS = 'active'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
-# CKEDITOR_CONFIGS = {
-#     'awesome_ckeditor': {
-#         'toolbar': 'Basic',
-#     },
-# }
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'all',
+        'skin': 'moono',
+
+        'extraPlugins': ', '.join(
+            [
+                'codesnippet',
+                # 'div',
+                'dialog',
+                'widget',
+                # 'autolink',
+                # 'autoembed',
+                # 'embedsemantic',
+                # 'autogrow',
+
+
+                # 'widget',
+                # 'lineutils',
+                # 'clipboard',
+                # 'dialog',
+                #  'dialogui',
+                # 'elementspath',
+
+            ]
+        ),
+    },
+}
 
 
 HAYSTACK_TEMPLATE_DIRS = (

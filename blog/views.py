@@ -30,6 +30,8 @@ def post_blog(request):
     form = PostForm()
   return render(request, 'blog/createPost.html', {'form': form})
 
+
+
 # @login_required
 # def post_blog(request):
 #     if request.method == 'POST':
@@ -68,10 +70,9 @@ def post_list(request):
 
 
 def post_detail(request, slug):
- 
-  blog = get_object_or_404(Post, slug=slug)
-  comments = Comment.objects.filter(blog=blog)
-  post_tags = blog.tags.all()
+  post = get_object_or_404(Post, slug=slug)
+  comments = Comment.objects.filter(blog=post)
+  post_tags = post.tags.all()
 
   # author = blog.author
   # first_name = author.get_short_name()
@@ -81,14 +82,14 @@ def post_detail(request, slug):
     comment = Comment(
       user_comment=request.user,
       comment=request.POST['comment'],
-      blog=blog,
+      post=post,
     )
     comment.save()
     # return redirect('/')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
   context = {
-    'blog': blog,
+    'post': post,
     'comments': comments,
     'post_tags': post_tags,
   }

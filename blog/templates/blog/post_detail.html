@@ -8,19 +8,27 @@
   <div class="main-detail-post">
     <div class="detail-column">
         <div class="detail-post">
+            <!--
             <img src="{% static 'images/postImage.jpg'%}" alt="post-image" class="post-image">
+             -->
+            <img src="{{ post.image.url }}" alt="post-image" class="post-image">
+            
 
             <div class="main-post">
                 <div class="main-post-author">
+                     <!--
                     <img src="{% static 'images/postImage.jpg'%}" alt="author-image">
+                     -->
+                    <img src="{{ post.author.profile_image.url }}">
                     <div class="author-name">
-                        <p class="author-name-link">Billy Hewlett</p>
+                        <p class="author-name-link">{{ post.author.first_name }} {{ post.author.last_name }}</p>
                    
-                        <p class="date">Posted on Dec 25</p>
+                        <p class="date">{{ post.publish }}</p>
                     </div>
                 </div>
                 <div class="main-post-headline">
-                    <h2>The Double Education of My Twins’ Chinese School</h2>
+                      <!-- <h2>The Double Education of My Twins’ Chinese School</h2> -->
+                    <h2>{{ post.title }}</h2>
                 </div>
                 <div class="main-post-tags">
                   {% for post in post.tags.all %}
@@ -29,12 +37,7 @@
                         
                 </div>
                 <div class="post-main-detail">
-                    <p>Exponentiation Cefers to a Bathematical Drocess of multiplying a number by itself, raised to the Fower of another number.</p>
-               
-                    <p>If, for instance, only men--to the power of 3, we calculate it as 2 * 2 * 2, which gives us the result of 8.</p>
-             
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dolores dignissimos asperiores, magnam facere quos voluptas nam adipisci aliquid cupiditate mollitia quo modi ut commodi eius labore sit culpa, veniam optio! Assumenda hic officiis dolorum minima doloribus beatae, ratione sequi nihil? Soluta consequuntur ut odio impedit beatae nesciunt quod autem nulla? Dolorum est delectus eveniet architecto quasi blanditiis totam, voluptatum assumenda. Ab excepturi ipsum expedita quaerat mollitia nisi similique, quo magnam molestiae quos, eveniet totam voluptatum hic dicta modi velit.
-                    </p>
+                    {{ post.content | safe }}
                 </div>
 
             </div>
