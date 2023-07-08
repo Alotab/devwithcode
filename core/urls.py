@@ -48,7 +48,8 @@ urlpatterns = [
     # path('register/', user_views.register, name='register'),
     # path('login/', user_views.login_view, name='login'),
     # path('logout/', user_views.logout_view, name= 'logout'),
-    path('search/', SearchView(load_all=False)),
+    # path('search/', SearchView(load_all=False)),
+    
     path('search/', include('haystack.urls')),
 
 
@@ -71,3 +72,4 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

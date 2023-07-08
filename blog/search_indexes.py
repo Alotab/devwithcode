@@ -25,7 +25,8 @@ class PostIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     content = indexes.CharField(model_attr="content")
 
-    content_auto = indexes.EdgeNgramField(model_attr='title')
+
+    # content_auto = indexes.EdgeNgramField(model_attr='title')
 
     def get_model(self):
         return Post

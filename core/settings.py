@@ -78,6 +78,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,11 +160,10 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 
+# production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# TEMPLATE_FILTERS = {
-#   'get_real_time_date_format': 'utils.get_real_time_date_format',
-# }
- 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -214,8 +214,6 @@ ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_DEFAULT_USER_STATUS = 'active'
 
 
-# 218998905670-4v62caqb2ld3i726u06t6cf8lv4ppgcc.apps.googleusercontent.com
-# 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
 
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
