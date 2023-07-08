@@ -225,11 +225,13 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'all',
         'skin': 'moono',
+        'fontSize': '18px',
         # 'codeSnippet_customization': '/static/css/codesnippets.css',
         # 'codeSnippet_theme': 'monokai_sublime',
         'extraPlugins': ', '.join(
             [
                 'codesnippet',
+                # 'codesnippetgeshi',
                 # 'div',
                 'dialog',
                 'widget',

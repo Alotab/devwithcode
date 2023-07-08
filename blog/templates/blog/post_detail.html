@@ -104,40 +104,30 @@
     <div class="sidebar-column">
         <div class="related-side-post">
             <h3>Related Post</h3>
-
+            {% for post in related_posts %}
             <button class="related-post">
                 <img src="{% static 'images/postImage.jpg'%}" alt="author-image">
                 <div class="related-post-headline">
-                    <h2>How to work with Docker and Improve your Skills</h2>
+                    <h2>{{ post.title }}</h2>
                     <div class="related-post-author-date">
                       <p class="related-author">Jose Paboss</p>
                       <p class="related-date">May 24</p>
                     </div>
                 </div>
             </button>
-
-
-            <button class="related-post">
-                <img src="{% static 'images/postImage.jpg'%}" alt="author-image">
-                <div class="related-post-headline">
-                    <h2>How to work with Docker and Improve your Skills</h2>
-                    <div class="related-post-author-date">
-                      <p class="related-author">Jose Paboss</p>
-                      <p class="related-date">May 24</p>
-                    </div>
-                </div>
-            </button>
+            {% endfor %}
         </div>
 
         <div class="trending-side-post">
             <h3>Trending Post</h3>
-       
+            
+            {% for post in trending_posts %}
             <button class="trending-post">
-                <a href="porfolio.html"><img src="{% static 'images/postImage.jpg'%}"alt="author-image"></a>
+                <a href="porfolio.html"><img src="{{ post.author }}"alt="author-image"></a>
                 
                 <div class="trending-post-headline">
-                    <a href="#">
-                        <h2>How to work with Docker and Improve your Skills</h2>
+                    <a href="{{ post.get_absolute_url }}">
+                        <h2>{{ post.title }}</h2>
                         <div class="trending-post-author-date">
                             <p class="trending-author">Jose Paboss</p>
                             <p class="trending-date">May 24</p>
@@ -146,36 +136,8 @@
                    
                 </div>
             </button>
+            {% endfor %}
 
-            <button class="trending-post">
-                <a href="porfolio.html"><img src="{% static 'images/postImage.jpg'%}" alt="author-image"></a>
-                
-                <div class="trending-post-headline">
-                    <a href="#">
-                        <h2>How to work with Docker and Improve your Skills</h2>
-                        <div class="trending-post-author-date">
-                            <p class="trending-author">Jose Paboss</p>
-                            <p class="trending-date">May 24</p>
-                        </div>
-                    </a>
-                   
-                </div>
-            </button>
-
-            <button class="trending-post">
-                <a href="porfolio.html"><img src="{% static 'images/postImage.jpg'%}" alt="author-image"></a>
-                
-                <div class="trending-post-headline">
-                    <a href="#">
-                        <h2>How to work with Docker and Improve your Skills</h2>
-                        <div class="trending-post-author-date">
-                            <p class="trending-author">Jose Paboss</p>
-                            <p class="trending-date">May 24</p>
-                        </div>
-                    </a>
-                   
-                </div>
-            </button>
         </div>
     </div>
   </div>

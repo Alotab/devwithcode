@@ -12,6 +12,7 @@ from .forms import PostForm
 from haystack.models import SearchResult
 from haystack.query import SearchQuerySet
 from .utilss import get_real_time_date_format
+from django.db.models import Count
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -74,6 +75,10 @@ def post_detail(request, slug):
   post = get_object_or_404(Post, slug=slug)
   comments = Comment.objects.filter(blog=post)
   post_tags = post.tags.all()
+  trending_posts = Post.published.all().order_by('-publish')[:4]
+  post_tags_id = post.tags.values_list('id', flat=True)
+  related_posts = Post.published.filter(tags__in=post_tags_id).exclude(id=post.id)
+  related_posts = related_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
 
   # author = blog.author
   # first_name = author.get_short_name()
@@ -93,6 +98,8 @@ def post_detail(request, slug):
     'post': post,
     'comments': comments,
     'post_tags': post_tags,
+    'related_posts': related_posts,
+    'trending_posts': trending_posts
   }
   return render(request, 'blog/post_detail.html', context)
 
