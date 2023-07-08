@@ -785,7 +785,7 @@ footer ul li a{
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-  padding-left: 1rem;
+  /* padding-left: 0.1rem; */
 }
 
 .main-post-tags button{

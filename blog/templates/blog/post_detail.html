@@ -123,7 +123,7 @@
             
             {% for post in trending_posts %}
             <button class="trending-post">
-                <a href="porfolio.html"><img src="{{ post.author }}"alt="author-image"></a>
+                <a href="porfolio.html"><img src="{{ post.author.profile_image.url }}"alt="author-image"></a>
                 
                 <div class="trending-post-headline">
                     <a href="{{ post.get_absolute_url }}">
