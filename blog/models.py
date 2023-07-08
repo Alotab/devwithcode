@@ -9,6 +9,7 @@ from django.http import Http404
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from PIL import Image
+import uuid
 # from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -35,6 +36,8 @@ class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True, blank=True)
     # content = models.TextField()
@@ -59,7 +62,7 @@ class Post(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.slug])
+        return reverse('blog:post_detail', args={'uuid': self.id, 'slug': self.slug})
     
 
     def create_slug(sender, instance, **kwargs):
