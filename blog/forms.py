@@ -12,17 +12,8 @@ from .models import Post
 
 
 class PostForm(forms.ModelForm):
-    # title = forms.CharField(max_length=300)
-    # content = forms.Textarea()
-    # slug = forms.SlugField()
-    # image = forms.ImageField()
-    
-    # tag = TaggableManager()
-    
 
     class Meta:
         model = Post
-        fields = ('title','content', 'image', 'status','tags', )
+        fields = ('title','content','image', 'status','tags', )
         prepopulated_fields = {'slug': ('title',)}
-        # fields = '__all__'
-        # exclude = ('author', 'slug',)

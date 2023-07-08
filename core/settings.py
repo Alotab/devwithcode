@@ -32,8 +32,10 @@ if DEBUG:
 
 ALLOWED_HOSTS = []
 
+
 # For django to use this new custome user class
 AUTH_USER_MODEL = 'users.CustomUser'
+
 
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
@@ -156,6 +158,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+
+
+# TEMPLATE_FILTERS = {
+#   'get_real_time_date_format': 'utils.get_real_time_date_format',
+# }
  
 
 
@@ -197,7 +204,7 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 
 
 LOGIN_REDIRECT_URL = '/' #'homes'
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'blog/home'
 
 
 ACCOUNT_ACTIVATION_DAYS = 0
@@ -218,7 +225,8 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'all',
         'skin': 'moono',
-
+        # 'codeSnippet_customization': '/static/css/codesnippets.css',
+        # 'codeSnippet_theme': 'monokai_sublime',
         'extraPlugins': ', '.join(
             [
                 'codesnippet',

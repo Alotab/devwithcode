@@ -383,13 +383,15 @@ li{
 .author-profile .author-image img{
   height: 40px;
   width: 40px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
+  border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
 }
 
 .post-author-details{
   display: flex;
-  gap: 0.5rem;
-  position: relative;
+  flex-direction: column;
+  gap: 0.3rem;
+  /* position: relative; */
   margin-top: 2px;
   width: 17rem;
 }
@@ -398,7 +400,7 @@ li{
   font-size: 13px;
   font-family: sans-serif;
   font-weight: 500;
-  color: rgb(41, 41, 41);
+  color: rgb(70, 68, 68);
   margin-right: 1rem;
   line-height: 16px;
   letter-spacing: inherit;
@@ -410,16 +412,16 @@ li{
 
 .post-author-details .post-date{
   font-size: 10.5px;
-  color: #969CA3;
+  color: #7c838a;
   font-family: sans-serif;
   font-weight: 500;
-  position: absolute;
-  right: 3rem;
-  bottom: 1px;
+  /* position: absolute; */
+  /* right: 3rem; */
+  /* bottom: 1px; */
 }
 
 .post-header{
-  padding: 3px 45px;
+  padding: 0px 45px;
   align-items: center;
   font-size: 19px;
   font-weight: bold;
@@ -448,13 +450,14 @@ li{
   
   gap: 15px;
   /* background-color: red; */
-  height: 30px;
+  height: 20px;
   position:relative;
+  margin-bottom: 5px;
     
 }
 
 .post-tags a{
-  font-size: 15px;
+  font-size: 12.5px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: rgb(117, 117, 117);
   line-height: 20px;
@@ -471,8 +474,7 @@ li{
 
 .post-tags a:hover{
   background: transparent;
-  border-radius: 0.378rem;
-    
+  border-radius: 0.378rem;  
 }
 
 .post-tag-chrome{
@@ -488,10 +490,11 @@ li{
 .comment-share{
   display: flex;
   justify-content: space-between;
-  padding: 0px px;
+  padding-left: 40px;
+  /* padding: 0px 0px; */
   align-items: center;
   padding-bottom: 1rem;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .post-comment a{
@@ -680,7 +683,7 @@ footer ul li a{
 .main-detail-post{
   display: flex;
   gap: 5rem;
-  padding: 7rem 1rem;
+  padding: 2.5rem 1rem;
   width: 100%;
 }
 
@@ -712,34 +715,41 @@ footer ul li a{
 .main-post-author img{
   height: 40px;
   width: 40px;
-  border-radius: 50%;
+  /* border-radius: 90%; */
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
       
 }
 
 .author-name{
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    /* position: relative; */
-    /* text-align: center; */
-    /* justify-content: center; */
-    /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 3px;
+  /* position: relative; */
+  /* text-align: center; */
+  /* justify-content: center; */
+
 }
 
 .author-name .author-name-link{
     font-size: 15px;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #363535;
     font-weight: 600;
+ 
 }
 
 
-.author-name .date{
+.author-name .publish{
   font-size: 11px;
-  position: absolute;
+  /* position: absolute; */
   font-family: sans-serif;
-  left: 19rem;
-  top: 40.8rem;
-  font-weight: 250; 
-  padding: 0;
+  /* left: 19rem; */
+  /* top: 40.8rem; */
+  font-weight: 400; 
+  letter-spacing: 0.2px;
+  color: rgb(108, 105, 105);
+  /* padding: 0; */
 }
 
 .detail-column{
@@ -756,16 +766,17 @@ footer ul li a{
   /* font-size: 4rem;
   line-height: 1.2;  */
   font-style: normal;
+  font-weight: 900;
   /* font-weight: 900;
   letter-spacing: 0.5px; */
   color: rgb(41, 41, 41);
   margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 
 
   line-break: auto;
   line-height: 1.06667em;
-  font-weight: 400;
+  /* font-weight: 400; */
   font-size: 30px;
   overflow-wrap: normal;
 }
@@ -773,7 +784,7 @@ footer ul li a{
 .main-post-tags{
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding-left: 1rem;
 }
 
@@ -793,7 +804,7 @@ footer ul li a{
 }
 
 .post-main-detail{
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   padding-bottom: 2.5rem;
 }
 
@@ -810,7 +821,7 @@ footer ul li a{
   /* color: rgb(41, 41, 41); */
   /* overflow-wrap: break-word; */
   font-feature-settings: normal;
-  font-size: 21px;
+  font-size: 1.925rem;  /* 21 */
   letter-spacing: normal;
   line-break: auto;
   line-height: 1.7em;
@@ -818,6 +829,36 @@ footer ul li a{
   color: rgb(0, 0, 0);
     
 }
+
+.post-main-detail h1{
+  font-size: 3rem;
+  padding: 2.9rem 0 0.5rem 0;
+}
+
+.post-main-detail h2{
+  font-family: TNYAdobeCaslonPro,'Times New Roman', Times, serif;
+  font-size: 2.5rem;
+  padding: 2.9rem 0 0.5rem 0;
+}
+
+.post-main-detail h3{
+  font-size: 2.2rem;
+  padding: 2rem 0 0.5rem 0;
+  font-weight: 600;
+  color: green;
+}
+
+.post-main-detail h4{
+  color: red;
+  font-size: 1.8rem;
+}
+
+
+.post-main-detail img{
+  max-width: 100%;
+  height: auto !important;
+}
+
 
 
 /*====================== sidebar-column - detail-page ===========*/
@@ -2434,7 +2475,7 @@ button .trending-post-headline h2{
   /* detail page */
   .main-detail-post{
     display: inline-block;
-    padding: 7rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
   .detail-column{
@@ -2817,7 +2858,7 @@ button .trending-post-headline h2{
   /* detail page */
   .main-detail-post{
     display: inline-block;
-    padding: 7rem 1rem;
+    padding: 2.5rem 0rem;
   }
 
   .detail-column{
@@ -3271,10 +3312,11 @@ button .trending-post-headline h2{
   }
 
 
+ 
   /*------------------- detail page ---------------------*/
   .main-detail-post{
     display: inline-block;
-    padding: 7rem 1rem;
+    padding: 2.5rem 0rem;
   }
 
   .author-name .date{
@@ -3282,6 +3324,7 @@ button .trending-post-headline h2{
     /* top: 40.7rem; */
   }
 
+ 
 
   .detail-column{
     width: 100%;

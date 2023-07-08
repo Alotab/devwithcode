@@ -10,6 +10,11 @@
     <!-- <link rel="stylesheet" type="text/css" href="static/css/styles.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">　
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/monokai.min.css">　
 
    
 
@@ -41,7 +46,7 @@
             <!-- <div class="main-nav"> -->
                 <div class="logo">
                     <div class="main-logo">
-                        <a href="#"><img src="{% static 'images/logo2.svg' %}" alt="logo" ></a>
+                        <a href="{% url 'blog:home' %}"><img src="{% static 'images/logo2.svg' %}" alt="logo" ></a>
                     </div>
                     <div class="search">
                         <input type="search" id="gsearch" name="gsearch">
@@ -120,5 +125,11 @@
 
        <!--=============== SCROLLREVEAL ===============-->
     <script src="{% static 'js/scrollreveal.min.js' %}"></script>
+
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>hljs.initHighlightingOnLoad();</script>
+   
 </body>
 </html>

@@ -130,7 +130,7 @@ def logout_view(request):
   logout(request)
 
   # Redirect the user to the current detail page.
-  return redirect('/')
+  return redirect('blog:home')
 
 
 def login_view(request):

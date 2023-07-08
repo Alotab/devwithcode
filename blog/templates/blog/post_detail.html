@@ -8,22 +8,14 @@
   <div class="main-detail-post">
     <div class="detail-column">
         <div class="detail-post">
-            <!--
-            <img src="{% static 'images/postImage.jpg'%}" alt="post-image" class="post-image">
-             -->
             <img src="{{ post.image.url }}" alt="post-image" class="post-image">
-            
 
             <div class="main-post">
                 <div class="main-post-author">
-                     <!--
-                    <img src="{% static 'images/postImage.jpg'%}" alt="author-image">
-                     -->
                     <img src="{{ post.author.profile_image.url }}">
                     <div class="author-name">
-                        <p class="author-name-link">{{ post.author.first_name }} {{ post.author.last_name }}</p>
-                   
-                        <p class="date">{{ post.publish }}</p>
+                        <p class="author-name-link">{{ post.author }}</p>
+                        <p class="publish">Posted on {{ post.publish }}</p>
                     </div>
                 </div>
                 <div class="main-post-headline">

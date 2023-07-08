@@ -11,6 +11,7 @@ from .forms import PostForm
 
 from haystack.models import SearchResult
 from haystack.query import SearchQuerySet
+from .utilss import get_real_time_date_format
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -18,13 +19,13 @@ from haystack.query import SearchQuerySet
 
 def post_blog(request):
   if request.method == 'POST':
-    form = PostForm(request.POST)
-
+    form = PostForm(request.POST, request.FILES)
+    # print(form.errors)
     if form.is_valid():
-        post = form.save(commit=False)
-        post.author = request.user
-        post.save()
-        return redirect('blog:home')
+      post = form.save(commit=False)
+      post.author = request.user
+      post.save()
+      return redirect('blog:home')
       
   else:
     form = PostForm()
@@ -98,9 +99,9 @@ def post_detail(request, slug):
 
 
 def search_titles(request):
-   post = SearchQuerySet().autocomplete(content_auto=request.POST.get('search_text', ''))
+  post = SearchQuerySet().autocomplete(content_auto=request.POST.get('search_text', ''))
 
-   return render('search.html', {'post': post})
+  return render('search.html', {'post': post})
 
 # class PostDetailView(DetailView):
 #     """ show the detail of a specific post """

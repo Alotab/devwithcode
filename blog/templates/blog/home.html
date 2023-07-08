@@ -1,7 +1,6 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {%  block content %}
-
     <!-- Main Content -->
     <div class="main-content">
         <!-- left-colume content-->
@@ -52,23 +51,24 @@
                 <div class="post">
                     <div class="author-profile">
                         <div class="author-image">
-                            <a href="#"><img src="{{ post.image.url }}" alt="author"></a>
+                            <a href="#"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
+                           
                         </div>
                         <div class="post-author-details">
                             {% with author=post.author %}
                                 <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
-                                <p class="post-date">Apr 11, 2023</p>
+                                <p class="post-date">{{ post.publish}}</p>
                             {% endwith %}
+                     
                         </div>
                        
                     </div>
                     <div class="post-header">
                         <a href="{% url 'blog:post_detail' post.slug %}">
-                            <h4>{{ post.title }}</h4>
+                            <h4>{{ post.title | capfirst }}</h4>
                         </a>
                     </div>
                     <div class="post-tags">
-
                         {% for post in post.tags.all %}
                             <a class="post-tag-chrome" href="#"><span>#</span>{{ post }}</a>
                         {% endfor %}

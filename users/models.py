@@ -33,7 +33,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()  # specify that all objects for the class come from the CustomeUserManager
 
     def __str__(self) -> str:
-        return f"{self.first_name} {self.last_login}"
+        return f"{self.first_name} {self.last_name}"
     
     def has_perm(self, perm, obj=None):
         return self.is_admin
@@ -42,7 +42,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return True
     
     # def get_full_name(self):
-    #     return f"{self.first_name} {self.last_login}"
+    #     return f"{self.first_name} {self.last_name}"
     
     def get_short_name(self):
         return f"{self.first_name}"
