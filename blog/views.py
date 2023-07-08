@@ -78,7 +78,7 @@ def post_detail(request, slug):
   trending_posts = Post.published.all().order_by('-publish')[:4]
   post_tags_id = post.tags.values_list('id', flat=True)
   related_posts = Post.published.filter(tags__in=post_tags_id).exclude(id=post.id)
-  related_posts = related_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
+  related_posts = related_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
 
   # author = blog.author
   # first_name = author.get_short_name()
@@ -88,7 +88,7 @@ def post_detail(request, slug):
     comment = Comment(
       user_comment=request.user,
       comment=request.POST['comment'],
-      post=post,
+      blog=post,
     )
     comment.save()
     # return redirect('/')
@@ -99,7 +99,7 @@ def post_detail(request, slug):
     'comments': comments,
     'post_tags': post_tags,
     'related_posts': related_posts,
-    'trending_posts': trending_posts
+    'trending_posts': trending_posts,
   }
   return render(request, 'blog/post_detail.html', context)
 

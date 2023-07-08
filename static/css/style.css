@@ -871,42 +871,55 @@ footer ul li a{
   border-radius: 5px;
   margin-top: 6rem;
   border-radius: 5px;
-  padding: 3rem;
+  padding: 0px 2rem;
+  padding-bottom: 2rem;
   margin-bottom: 2rem;
 }
 
 .related-side-post h3{
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: 400;
-    /* padding-top: 2rem; */
-    text-transform: uppercase;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 400;
+  padding-top: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .related-post{
+  margin-bottom: 0.9rem;
+  width: 100%;
+ 
+}
+
+.related-post a{
   display: flex;
   gap: 1.5rem;
-  padding: 2rem 0.5rem;
+  padding: 1rem 0.5rem;
   width: 100%;
+  text-decoration: none;
   background: none;
-  border: 1px solid gray;
   border-radius: 0.5rem;
   margin-top: 1rem;
   cursor: pointer;
+  
+
 }
 
-.related-post:hover{
-  background-color: rgb(233, 229, 229);
-}
+
 
 .related-post img{
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0.5rem;
 }
 
 .related-post-headline{
   text-align: left;
+}
+
+.related-post-headline h2{
+  text-decoration: none;
+  color: rgb(78, 76, 76);
 }
 
 .related-post-author-date{
@@ -945,7 +958,7 @@ footer ul li a{
 .trending-post img{
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0.5rem;
 }
 
 .trending-side-post h3{
@@ -967,6 +980,7 @@ button .trending-post-headline h2{
 
 .trending-post-headline a:hover{
   color: #76b3f0;
+
 }
 
 .trending-post-author-date{
@@ -974,6 +988,10 @@ button .trending-post-headline h2{
   gap: 1rem;
   margin-top: 1rem;
 }
+
+
+
+
 
 
 
