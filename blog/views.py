@@ -71,8 +71,8 @@ def post_list(request):
                    })
 
 
-def post_detail(request, slug):
-  post = get_object_or_404(Post, slug=slug)
+def post_detail(request, slug, pk):
+  post = get_object_or_404(Post, slug=slug, id=pk)
   comments = Comment.objects.filter(blog=post)
   post_tags = post.tags.all()
   trending_posts = Post.published.all().order_by('-publish')[:4]

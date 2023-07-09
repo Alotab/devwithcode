@@ -37,7 +37,8 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+   
+    id = models.BigAutoField(primary_key=True, editable=False)
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True, blank=True)
     # content = models.TextField()
@@ -62,7 +63,7 @@ class Post(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args={'uuid': self.id, 'slug': self.slug})
+        return reverse('blog:post_detail', args= [self.slug, self.id])
     
 
     def create_slug(sender, instance, **kwargs):

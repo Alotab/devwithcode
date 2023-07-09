@@ -64,7 +64,7 @@
                        
                     </div>
                     <div class="post-header">
-                        <a href="{% url 'blog:post_detail' post.slug %}">
+                        <a href="{{ post.get_absolute_url }}">
                             <h4>{{ post.title | capfirst }}</h4>
                         </a>
                     </div>
