@@ -48,11 +48,16 @@ navToggleMobile.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
     // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
     // const closeMenuVisiblity =  navCloseToggle.getAttribute('data-visible');
+
+    // Get the window object.
+    var window = window;
+
     disableScroll() 
     if(visibility === "false"){
         primaryNav.setAttribute('data-visible', true);
         navToggleMobile.setAttribute('aria-expanded', true);
         navCloseToggle.setAttribute('aria-expanded', true);
+        
     } 
 });
 
