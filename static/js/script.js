@@ -86,7 +86,8 @@ function preventScrolling() {
 window.onload = preventScrolling;
   
   
-
+let timesince = document.getElementById("time-tag").innerHTML.split(",");
+document.getElementById("time-tag").innerHTML = timesince[0];
 
 
 

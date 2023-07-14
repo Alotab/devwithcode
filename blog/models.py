@@ -10,6 +10,7 @@ from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from PIL import Image
 import uuid
+import readtime
 # from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -56,6 +57,11 @@ class Post(models.Model):
     objects = models.Manager()
     published = PublishedManager()
     tags = TaggableManager()
+
+
+    def get_readtime(self):
+        result = readtime.of_text(self.content)
+        return result.text 
 
 
     def __str__(self) -> str:
