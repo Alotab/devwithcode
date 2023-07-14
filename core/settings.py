@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(kto7mpc3l$m_)4fd7^8#vxvbdxa&y2jegezun!img+rf(5*vo'
+try:
+    SECRET_KEY = os.environ['SECRET_KEY']
+except KeyError as e:
+    raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,8 +128,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'core',
         'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': 'Donalaska0244'
+        'USER': os.environ['DATABASE_USER'],
+        'PASSWORD' : os.environ['DATABASE_KEY']
     }
 }
 
@@ -221,8 +227,6 @@ ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_DEFAULT_USER_STATUS = 'active'
 
 
-
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
@@ -236,25 +240,15 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ', '.join(
             [
                 'codesnippet',
-                # 'codesnippetgeshi',
-                # 'div',
                 'dialog',
                 'widget',
-                # 'autolink',
-                # 'autoembed',
-                # 'embedsemantic',
-                # 'autogrow',
-
-
-                # 'widget',
-                # 'lineutils',
-                # 'clipboard',
-                # 'dialog',
-                #  'dialogui',
-                # 'elementspath',
-
             ]
+
         ),
+        'codeSnippet_fontSize': 40,
+        'codeSnippet_tabSize': 10,
+        'codeSnippet_theme': 'default',
+        
     },
 }
 
