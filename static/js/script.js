@@ -48,7 +48,7 @@ navToggleMobile.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
     // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
     // const closeMenuVisiblity =  navCloseToggle.getAttribute('data-visible');
-
+   
     // Get the window object.
     var window = window;
 
@@ -73,10 +73,6 @@ navCloseToggle.addEventListener('click', () => {
     }
 });
 
-
-
-
-
 function preventScrolling() {
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('mobile-nav-toggle')) {
@@ -90,14 +86,59 @@ function preventScrolling() {
 
 window.onload = preventScrolling;
   
-  
-let timesince = document.getElementById("time-tag").innerHTML.split(",");
-document.getElementById("time-tag").innerHTML = timesince[0];
 
 
 
 
 
+//scroll loading
+const postEl = document.querySelector('.post');
+
+
+//set current page number
+let limit = 10;
+let page = 1;
+
+
+console.log(limit)
+
+//fetch post data from dabtabase
+async function getPost(){
+    const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?_limit=${limit}&_page=${page}`
+    );
+    const data = await res.json();
+    
+    return data;
+
+}
+
+const posts = await getPost()
+
+
+async function fetchImage() {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      const myBlob = await response.blob();
+      myImage.src = URL.createObjectURL(myBlob);
+    } catch (error) {
+      console.error("There has been a problem with your fetch operation:", error);
+    }
+}
+
+// fetchImage()
+
+
+const logoEl = document.querySelector(".main-logo");
+
+
+logoEl.addEventListener('click', () => {
+    fetchImage()
+   
+})
 
 
 
