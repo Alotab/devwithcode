@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 # from django.views.generic import DetailView
 from django.urls import reverse
 # from django.views.generic.edit import FormMixin, FormView
@@ -13,6 +13,7 @@ from haystack.models import SearchResult
 from haystack.query import SearchQuerySet
 from .utilss import get_real_time_date_format
 from django.db.models import Count
+from django.core.paginator import Paginator
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -62,6 +63,24 @@ def post_list(request):
     trending_post = Post.published.all().order_by('-publish')[:6]
     latest_post = Post.published.all().order_by('-publish')[:3]
     tags = Tag.objects.all()
+    # paginator = Paginator(Post.objects.all().order_by('-publish'), 10)
+    # page_number = request.GET.get('page', 1)
+    # page = paginator.get_page(page_number)
+
+    # posts = []
+    # for post in page.object_list:
+    #   posts.append({
+    #     'id': post.id,
+    #     'title':  post.title,
+    #     'content': post.content,
+
+    #   })
+    
+   
+    # return JsonResponse({'posts': posts, 
+    #                      'has_next': page.has_next(), 
+    #                      'trending_post': trending_post
+    #                      }, safe=False)
 
     return render(request, 
                   'blog/home.html', 
