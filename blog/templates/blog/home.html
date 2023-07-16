@@ -20,10 +20,10 @@
         </div>
 
         <!-- middle-colume content -->
-        <div class="middle-colume">
+        <div class="middle-colume" id="post-container">
 
-             <!-- search-icon to display in media query -->
-             <div class="middle-colume-search"  id="mid-search">
+            <!-- search-icon to display in media query -->
+            <div class="middle-colume-search"  id="mid-search">
                 <input type="search" id="gsearch" name="gsearch" placeholder="Search...">
                 <i class="ri-search-line search-icon" id="icon"></i>
             </div>
@@ -48,62 +48,96 @@
                 <p>Create Account</p>
             </div>
 
-            
-            {% for post in posts %}
-            <div class="post">
-                <div class="author-profile">
-                    <div class="author-image">
-                        <a href="#"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
+            <!--------------------- content posts ----------------------->
+            <div class="middle-colume-post" id="middle-colume-post">
+                {% for post in posts %}
+                <div class="post">
+                    <div class="author-profile">
+                        <div class="author-image">
+                            <a href="#"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
+                           
+                        </div>
+                        <div class="post-author-details">
+                            {% with author=post.author %}
+                                <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
+                                <p id="time-tag"  class="post-date">{{ post.publish |date:'M d' }} &middot; {{ post.get_readtime }} read</p>
+                             
+                            {% endwith %}
+                        </div>
                        
                     </div>
-                    <div class="post-author-details">
-                        {% with author=post.author %}
-                            <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
-                            <p id="time-tag"  class="post-date">{{ post.publish |date:'M d' }} &middot; {{ post.get_readtime }} read</p>
-                         
-                        {% endwith %}
-                 
-                    </div>
-                   
-                </div>
-                <div class="post-header">
-                    <a href="{{ post.get_absolute_url }}">
-                       
-                        <h4>{{ post.title | capfirst }}</h4>
-                    </a>
-                </div>
-                <div class="post-tags">
-                    {% for post in post.tags.all %}
-                        <a class="post-tag-chrome" href="#"><span></span>{{ post }}</a>
-                    {% endfor %}
-                </div>
-            
-                <div class="comment-share">
-                    <div class="post-comment">
-                        <a href="#">
-                            <img src="{% static 'images/commentIcon.svg' %}" alt="comment" class="post-comment-icon">
-                            <p>Add Comment</p>
+                    <div class="post-header">
+                        <a href="{{ post.get_absolute_url }}">
+                           
+                            <h4>{{ post.title | capfirst }}</h4>
                         </a>
                     </div>
-                    <div class="post-share">
-                        <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
+                    <div class="post-tags">
+                        {% for post in post.tags.all %}
+                            <a class="post-tag-chrome" href="#"><span></span>{{ post }}</a>
+                        {% endfor %}
                     </div>
+                
+                    <div class="comment-share">
+                        <div class="post-comment">
+                            <a href="#">
+                                <img src="{% static 'images/commentIcon.svg' %}" alt="comment" class="post-comment-icon">
+                                <p>Add Comment</p>
+                            </a>
+                        </div>
+                        <div class="post-share">
+                            <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
+                        </div>
+                    </div>
+                    
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
 
-
-
-            <!-- <div class="load-post">
-                <a href="#"><p>Load More</p></a>
-            </div> -->
-            
+            <div class="load-post">
+                <p>Load more stories</p>
+            </div>
         </div>
 
 
-         <!--left-colume content-->
-         <div class="right-colume">
-
-         </div>
+        <!---------------------  left-colume conten -------------------->
+        <div class="right-colume"></div>
     </div>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+    <!-- <script>
+        $(document).ready(function(){
+            var limit = 3;
+            var start = 0;
+            var action = 'inactive';
+            function load_post(limit, start){
+                $.ajax({
+                    url:'fetch/',
+                    method:'GET',
+                    data: {
+                        limit:limit,
+                        start:start,
+                    },
+                    caches:false,
+                    success:function(response){
+                        $('#post-container').append(response);
+                        if(response==""){
+                            $('#load-more').html('<a href="#"><p>Loading more ...</p></a>')
+                            action='active';
+                        }else{
+                            $('#load-more').html('<a href="#"><p>Loading more ...</p></a>')
+                            action='inactive';
+                        }
+                    },
+                })
+            }
+
+            if(action=='inactive'){
+                action='active',
+                load_post(limit, start);
+            }
+        });
+    </script> -->
+   
 {% endblock %}

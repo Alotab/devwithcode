@@ -58,36 +58,39 @@ def lowercase_first_name(author_first_name):
 
 
 def post_list(request):
-    """ List the all the post in the home page """
-    posts = Post.published.all().order_by('-publish')
-    trending_post = Post.published.all().order_by('-publish')[:6]
-    latest_post = Post.published.all().order_by('-publish')[:3]
-    tags = Tag.objects.all()
-    # paginator = Paginator(Post.objects.all().order_by('-publish'), 10)
-    # page_number = request.GET.get('page', 1)
-    # page = paginator.get_page(page_number)
+  """ List the all the post in the home page """
+  posts = Post.published.all().order_by('-publish')
+  post_list = list(posts)
 
-    # posts = []
-    # for post in page.object_list:
-    #   posts.append({
-    #     'id': post.id,
-    #     'title':  post.title,
-    #     'content': post.content,
 
-    #   })
-    
-   
-    # return JsonResponse({'posts': posts, 
-    #                      'has_next': page.has_next(), 
-    #                      'trending_post': trending_post
-    #                      }, safe=False)
+  trending_post = Post.published.all().order_by('-publish')[:6]
+  latest_post = Post.published.all().order_by('-publish')[:3]
+  tags = Tag.objects.all()
 
-    return render(request, 
-                  'blog/home.html', 
-                  {'posts': posts, 
-                   'trending_post': trending_post,
-                   'tags': tags,
-                   })
+
+  paginator = Paginator(post_list , 5)
+  page_number = request.GET.get('page')
+  page = paginator.get_page(page_number)
+
+  context = {
+    'posts': page.object_list,
+    'trending_post': trending_post,
+    'tags': tags,
+    'paginator': paginator,
+    'page_obj': page,
+  }
+
+  return render(request, 'blog/home.html', context)
+
+
+def post_fetch(request):
+  total_item = int(request.GET.get('total_item'))
+  limit = 5
+  post_obj = list(Post.objects.values()[total_item:total_item+limit])
+  data={
+    'posts':post_obj
+  }
+  return JsonResponse(data=data)
 
 
 def post_detail(request, slug, pk):

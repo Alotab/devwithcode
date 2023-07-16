@@ -88,8 +88,8 @@ window.onload = preventScrolling;
 
 
 // CHAT BOT
-let userMessenger;
-let API_KEY = "";
+var userMessenger;
+var API_KEY = "";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -98,8 +98,8 @@ const createChatLi = (message, className) => {
     chatLi.classList.add("chat", className);
 
     let chatContent = className === "outgoing" ? `<p></p><span class="material-symbols-outlined">
-    <img src="{% static 'images/user.png' %}" alt=""></span>` : ` <span class="material-symbols-outlined">
-    <img src="{% static 'images/chatbot.png'%}" alt=""></span><p></p>`;
+    <img src="images/user.png" alt=""></span>` : ` <span class="material-symbols-outlined">
+    <img src="images/chatbot.png" alt=""></span><p></p>`;
     chatLi.innerHTML = chatContent;
     chatLi.querySelector("p").textContent = message;
     return chatLi;
@@ -192,9 +192,9 @@ chatBotToggler.addEventListener("click", () => document.body.classList.toggle("s
 
 
 //set current page number
-let limit = 10;
-let page = 1;
-let pageNumber = 1;
+// let limit = 10;
+// let page = 1;
+// let pageNumber = 1;
 
 
 
@@ -262,30 +262,6 @@ let pageNumber = 1;
 
 
 
-//// const dataURL = '/posts/'
-// const dataURL = "{% url 'blog:home' %}"
-
-// async function loadData(){
-//     fetch(dataURL)
-//         .then(response => response.text())
-//         .then(data => {
-//             console.log(response);
-//         });
-// }
-
-// loadData()
-
-
-
-
-
-
-
-
-
-
-
-
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
     origin: 'top',
@@ -298,3 +274,90 @@ sr.reveal(`.portfolio-container, .portfolio-card`, {delay: 700, origin: 'bottom'
 sr.reveal(`.portfolio-container, .portfolio-card`, {interval: 100})
 sr.reveal(`.my-profile-introduction`, {origin: 'left'})
 sr.reveal(`.my-profile-image`, {origin: 'right'})
+
+// scroll
+
+
+const loadBtn = document.querySelector('.load-post');
+const loadPostHide = document.querySelector('.load-post');
+
+
+function loadmorePost(){
+    var current_time = $('.post').length;
+
+    const content_add_post = document.getElementById('middle-colume-post');
+
+    $.ajax({
+        url:'fetch/',
+        type: 'GET',
+        data: {
+            'total_item': current_time
+        },
+        beforeSend: function(){
+            loadPostHide.classList.add('.hide');
+
+            //spinner appears
+        },
+        success: function(response){
+            const data = response.posts;
+
+            data.map( post=>{
+                content_add_post.innerHTML += `
+                <div class="post">
+                    <div class="author-profile">
+                        <div class="author-image">
+                        
+                        
+                        </div>
+                        <!-- <div class="post-author-details">
+                            {% with author=post.author %}
+                                <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
+                                <p id="time-tag"  class="post-date">{{ post.publish |date:'M d' }} &middot; {{ post.get_readtime }} read</p>
+                            
+                            {% endwith %}
+                    
+                        </div> -->
+                    
+                    </div>
+                    <div class="post-header">
+                        <a href="${ post.get_absolute_url }">
+                        
+                            <h4>${ post.title }</h4>
+                        </a>
+                    </div>
+                    <!-- <div class="post-tags">
+                        {% for post in post.tags.all %}
+                            <a class="post-tag-chrome" href="#"><span></span>${ post }</a>
+                        {% endfor %}
+                    </div> -->
+        
+                    <div class="comment-share">
+                        <div class="post-comment">
+                            <a href="#">
+                                <img src="{% static 'images/commentIcon.svg' %}" alt="comment" class="post-comment-icon">
+                                <p>Add Comment</p>
+                            </a>
+                        </div>
+                        <div class="post-share">
+                            <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
+                        </div>
+                    </div> 
+                </div>
+                `
+            });
+            loadPostHide.classList.remove('.hide');
+            history.replaceState(null, null, ' ');
+
+        },
+        error: function(error){
+
+        }
+    })
+
+}
+
+
+// loadBtn.addEventListener('click', (e) =>{
+//     e.preventDefault();
+//     loadmorePost();
+// });
