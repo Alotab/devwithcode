@@ -14,6 +14,7 @@ from haystack.query import SearchQuerySet
 from .utilss import get_real_time_date_format
 from django.db.models import Count
 from django.core.paginator import Paginator
+from chatbot_model import quesans
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -131,6 +132,17 @@ def search_titles(request):
   post = SearchQuerySet().autocomplete(content_auto=request.POST.get('search_text', ''))
 
   return render('search.html', {'post': post})
+
+
+# chatbot
+def chatbotresponse(request):
+  question = request.GET['question']
+
+  res = quesans(question)
+  return res
+
+
+
 
 # class PostDetailView(DetailView):
 #     """ show the detail of a specific post """

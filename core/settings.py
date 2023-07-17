@@ -265,3 +265,6 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
+
+# AVX2 FMA
+USE_AVX2_FMA = True
