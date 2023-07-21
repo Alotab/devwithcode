@@ -11,8 +11,6 @@ from django.db.models.signals import pre_save
 from PIL import Image
 import uuid
 import readtime
-# from ckeditor.fields import RichTextField
-# from ckeditor_uploader.fields import RichTextUploadingField
 from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
@@ -38,7 +36,6 @@ class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
-
    
     id = models.BigAutoField(primary_key=True, editable=False)
     title = models.CharField(max_length=200)
@@ -69,10 +66,8 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
     
-
     def get_absolute_url(self):
         return reverse('blog:post_detail', args= [self.slug, self.id])
-    
 
     def create_slug(sender, instance, **kwargs):
         if not instance.slug:

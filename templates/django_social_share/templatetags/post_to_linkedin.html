@@ -1,0 +1,16 @@
+<!-- <div class="linkedin-this"> <a href="http://www.linkedin.com/shareArticle?url={{request.get_host}}{{ request.get_full_path }}" target="_blank"> <i class="ri-linkedin-box-fill"></a><p>Link</p></div> -->
+
+    <!-- <a href="http://www.linkedin.com/shareArticle?url={{request.get_host}}{{ request.get_full_path }}" target="_blank"> <i class="ri-linkedin-box-fill"></a><p>Link</p> -->
+
+
+<!-- <div class="linkedin-this {{link_class}}">
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript"></script>
+    <script type="IN/Share" data-url="{{ linkedin_url }}"></script>
+</div> -->
+
+
+{% load i18n social_share %}{% get_current_language as LANGUAGE_CODE %}
+<div class="linkedin-this {{link_class}}">
+  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: {{ LANGUAGE_CODE|linkedin_locale }}</script>
+  <script type="IN/Share" data-url="{{ linkedin_url }}"></script>
+</div>

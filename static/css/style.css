@@ -651,6 +651,7 @@ footer ul li a{
 }
 .main-post{
   margin: 0rem 4rem;
+  margin-bottom: 2rem;
     
 }
 .main-post-author{
@@ -2099,81 +2100,7 @@ button .trending-post-headline h2{
   visibility: visible;
 }
 
-/*-------------------- extenal-share ----------------------*/
-.external-share-container{
-  background: var(--website-backgroundColor);
-  height: 100px;
-  width: 100%;
-  height: 30px;
-  display: inline-flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-.share-link{
-  background: #fff;
-  width: 300px;
-  height: 49px;
-  -moz-box-align: center;
-  font-size: 0.875rem;
 
-
-  display: flex;
-  position: relative;
-  align-items: center;
-  border-radius: 30px;
-  border: 1px solid rgb(194, 191, 191);
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(0 0 #0000),0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
-  display: none;
-  transition: display 0.3s;
-}
-.share-link.share-java{
-  display: flex;
-}
-.share-scroll{
-  z-index: 999999;
-  background: #fff;
-  width: 300px;
-  height: 49px;
-  display: flex;
-  position: fixed;
-  align-items: center;
-  text-align: center;
-  border-radius: 30px;
-  border: 1px solid rgb(194, 191, 191);
-  bottom: 3%;
-}
-.social-share{
-  border-right: 1px solid rgb(199, 195, 195);
-  border-left-width: 1px;
-  line-height: inherit;
-  border-right-style: 10px;
-  align-items: center;
-  text-align: center;
-  flex-basis: 25%;
-}
-.social-share i{
-  font-size: 18px;
-  color: rgb(30 41 59 / var(0));
-  opacity: 0.7;
-  cursor: pointer;
-  transition: background 0.3s;
-
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
-.social-share i:hover{
-  /* margin-right: 40px; */
-  border-radius: 50%;
-  padding: 6px;
-  background: rgb(223, 221, 221);
-}
-.social-share:last-child{
-  border-right: none;
-}
 
 
 /*-------------------- extenal-share ----------------------*/
@@ -2200,17 +2127,20 @@ button .trending-post-headline h2{
 
   border-radius: 30px;
   border: 1px solid rgb(194, 191, 191);
+
   /* display: none; */
-  transition: display 0.3s;
+  /* transition: transform 1.9s ease-in-out; */
+  transition: all 0.2s ease;
 }
 .share-link.share-java{
   display: flex;
+  transform: translateY(0);
 }
 .share-link.share-scroll{
   z-index: 999999;
   background: #fff;
   width: 300px;
-  height: 49px;
+  height: 45px;
   display: flex;
 
   position: fixed;
@@ -2226,6 +2156,9 @@ button .trending-post-headline h2{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(0 0 #0000),0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
+  /* transition: display 0.3s; */
+  /* transition: transform 1.9s ease-in-out; */
+  transition: all 0.2s ease;
   
 }
 .social-share{
@@ -2363,6 +2296,37 @@ button .trending-post-headline h2{
 .no-scroll {
   overflow: hidden;
 }
+.permalink-message{
+  display: inline-flex;
+  gap: 8px;
+  position: absolute;
+  right: -380px;
+  bottom: 0;
+  background: green;
+  border-radius: 0.3rem;
+  border-width: 1px;
+  /* border-style: solid; */
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  padding: 2.4rem 2.3rem;
+  display: none;
+
+}
+.show-permalink-message{
+  display: inline-flex;
+}
+.permalink-message i{
+  font-size: 3.3rem;
+  color: #fff;
+  line-height: 4px;
+}
+.permalink-message p{
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 4px;
+}
+
 
 
 
@@ -2832,6 +2796,11 @@ button .trending-post-headline h2{
     display: block !important;
   }
 
+  /*----------- show-permalink-message -------------*/
+  .permalink-message{
+    right: -230px;
+  }
+
 }
 
 /*========================== Mini Ipads / some large mobile devices =========================*/
@@ -3083,8 +3052,6 @@ button .trending-post-headline h2{
     
   }
 
-  
-
   /* ------------------ login ---------------------*/
   .login-container{
     width: 80%;
@@ -3165,6 +3132,11 @@ button .trending-post-headline h2{
   }
   .search-right-content{
     display: none !important;
+  }
+
+  /*----------- show-permalink-message -------------*/
+  .permalink-message{
+    right: -85px;
   }
 }
 
@@ -3572,6 +3544,11 @@ button .trending-post-headline h2{
 
   .search-right-content{
     display: none !important;
+  }
+
+  /*----------- show-permalink-message -------------*/
+  .permalink-message{
+    right: -30px;
   }
 
 } 

@@ -12,7 +12,7 @@ urlpatterns = [
     # path('<slug>/', views.post_detail, name='post_detail'),
     path('<slug:slug>-<int:pk>/', views.post_detail, name='post_detail'),
     path('search/', views.search_titles, name='search'),
-   
+  
     #path('<slug:slug>/', views.post_detail, name='post_detail'),
     
     #path('<author_slug>/<slug:slug>/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),

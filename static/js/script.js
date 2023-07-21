@@ -175,7 +175,7 @@ const postdetailOne = document.querySelector(".post-main-detail");
 const externalOne = document.querySelector(".external-share-container");
 
 
-// Create a function to check if the div is reached
+// Create a function to check if the share container is reached
 function isDivReached() {
   // Get the current scroll position
   const scrollPosition = window.scrollY;
@@ -208,15 +208,18 @@ function Reached() {
 window.addEventListener('scroll', function (e) {
     if(Reached){
         sharelinkOne.classList.add("share-scroll");
+        // sharelinkOne.style.transition = 'display 0.3s';
     }
 });
 window.addEventListener('scroll', function (e) {
     const scrollPosition = window.pageYOffset;
     
-    if (scrollPosition <= externalOne.offsetTop - 798) {  //>= externalOne.offsetTop
+    if (scrollPosition <= externalOne.offsetTop - 655) {  //>= externalOne.offsetTop
         sharelinkOne.classList.add('share-scroll');
+        // sharelinkOne.style.transition = 'display 0.3s';
     } else {
         sharelinkOne.classList.remove('share-scroll');
+        // sharelinkOne.style.transition = 'display 0.3s';
     }
 });
 
@@ -331,3 +334,85 @@ sr.reveal(`.portfolio-container, .portfolio-card`, {delay: 700, origin: 'bottom'
 sr.reveal(`.portfolio-container, .portfolio-card`, {interval: 100})
 sr.reveal(`.my-profile-introduction`, {origin: 'left'})
 sr.reveal(`.my-profile-image`, {origin: 'right'})
+
+
+
+
+
+
+
+// Get all share buttons
+const shareButtons = document.querySelectorAll('.share-button');
+
+// Add click event listener to each button
+shareButtons.forEach(button => {
+   button.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Get the URL of the current page
+      const url = window.location.href;
+
+      // Get the social media platform from the button's class name
+      const platform = button.classList[1];
+
+      // Set the URL to share based on the social media platform
+      let shareUrl;
+      switch (platform) {
+         case 'facebook':
+         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+         break;
+         case 'twitter':
+         shareUrl = `https://twitter.com/share?url=${encodeURIComponent(url)}`;
+         break;
+         case 'linkedin':
+         shareUrl = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(url)}`;
+         break;
+         case 'reddit':
+         shareUrl = `https://reddit.com/submit?url=${encodeURIComponent(url)}`;
+         break;
+         case 'whatsapp':
+         shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+         break;
+      }
+
+      // Open a new window to share the URL
+      window.open(shareUrl, '_blank');
+   });
+});
+
+
+// copy permalink/url when user click permalink button
+const button = document.querySelector('.permalink');
+const copyArticl = document.querySelector('.permalink-message');
+
+button.addEventListener('click', (e) => {
+
+    e.preventDefault()
+    const url = window.location.href;
+    const copied = navigator.clipboard.writeText(url);
+
+    if (copied) {
+        copyArticl.classList.add('show-permalink-message');
+        e.preventDefault();
+
+        setTimeout(()=>{
+            copyArticl.classList.remove('show-permalink-message');
+        }, 1500);
+    } 
+});
+
+
+
+
+// copy permalink/url when user click permalink button
+// const permalinkEl = document.querySelector('.permalink');
+
+// permalinkEl.addEventListener('click', (e) => {
+//     copyArticl.classList.add('show-permalink-message');
+//     e.preventDefault();
+
+
+//     setTimeout(()=>{
+//         copyArticl.classList.remove('show-permalink-message');
+//     }, 1000)
+// })

@@ -1,0 +1,67 @@
+<span class="social-scroll-wrapper">
+    <div class="social-cs9">
+     
+        <a href="#">
+            <i class="ri-reddit-fill"></i><p>Reddit</p>
+        </a>
+        <a href="#">
+            <i class="ri-linkedin-box-fill"></i><p>Linkedin</p>
+            
+        </a>
+        <a href="#">
+            <i class="ri-twitch-fill"></i><p>Twitch</p>
+        </a>
+        <a href="#">
+            <i class="ri-whatsapp-fill"></i><p>Whatsapp</p>
+        </a>
+        <a href="#">
+            <i class="ri-facebook-circle-fill"></i> <p>Facebook</p>
+        </a>
+        <a href="#">
+            <i class="ri-links-line"></i><p>Permalink</p>
+        </a>
+        <a href="#">
+            <i class="ri-twitter-fill"></i><p>Twitter</p>
+
+        </a>
+    </div>
+
+</span>
+
+
+
+
+
+
+
+
+
+<span class="social-scroll-wrapper">
+    <div class="social-cs9">
+        <!-- {% for post in posts %} -->
+        <a href="#">
+            {% post_to_reddit "New Song: {{object.title}}" object_or_url '<i class="ri-reddit-fill"></i><p>Reddit</p>' %}
+        </a>
+        <a href="#">
+            <!-- <i class="ri-linkedin-box-fill"></i><p>Linkedin</p> -->
+        </a>
+        <a href="#">
+            <i class="ri-twitch-fill"></i><p>Twitch</p>
+        </a>
+        <a href="#">
+            {% post_to_whatsapp object_or_url '<i class="ri-whatsapp-fill"></i><p>Whatsapp</p>' %}
+        </a>
+        <a href="#">
+            {% post_to_facebook object_or_url '<i class="ri-facebook-circle-fill"></i><p>Facebook</p>'  %}
+        </a>
+        <a href="#">
+            <!-- <i class="ri-links-line"></i><p>Permalink</p> -->
+            {% copy_to_clipboard object_or_url '<i class="ri-links-line"></i><p>Permalink</p>'%}
+        </a>
+        <a href="#">
+            <i class="ri-twitter-fill"></i><p>Twitter</p>
+        </a>
+     
+    </div>
+
+</span>

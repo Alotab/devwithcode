@@ -70,10 +70,6 @@ def post_detail(request, slug, pk):
   related_posts = Post.published.filter(tags__in=post_tags_id).exclude(id=post.id)
   related_posts = related_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
 
-  # author = blog.author
-  # first_name = author.get_short_name()
-  # slug = f"{first_name}/{slug}"
-
   if request.method == 'POST':
     comment = Comment(
       user_comment=request.user,
