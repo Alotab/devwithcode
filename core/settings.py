@@ -76,10 +76,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'ckeditor',
+    # 'ckeditor',
+    'django_ckeditor_5',
     'django_extensions',
-    'haystack',
+    # 'haystack',
     'whoosh',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
@@ -178,7 +180,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -227,35 +228,36 @@ ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_DEFAULT_USER_STATUS = 'active'
 
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+# CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'all',
-        'skin': 'moono',
-        'fontSize': '18px',
-        # 'codeSnippet_customization': '/static/css/codesnippets.css',
-        # 'codeSnippet_theme': 'monokai_sublime',
-        'extraPlugins': ', '.join(
-            [
-                'codesnippet',
-                'dialog',
-                'widget',
-            ]
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'all',
+#         'skin': 'moono',
+#         'fontSize': '18px',
+#         'codeSnippet_fontSize': '30 Pixels/30px;Big/2.3em;30 Percent More/130%;Bigger/larger;Very Small/x-small',
+#         'extraPlugins': ', '.join(
+#             [
+#                 'codesnippet',
+#                 'dialog',
+#                 'widget',
+#             ]
+#         ),
+#     },
+# }
 
-        ),
-        'codeSnippet_fontSize': 40,
-        'codeSnippet_tabSize': 10,
-        'codeSnippet_theme': 'default',
-        
-    },
-}
+# config.fontSize_sizes = '16/16px;24/24px;48/48px;';
+
+# config.fontSize_sizes = '12px;2.3em;130%;larger;x-small';
+
+# config.fontSize_sizes = '12 Pixels/12px;Big/2.3em;30 Percent More/130%;Bigger/larger;Very Small/x-small';
 
 
-HAYSTACK_TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates', 'search'),
-)
+
+# HAYSTACK_TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'templates', 'search'),
+# )
 
 # HAYSTACK_SEARCH_URL = '/search/'
 
@@ -268,3 +270,103 @@ HAYSTACK_CONNECTIONS = {
 
 # AVX2 FMA
 USE_AVX2_FMA = True
+
+
+
+
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+customColorPalette = [
+    {
+        # 'color': 'hsl(4, 90%, 58%)',
+        'color': 'hsl(0, 100%, 2%)',
+
+        'label': 'Red'
+    },
+    {
+        'color': 'hsl(340, 82%, 52%)',
+        'label': 'Pink'
+    },
+    {
+        'color': 'hsl(291, 64%, 42%)',
+        'label': 'Purple'
+    },
+    {
+        'color': 'hsl(262, 52%, 47%)',
+        'label': 'Deep Purple'
+    },
+    {
+        'color': 'hsl(231, 48%, 48%)',
+        'label': 'Indigo'
+    },
+    {
+        'color': 'hsl(207, 90%, 54%)',
+        'label': 'Blue'
+    },
+]
+
+CKEDITOR_5_CUSTOM_CSS = 'path_to.css' # optional
+# CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage" # optional
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
+
+    },
+    'extends': {
+        'blockToolbar': [
+            'paragraph', 'heading1', 'heading2', 'heading3',
+            '|',
+            'bulletedList', 'numberedList',
+            '|',
+            'blockQuote',
+        ],
+        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
+        'subscript', 'superscript', 'highlight', '|','codeBlock',
+                     '|', 'blockQuote', 'imageUpload', '|','fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
+                    'insertTable','bulletedList', 'numberedList', 'todoList'],
+        'image': {
+            'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
+                        'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
+            'styles': [
+                'full',
+                'side',
+                'alignLeft',
+                'alignRight',
+                'alignCenter',
+            ]
+
+        },
+        'table': {
+            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
+            'tableProperties', 'tableCellProperties' ],
+            'tableProperties': {
+                'borderColors': customColorPalette,
+                'backgroundColors': customColorPalette
+                
+            },
+            'tableCellProperties': {
+                'borderColors': customColorPalette,
+                'backgroundColors': customColorPalette
+            }
+        },
+        'heading' : {
+            'options': [
+                { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
+                { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
+                { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
+                { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' }
+            ]
+        }
+    },
+    'list': {
+        'properties': {
+            'styles': 'true',
+            'startIndex': 'true',
+            'reversed': 'true',
+        }
+    }
+}

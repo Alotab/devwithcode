@@ -15,6 +15,7 @@ from .utilss import get_real_time_date_format
 from django.db.models import Count
 from django.core.paginator import Paginator
 from chatbot_model import quesans
+from django.contrib import messages
 
 # from blog.forms import CommentForm
 # from users.forms import CommentForm
@@ -28,6 +29,7 @@ def post_blog(request):
       post = form.save(commit=False)
       post.author = request.user
       post.save()
+      messages.success(request, 'Post created successfully')
       return redirect('blog:home')
       
   else:
@@ -36,62 +38,27 @@ def post_blog(request):
 
 
 
-# @login_required
-# def post_blog(request):
-#     if request.method == 'POST':
-#         title = request.POST['title']
-#         content = request.POST['content']
-#         slug = request.POST['slug']
-#         posts = Post.objects.create(
-#             title=title,
-#             content=content,
-#             author=request.user
-#         )
-#         posts.save()
-#         return redirect('blog:home')
-#     else:
-#         return render(request, 'blog/createPost.html')
-
-
-def lowercase_first_name(author_first_name):
-    return str(author_first_name).lower()
+# def lowercase_first_name(author_first_name):
+#     return str(author_first_name).lower()
 
 
 
 def post_list(request):
   """ List the all the post in the home page """
   posts = Post.published.all().order_by('-publish')
-  post_list = list(posts)
-
-
+  # post_list = list(posts)
   trending_post = Post.published.all().order_by('-publish')[:6]
   latest_post = Post.published.all().order_by('-publish')[:3]
   tags = Tag.objects.all()
 
-
-  paginator = Paginator(post_list , 5)
-  page_number = request.GET.get('page')
-  page = paginator.get_page(page_number)
-
   context = {
-    'posts': page.object_list,
+    'posts': posts,
     'trending_post': trending_post,
     'tags': tags,
-    'paginator': paginator,
-    'page_obj': page,
+ 
   }
-
   return render(request, 'blog/home.html', context)
 
-
-def post_fetch(request):
-  total_item = int(request.GET.get('total_item'))
-  limit = 5
-  post_obj = list(Post.objects.values()[total_item:total_item+limit])
-  data={
-    'posts':post_obj
-  }
-  return JsonResponse(data=data)
 
 
 def post_detail(request, slug, pk):
@@ -135,11 +102,21 @@ def search_titles(request):
 
 
 # chatbot
-def chatbotresponse(request):
-  question = request.GET['question']
+# def chatbotresponse(request):
+#   question = request.GET['question']
 
-  res = quesans(question)
-  return res
+#   res = quesans(question)
+#   return res
+
+# chtabot
+# def post_fetch(request):
+#   total_item = int(request.GET.get('total_item'))
+#   limit = 5
+#   post_obj = list(Post.objects.values()[total_item:total_item+limit])
+#   data={
+#     'posts':post_obj
+#   }
+#   return JsonResponse(data=data)
 
 
 
@@ -150,14 +127,14 @@ def chatbotresponse(request):
 #     template_name = 'blog/post_detail.html'
 #     slug_field = 'slug'
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['author'] = lowercase_first_name(self.object.author)
-#         context['tags'] = self.object.tags.all()
-#         # context['comments'] = self.object.comment.all()
-#         context['comments'] = Comment.objects.filter(blog=self.object)
-#         context['pk'] = self.kwargs.get('pk')
-#         return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['author'] = lowercase_first_name(self.object.author)
+    #     context['tags'] = self.object.tags.all()
+    #     # context['comments'] = self.object.comment.all()
+    #     context['comments'] = Comment.objects.filter(blog=self.object)
+    #     context['pk'] = self.kwargs.get('pk')
+    #     return context
     
 
 # def post_comment(request, slug):

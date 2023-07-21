@@ -4,7 +4,7 @@
 {%  block content %}
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="main-content ck-content">
         <!-- left-colume content-->
         <div class="left-colume">
 
@@ -51,7 +51,7 @@
             <!--------------------- content posts ----------------------->
             <div class="middle-colume-post" id="middle-colume-post">
                 {% for post in posts %}
-                <div class="post">
+                <div class="post ck-content">
                     <div class="author-profile">
                         <div class="author-image">
                             <a href="#"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
@@ -68,7 +68,6 @@
                     </div>
                     <div class="post-header">
                         <a href="{{ post.get_absolute_url }}">
-                           
                             <h4>{{ post.title | capfirst }}</h4>
                         </a>
                     </div>

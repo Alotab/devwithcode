@@ -6,7 +6,7 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', views.post_list, name='home'),
-    path('fetch/', views.post_fetch, name='fetch'),
+    # path('fetch/', views.post_fetch, name='fetch'),
 
     path('create/', views.post_blog, name='post'),
     # path('<slug>/', views.post_detail, name='post_detail'),

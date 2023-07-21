@@ -33,16 +33,13 @@ function enableScroll() {
 
 
 /*============ middle search bar =================*/
-
 if(elSearcIcon){
     elSearcIcon.addEventListener('click', ()=>{
         elSearchMenu.classList.add('middle-search')
     })
 }
 
-
 /*========== Hambuger Menu for small devices =============*/
-
 navToggleMobile.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
     // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
@@ -59,8 +56,6 @@ navToggleMobile.addEventListener('click', () => {
         
     } 
 });
-
-
 navCloseToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
 
@@ -71,7 +66,6 @@ navCloseToggle.addEventListener('click', () => {
         navToggleMobile.setAttribute('aria-expanded', false);
     }
 });
-
 function preventScrolling() {
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('mobile-nav-toggle')) {
@@ -82,12 +76,10 @@ function preventScrolling() {
         }
     });
 }
-
 window.onload = preventScrolling;
 
 
-
-// CHAT BOT
+/*========== CHAT BOT =============*/
 var userMessenger;
 var API_KEY = "";
 const inputInitHeight = chatInput.scrollHeight;
@@ -104,7 +96,6 @@ const createChatLi = (message, className) => {
     chatLi.querySelector("p").textContent = message;
     return chatLi;
 }
-
 const generateResponse = (incomingChatLi) => {
     const API_URL = "https://api.openai.com/v1/chat/completions";
     const messageElement = incomingChatLi.querySelector("p");
@@ -133,7 +124,6 @@ const generateResponse = (incomingChatLi) => {
     }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 }
 
-
 //chatbot
 const handleChat = () =>  {
     userMessenger = chatInput.value.trim();
@@ -159,14 +149,11 @@ const handleChat = () =>  {
     }, 600);
 };
 
-
 // adjust the height of the input textarea based on it's content
 chatInput.addEventListener("input", () => {
     chatInput.style.height = `${inputInitHeight}px`;
     chatInput.style.height = `${chatInput.scrollHeight}px`;
 });
-
-
 
 // if Enter key is press without shift key and the window with is greater than 800px, handle the chat
 chatInput.addEventListener("keydown", (e) => {
@@ -175,90 +162,160 @@ chatInput.addEventListener("keydown", (e) => {
         handleChat();
     }
 });
-
 sendChatBtn.addEventListener("click", handleChat);
 chatbotCloseBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatBotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 
 
   
+/*=============== EXTERNAL LINK SCREEN  ===============*/
+const detailImage = document.querySelector(".post-image");
+const sharelinkOne = document.querySelector(".share-link");
+const postdetailOne = document.querySelector(".post-main-detail");
+const externalOne = document.querySelector(".external-share-container");
 
 
+// Create a function to check if the div is reached
+function isDivReached() {
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
 
+  // Check if the scroll position is greater than or equal to the top of the div
+  return scrollPosition >= externalOne.offsetTop - 750;
+}
 
+// Add an event listener to the window scroll event
+window.addEventListener('scroll', function (e) {
+    e.preventDefault();
+  // Check if the div is reached
+  if (isDivReached()) {
+    sharelinkOne.classList.add('share-java');
+  }
+  else {
+    sharelinkOne.classList.remove('share-java');
+  }
+});
 
-//scroll loading
-// const postEl = document.querySelector('.post');
+function Reached() {
+    // Get the current scroll position
+    const scrollPosition = window.scrollY;
 
+    // Check if the scroll position is greater than or equal to the top of the div
+    return scrollPosition <= externalOne.offsetTop;
+}
 
-//set current page number
-// let limit = 10;
-// let page = 1;
-// let pageNumber = 1;
+// prevent scroll event
+window.addEventListener('scroll', function (e) {
+    if(Reached){
+        sharelinkOne.classList.add("share-scroll");
+    }
+});
+window.addEventListener('scroll', function (e) {
+    const scrollPosition = window.pageYOffset;
+    
+    if (scrollPosition <= externalOne.offsetTop - 798) {  //>= externalOne.offsetTop
+        sharelinkOne.classList.add('share-scroll');
+    } else {
+        sharelinkOne.classList.remove('share-scroll');
+    }
+});
 
+/*=============== POPUP SHARE LIKE SCREEN ===============*/
+const shareEl = document.querySelector('.share-share');
+const socialContainerEl = document.querySelector('.social-scroll-wrapper');
+const hidePopupWidget = document.querySelector('.kat');
 
-
-// async function fetchImage() {
-//     //https://jsonplaceholder.typicode.com/posts
-//     try {
-//          const windows = "{% url 'blog:home' %}";
-//         // const postsUrl = `${window.location.origin}/posts`;
-//         const response = await fetch(windows, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'X-Requested-With': 'XMLHttpRequest',
-//             },
-//             params: {
-//                 page: pageNumber,
-//             },
-//       });
-//       if (!response.ok) {
-//         throw new Error("Network response was not OK");
-//       }
-//       const data = await response.json();
-//     //   console.log(data);
-
-//     } catch (error) {
-//       console.error("There has been a problem with your fetch operation:", error);
-//     }
-// }
-
-// fetchImage();
-
-// const dataURL = ''
-// $(document).ready(function () {
-//     var page = 1;
-//     var block_request = false;
-//     var end_pagination = false;
-
-//     $(window).scroll(function () {
-//         var margin = $(document).height() - $(window).height() - 200;
-
-//         if ($(window).scrollTop() > margin && end_pagination === false && block_request === false) {
-//             block_request = true;
-//             page += 1;
-
-//             $.ajax({
-//                 type: 'GET',
-//                 url: window,
-//                 data: {
-//                     "page": page
-//                 },
-               
-//                 success: function (data) {
-//                     if (data.end_pagination === true) {
-//                         end_pagination = true;
-                   
-//                     } else {
-//                         block_request = false;
-//                     }
-//                     $('.post').append(data.content);
-//                 }
-//             })
+// function noscrolling(){
+//     shareEl.addEventListener('click', () => {
+//         isSocialLinks = !isSocialLinks;
+    
+//         socialContainerEl.classList.toggle('show-social-links');
+      
+//             // document.body.classList.add('no-scroll');s
+    
+//     });
+//     document.addEventListener('click', (e) => {
+//         if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
+//             // socialContainerEl.classList.remove('show-social-links');
 //         }
 //     });
-// })
+// }
+
+let showMes = false;
+// var showWidget = true;
+shareEl.addEventListener('click', () => {
+    socialContainerEl.classList.add('show-social-links');
+    likePop.classList.remove('alert-active');
+    
+    showMes = true;
+    if(showMes){
+        document.body.style.overflow = 'hidden';
+        
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
+            socialContainerEl.classList.remove('show-social-links');
+            document.body.style.overflow = 'auto';
+          
+        }
+    });    
+});
+
+
+
+const likeMouseOver = document.querySelector('.share-like');
+const commentMouseOver = document.querySelector('.share-comment');
+const bookmarkMouseOver = document.querySelector('.share-bookmark');
+const shareMouseOver = document.querySelector('.share-share');
+const likePop = document.querySelector('.pop-like');
+const commentPop = document.querySelector('.pop-comment');
+const bookmarkPop = document.querySelector('.pop-bookmark');
+const sharePop = document.querySelector('.pop-share');
+
+function showWidget() {
+    likeMouseOver.addEventListener('mouseover', () =>{
+
+        setTimeout(() => {
+            likePop.classList.add('alert-active');
+        }, 10);
+        likeMouseOver.addEventListener('mouseout', () =>{
+            likePop.classList.remove('alert-active');
+        })
+    });
+
+    commentMouseOver.addEventListener('mouseover', () =>{
+        setTimeout(() => {
+            commentPop.classList.add('alert-active');
+        }, 10);
+        commentMouseOver.addEventListener('mouseout', () =>{
+            commentPop.classList.remove('alert-active');
+        })
+    });
+
+    bookmarkMouseOver.addEventListener('mouseover', () =>{
+        setTimeout(() => {
+            bookmarkPop.classList.add('alert-active');
+        }, 10);
+        bookmarkMouseOver.addEventListener('mouseout', () =>{
+            bookmarkPop.classList.remove('alert-active');
+        })
+    });
+
+    shareMouseOver.addEventListener('mouseover', () =>{
+        setTimeout(() => {
+            sharePop.classList.add('alert-active');
+        }, 10);
+        shareMouseOver.addEventListener('mouseout', () =>{
+            sharePop.classList.remove('alert-active');
+        })
+    });
+};
+showWidget();
+
+
+
+
 
 
 
@@ -274,90 +331,3 @@ sr.reveal(`.portfolio-container, .portfolio-card`, {delay: 700, origin: 'bottom'
 sr.reveal(`.portfolio-container, .portfolio-card`, {interval: 100})
 sr.reveal(`.my-profile-introduction`, {origin: 'left'})
 sr.reveal(`.my-profile-image`, {origin: 'right'})
-
-// scroll
-
-
-const loadBtn = document.querySelector('.load-post');
-const loadPostHide = document.querySelector('.load-post');
-
-
-function loadmorePost(){
-    var current_time = $('.post').length;
-
-    const content_add_post = document.getElementById('middle-colume-post');
-
-    $.ajax({
-        url:'fetch/',
-        type: 'GET',
-        data: {
-            'total_item': current_time
-        },
-        beforeSend: function(){
-            loadPostHide.classList.add('.hide');
-
-            //spinner appears
-        },
-        success: function(response){
-            const data = response.posts;
-
-            data.map( post=>{
-                content_add_post.innerHTML += `
-                <div class="post">
-                    <div class="author-profile">
-                        <div class="author-image">
-                        
-                        
-                        </div>
-                        <!-- <div class="post-author-details">
-                            {% with author=post.author %}
-                                <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
-                                <p id="time-tag"  class="post-date">{{ post.publish |date:'M d' }} &middot; {{ post.get_readtime }} read</p>
-                            
-                            {% endwith %}
-                    
-                        </div> -->
-                    
-                    </div>
-                    <div class="post-header">
-                        <a href="${ post.get_absolute_url }">
-                        
-                            <h4>${ post.title }</h4>
-                        </a>
-                    </div>
-                    <!-- <div class="post-tags">
-                        {% for post in post.tags.all %}
-                            <a class="post-tag-chrome" href="#"><span></span>${ post }</a>
-                        {% endfor %}
-                    </div> -->
-        
-                    <div class="comment-share">
-                        <div class="post-comment">
-                            <a href="#">
-                                <img src="{% static 'images/commentIcon.svg' %}" alt="comment" class="post-comment-icon">
-                                <p>Add Comment</p>
-                            </a>
-                        </div>
-                        <div class="post-share">
-                            <a href="#"><img src="{% static 'images/share_2.svg' %}"></a>
-                        </div>
-                    </div> 
-                </div>
-                `
-            });
-            loadPostHide.classList.remove('.hide');
-            history.replaceState(null, null, ' ');
-
-        },
-        error: function(error){
-
-        }
-    })
-
-}
-
-
-// loadBtn.addEventListener('click', (e) =>{
-//     e.preventDefault();
-//     loadmorePost();
-// });

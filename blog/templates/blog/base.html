@@ -24,6 +24,8 @@
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/content-styles.css' %}">
+
 
     <!--=============== REMIXICON ===============-->
    
@@ -34,6 +36,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <link href="//db.onlinewebfonts.com/c/68e94a17c3e618dbe0936fcbf25b26c6?family=TNY+Adobe+Caslon+Pro" rel="stylesheet" type="text/css"/>
     <link href="//db.onlinewebfonts.com/c/1e44faec07b8b81f60a3215d76bd0086?family=Irvin" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="path/to/assets/content-styles.css" type="text/css">
+
 
     <title>DevWithCode | Home</title>
 </head>
@@ -77,6 +81,7 @@
                         <nav>
                             <ul id="primary-navigation" data-visible="false"  class="primary-navigation">
                                 {% if request.user.is_authenticated %}
+                                <li class="active"><a href="{% url 'blog:post' %}"class="home-link">write</a></li>
                                 <li class="active"><a href="{% url 'blog:home' %}"class="home-link">Home</a></li>
                                 <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
                                 <li><a href="{% url 'logout' %}" class="sign-in-link" id="sign-in">LogOut</a></li>

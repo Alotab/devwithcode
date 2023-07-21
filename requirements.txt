@@ -3,7 +3,6 @@ django-taggit==4.0.0
 Pillow==9.5.0
 django-allauth==0.54.0
 django-taggit==4.0.0
-django-ckeditor==6.6.1
 django-haystack==3.2.1
 Whoosh==2.7.4
 mysqlclient==2.2.0
@@ -11,6 +10,8 @@ readtime==2.0.0
 python-dotenv==1.0.0
 transformers==4.30.2
 tensorflow==2.13.0
+django-social-share==2.3.0
+django-ckeditor-5==0.2.8
 
 
 # PRODUCTION

@@ -43,14 +43,15 @@ urlpatterns = [
 
     path('', include('blog.urls', namespace='blog')),
 
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path('ckeditor/', include('ckeditor_uploader.urls')),
+        path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
    
     # path('register/', user_views.register, name='register'),
     # path('login/', user_views.login_view, name='login'),
     # path('logout/', user_views.logout_view, name= 'logout'),
     # path('search/', SearchView(load_all=False)),
     
-    path('search/', include('haystack.urls')),
+    # path('search/', include('haystack.urls')),
 
 
     ## Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)

@@ -12,7 +12,8 @@ from PIL import Image
 import uuid
 import readtime
 # from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor_uploader.fields import RichTextUploadingField
+from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 
@@ -43,10 +44,11 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True, blank=True)
     # content = models.TextField()
-    # content = RichTextField(blank=True, null=True)
-    content = RichTextUploadingField(blank=True, null=True)
 
-    # content = RichTextUploadingField(config_name='awesome_ckeditor')
+    # content = RichTextUploadingField(blank=True, null=True)
+    content = CKEditor5Field('Text', config_name='extends')
+
+    
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
     # image = models.ImageField(default="default.jpg", upload_to='post_pics')

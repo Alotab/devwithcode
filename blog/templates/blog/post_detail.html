@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {%  block content %}
+{% load social_share %}
 
 <div class="main-detail-post">
   <div class="main-detail-post">
@@ -26,11 +27,62 @@
                   {% endfor %}
 
                 </div>
-                <div class="post-main-detail">
+                <div class="post-main-detail ck-content">
                     {{ post.content | safe }}
 
                 </div>
 
+            </div>
+
+            <!---------------- external- share ------------------------>
+            <div class="external-share-container">
+                <div class="share-link">
+                    <div class="social-share">
+                        <i class="ri-heart-line share-like pop"></i>
+                        <div class="like-count"></div>
+                        <p class="pop-like kat">Like this article</p>
+                    </div>
+                    <div class="social-share">
+                        <i class="ri-message-3-line share-comment pop"></i>
+                        <div class="comment-count"></div>
+                        <p class="pop-comment kat">Write a comment</p>
+                    </div>
+                    <div class="social-share">
+                        <i class="ri-bookmark-line share-bookmark pop"></i>
+                        <p class="pop-bookmark kat">Add Bookmark</p>
+                    </div>
+                    <div class="social-share">
+                        <i class="ri-share-line share-share pop"></i>
+                        <p class="pop-share kat">Share this article</p>
+                    </div>
+                    
+                    <span class="social-scroll-wrapper">
+                        <div class="social-cs9">
+                            <a href="#">
+                                <i class="ri-twitter-fill"></i><p>Twitter</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-reddit-fill"></i><p>Reddit</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-linkedin-box-fill"></i><p>Linkedin</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-twitch-fill"></i><p>Twitch</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-whatsapp-fill"></i><p>Whatsapp</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-facebook-circle-fill"></i><p>Facebook</p>
+                            </a>
+                            <a href="#">
+                                <i class="ri-links-line"></i><p>Permalink</p>
+                            </a>
+                        </div>
+
+                    </span>
+                </div>
             </div>
         </div>
 
