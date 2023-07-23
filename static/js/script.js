@@ -15,6 +15,18 @@ const chatbotCloseBtn = document.querySelector(".close-btn");
 
 
 
+
+
+/*============== middle search bar =====================*/
+if(elSearcIcon){
+    elSearcIcon.addEventListener('click', ()=>{
+        elSearchMenu.classList.add('middle-search')
+    })
+}
+
+
+/*=============== Hambuger Menu for small devices =================*/
+
 // prevent and enable scrolling when hambuger menu is clicked
 function disableScroll() {
     // Get the current page scroll position
@@ -25,21 +37,11 @@ function disableScroll() {
         window.onscroll = function() {
             window.scrollTo(scrollLeft, scrollTop);
         };
-  }
-  
+}
 function enableScroll() {
     window.onscroll = function() {};
 }  
 
-
-/*============ middle search bar =================*/
-if(elSearcIcon){
-    elSearcIcon.addEventListener('click', ()=>{
-        elSearchMenu.classList.add('middle-search')
-    })
-}
-
-/*========== Hambuger Menu for small devices =============*/
 navToggleMobile.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute('data-visible');
     // const hamMenuVisibility = navToggleMobile.getAttribute('data-visible');
@@ -53,7 +55,6 @@ navToggleMobile.addEventListener('click', () => {
         primaryNav.setAttribute('data-visible', true);
         navToggleMobile.setAttribute('aria-expanded', true);
         navCloseToggle.setAttribute('aria-expanded', true);
-        
     } 
 });
 navCloseToggle.addEventListener('click', () => {
@@ -79,7 +80,8 @@ function preventScrolling() {
 window.onload = preventScrolling;
 
 
-/*========== CHAT BOT =============*/
+
+/*==================== CHAT BOT =======================*/
 var userMessenger;
 var API_KEY = "";
 const inputInitHeight = chatInput.scrollHeight;
@@ -185,85 +187,78 @@ function isDivReached() {
 }
 
 // Add an event listener to the window scroll event
-window.addEventListener('scroll', function (e) {
-    e.preventDefault();
-  // Check if the div is reached
-  if (isDivReached()) {
-    sharelinkOne.classList.add('share-java');
-  }
-  else {
-    sharelinkOne.classList.remove('share-java');
-  }
-});
+// window.addEventListener('scroll', function (e) {
+//     e.preventDefault();
+//   // Check if the div is reached//
+//   if (isDivReached()) {
+//     sharelinkOne.classList.add('share-java');
+//   }
+//   else {
+//     sharelinkOne.classList.remove('share-java');
+//   }
+// });
 
-function Reached() {
-    // Get the current scroll position
-    const scrollPosition = window.scrollY;
+// function Reached() {
+//     // Get the current scroll position
+//     const scrollPosition = window.scrollY;
 
-    // Check if the scroll position is greater than or equal to the top of the div
-    return scrollPosition <= externalOne.offsetTop;
-}
+//     // Check if the scroll position is greater than or equal to the top of the div
+//     return scrollPosition <= externalOne.offsetTop;
+// }
 
 // prevent scroll event
-window.addEventListener('scroll', function (e) {
-    if(Reached){
-        sharelinkOne.classList.add("share-scroll");
-        // sharelinkOne.style.transition = 'display 0.3s';
-    }
-});
-window.addEventListener('scroll', function (e) {
-    const scrollPosition = window.pageYOffset;
+// window.addEventListener('scroll', function (e) {
+//     if(Reached){
+//         sharelinkOne.classList.add("share-scroll");
+//     }
+// });
+// window.addEventListener('scroll', function (e) {
+//     const scrollPosition = window.pageYOffset;
     
-    if (scrollPosition <= externalOne.offsetTop - 655) {  //>= externalOne.offsetTop
-        sharelinkOne.classList.add('share-scroll');
-        // sharelinkOne.style.transition = 'display 0.3s';
-    } else {
-        sharelinkOne.classList.remove('share-scroll');
-        // sharelinkOne.style.transition = 'display 0.3s';
-    }
-});
+//     if (scrollPosition <= externalOne.offsetTop - 655) {
+//         sharelinkOne.classList.add('share-scroll');
+//     } else {
+//         sharelinkOne.classList.remove('share-scroll');
+//     }
+// });
+
+
 
 /*=============== POPUP SHARE LIKE SCREEN ===============*/
 const shareEl = document.querySelector('.share-share');
 const socialContainerEl = document.querySelector('.social-scroll-wrapper');
 const hidePopupWidget = document.querySelector('.kat');
 
-// function noscrolling(){
-//     shareEl.addEventListener('click', () => {
-//         isSocialLinks = !isSocialLinks;
-    
-//         socialContainerEl.classList.toggle('show-social-links');
-      
-//             // document.body.classList.add('no-scroll');s
-    
-//     });
-//     document.addEventListener('click', (e) => {
-//         if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
-//             // socialContainerEl.classList.remove('show-social-links');
-//         }
-//     });
-// }
 
 let showMes = false;
 // var showWidget = true;
-shareEl.addEventListener('click', () => {
-    socialContainerEl.classList.add('show-social-links');
-    likePop.classList.remove('alert-active');
-    
-    showMes = true;
-    if(showMes){
-        document.body.style.overflow = 'hidden';
-        
-    }
 
-    document.addEventListener('click', (e) => {
-        if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
-            socialContainerEl.classList.remove('show-social-links');
-            document.body.style.overflow = 'auto';
-          
-        }
-    });    
-});
+function popShareScreen(){
+    if(shareEl){
+        shareEl.addEventListener('click', () => {
+            socialContainerEl.classList.add('show-social-links');
+            likePop.classList.remove('alert-active');
+            
+            showMes = true;
+            if(showMes){
+                document.body.style.overflow = 'hidden';
+                
+            }
+        
+            document.addEventListener('click', (e) => {
+                if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
+                    socialContainerEl.classList.remove('show-social-links');
+                    document.body.style.overflow = 'auto';
+                  
+                }
+            });    
+        });
+    }
+};
+popShareScreen();
+
+
+
 
 
 
@@ -277,42 +272,48 @@ const bookmarkPop = document.querySelector('.pop-bookmark');
 const sharePop = document.querySelector('.pop-share');
 
 function showWidget() {
-    likeMouseOver.addEventListener('mouseover', () =>{
+    if(likeMouseOver) {
+        likeMouseOver.addEventListener('mouseover', () =>{
 
-        setTimeout(() => {
-            likePop.classList.add('alert-active');
-        }, 10);
-        likeMouseOver.addEventListener('mouseout', () =>{
-            likePop.classList.remove('alert-active');
-        })
-    });
+            setTimeout(() => {
+                likePop.classList.add('alert-active');
+            }, 10);
+            likeMouseOver.addEventListener('mouseout', () =>{
+                likePop.classList.remove('alert-active');
+            })
+        });
+    }
 
-    commentMouseOver.addEventListener('mouseover', () =>{
-        setTimeout(() => {
-            commentPop.classList.add('alert-active');
-        }, 10);
-        commentMouseOver.addEventListener('mouseout', () =>{
-            commentPop.classList.remove('alert-active');
-        })
-    });
-
-    bookmarkMouseOver.addEventListener('mouseover', () =>{
-        setTimeout(() => {
-            bookmarkPop.classList.add('alert-active');
-        }, 10);
-        bookmarkMouseOver.addEventListener('mouseout', () =>{
-            bookmarkPop.classList.remove('alert-active');
-        })
-    });
-
-    shareMouseOver.addEventListener('mouseover', () =>{
-        setTimeout(() => {
-            sharePop.classList.add('alert-active');
-        }, 10);
-        shareMouseOver.addEventListener('mouseout', () =>{
-            sharePop.classList.remove('alert-active');
-        })
-    });
+    if(commentMouseOver){
+        commentMouseOver.addEventListener('mouseover', () =>{
+            setTimeout(() => {
+                commentPop.classList.add('alert-active');
+            }, 10);
+            commentMouseOver.addEventListener('mouseout', () =>{
+                commentPop.classList.remove('alert-active');
+            })
+        });
+    }
+    if(bookmarkMouseOver){
+        bookmarkMouseOver.addEventListener('mouseover', () =>{
+            setTimeout(() => {
+                bookmarkPop.classList.add('alert-active');
+            }, 10);
+            bookmarkMouseOver.addEventListener('mouseout', () =>{
+                bookmarkPop.classList.remove('alert-active');
+            })
+        });
+    }
+    if(shareMouseOver){
+        shareMouseOver.addEventListener('mouseover', () =>{
+            setTimeout(() => {
+                sharePop.classList.add('alert-active');
+            }, 10);
+            shareMouseOver.addEventListener('mouseout', () =>{
+                sharePop.classList.remove('alert-active');
+            })
+        });
+    }
 };
 showWidget();
 
@@ -340,7 +341,7 @@ sr.reveal(`.my-profile-image`, {origin: 'right'})
 
 
 
-
+/*================= REDIRECT TO EXTERNAL SOCIAL APP ===================*/
 // Get all share buttons
 const shareButtons = document.querySelectorAll('.share-button');
 
@@ -380,39 +381,116 @@ shareButtons.forEach(button => {
    });
 });
 
-
 // copy permalink/url when user click permalink button
 const button = document.querySelector('.permalink');
 const copyArticl = document.querySelector('.permalink-message');
 
-button.addEventListener('click', (e) => {
+function permalinkShare(){
+    if(button){
+        button.addEventListener('click', (e) => {
 
-    e.preventDefault()
-    const url = window.location.href;
-    const copied = navigator.clipboard.writeText(url);
+            e.preventDefault()
+            const url = window.location.href;
+            const copied = navigator.clipboard.writeText(url);
+        
+            if (copied) {
+                copyArticl.classList.add('show-permalink-message');
+                e.preventDefault();
+        
+                setTimeout(()=>{
+                    copyArticl.classList.remove('show-permalink-message');
+                }, 1500);
+            } 
+        });
+    };
+}
+permalinkShare();
 
-    if (copied) {
-        copyArticl.classList.add('show-permalink-message');
-        e.preventDefault();
 
-        setTimeout(()=>{
-            copyArticl.classList.remove('show-permalink-message');
-        }, 1500);
-    } 
+
+
+/*========================= DARK MODE =======================   activate-mode */
+const setDarkEl = document.querySelector('.darkmode-setup');
+const setSunsetEl = document.querySelector('.sunset-setup');
+// const darkModeToggler = document.querySelector('.darkmode-set');
+
+setDarkEl.addEventListener('click', () => {
+    if(setDarkEl){
+        setDarkEl.setAttribute('aria-expanded', true);
+        setSunsetEl.setAttribute('aria-expanded', true);
+        document.body.classList.toggle("dark-mode-theme");
+
+
+        //update the local storage when user click on the button
+        if(localStorage.getItem("theme") == "light"){
+            localStorage.setItem("theme", "dark");
+        } else{
+            localStorage.setItem("theme", "light")
+        }
+    }
+   
+     
+   
+  
+})
+
+setSunsetEl.addEventListener('click', () => {
+    if(setSunsetEl){
+        setSunsetEl.setAttribute('aria-expanded', false);
+        setDarkEl.setAttribute('aria-expanded', false);
+        document.body.classList.remove("dark-mode-theme");
+
+        //update the local storage when user click on the button
+        if(localStorage.getItem("theme") == "dark"){
+            localStorage.setItem("theme", "light");
+        } else {
+            localStorage.setItem("theme", "light");
+        }
+    }
 });
 
 
+if(localStorage.getItem("theme") == "light"){
+    document.body.classList.remove("dark-mode-theme");
+} else if(localStorage.getItem("theme") == "dark"){
+    document.body.classList.add("dark-mode-theme");
+} else {
+    // execute when a user first the website for the first time
+    localStorage.setItem("theme", "light");
+}
 
 
-// copy permalink/url when user click permalink button
-// const permalinkEl = document.querySelector('.permalink');
+// localStorage.clear();
+// if(localStorage.getItem("theme") == "light"){
+//     document.body.classList.remove("dark-mode-theme");
+//     setDarkEl.classList.remove('activate-mode');
 
-// permalinkEl.addEventListener('click', (e) => {
-//     copyArticl.classList.add('show-permalink-message');
-//     e.preventDefault();
+// } else if(localStorage.getItem("theme") == "dark"){
+//     document.body.classList.add("dark-mode-theme");
+//     setDarkEl.classList.add('activate-mode');
+
+// } else{
+//     // execute when a user first the website for the first time
+//     localStorage.setItem("theme", "light")
+// }
 
 
-//     setTimeout(()=>{
-//         copyArticl.classList.remove('show-permalink-message');
-//     }, 1000)
-// })
+
+
+
+
+
+
+
+
+// const icon1 = document.querySelector('.dark-set');
+// const icon2 = document.querySelector('.sun-set');
+
+// function toggleIcons() {
+//   const currentIcon = icon1.classList.contains('active') ? icon2 : icon1;
+//   currentIcon.classList.add('activate-mode');
+//   currentIcon.classList.remove('activate-mode');
+// }
+
+// icon1.addEventListener('click', toggleIcons);
+// icon2.addEventListener('click', toggleIcons);

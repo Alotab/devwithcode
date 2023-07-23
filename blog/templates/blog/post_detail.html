@@ -3,179 +3,173 @@
 {%  block content %}
 {% load social_share %}
 
-<div class="main-detail-post">
-  <div class="main-detail-post">
-    <div class="detail-column">
-        <div class="detail-post">
-            <img src="{{ post.image.url }}" alt="post-image" class="post-image">
-        
-            <div class="main-post">
-                <div class="main-post-author">
-                    <img src="{{ post.author.profile_image.url }}">
-                    <div class="author-name">
-                        <p class="author-name-link">{{ post.author }}</p>
-                        <p id="time-tag" class="publish">Posted on {{ post.publish |date:'M d'}} &middot; {{ post.get_readtime }} read</p>
-                    </div>
-                </div>
-                <div class="main-post-headline">
-                      <!-- <h2>The Double Education of My Twins’ Chinese School</h2> -->
-                    <h2>{{ post.title }}</h2>
-                </div>
-                <div class="main-post-tags">
-                  {% for post in post.tags.all %}
-                    <button><span id="tag-color">#</span>{{ post }}</button>
-                  {% endfor %}
-
-                </div>
-                <div class="post-main-detail ck-content">
-                    {{ post.content | safe }}
-
-                </div>
-
-            </div>
-
-            <!---------------- external- share ------------------------>
-            <div class="external-share-container">
-                <div class="share-link">
-                    <div class="social-share">
-                        <i class="ri-heart-line share-like pop"></i>
-                        <div class="like-count"></div>
-                        <p class="pop-like kat">Like this article</p>
-                    </div>
-                    <div class="social-share">
-                        <i class="ri-message-3-line share-comment pop"></i>
-                        <div class="comment-count"></div>
-                        <p class="pop-comment kat">Write a comment</p>
-                    </div>
-                    <div class="social-share">
-                        <i class="ri-bookmark-line share-bookmark pop"></i>
-                        <p class="pop-bookmark kat">Add Bookmark</p>
-                    </div>
-                    <div class="social-share">
-                        <i class="ri-share-line share-share pop"></i>
-                        <p class="pop-share kat">Share this article</p>
-                    </div>
-
-
-                    <span class="social-scroll-wrapper">
-                        <div class="social-cs9 share-buttons">
-                            <a href="#" class="share-button reddit">
-                                <i class="ri-reddit-fill"></i><p>Reddit</p>
-                            </a>
-                            <a href="#" class="share-button linkedin">
-                                <i class="ri-linkedin-box-fill"></i><p>Linkedin</p>
-                            </a>
-                            <a href="#" class="share-button twitch">
-                                <i class="ri-twitch-fill"></i><p>Twitch</p>
-                            </a>
-                            <a href="#" class="share-button whatsapp">
-                                <i class="ri-whatsapp-fill"></i><p>Whatsapp</p>
-                            </a>
-                            <a href="#" class="share-button facebook">
-                                <i class="ri-facebook-circle-fill"></i> <p>Facebook</p>
-                            </a>
-                            <a href="#" class="share-button twitter">
-                                <i class="ri-twitter-fill"></i><p>Twitter</p>
-                            </a>
-                            <a href="#" class="permalink">
-                                <i class="ri-links-line"></i><p>Permalink</p>
-                            </a>
+    <div class="main-detail-post">
+        <div class="detail-column">
+            <div class="detail-post">
+                <img src="{{ post.image.url }}" alt="post-image" class="post-image">
+                <div class="main-post">
+                    <div class="main-post-author">
+                        <img src="{{ post.author.profile_image.url }}">
+                        <div class="author-name">
+                            <p class="author-name-link">{{ post.author }}</p>
+                            <p id="time-tag" class="publish">Posted on {{ post.publish |date:'M d'}} &middot; {{ post.get_readtime }} read</p>
                         </div>
-                    </span>
-
-                    <div class="permalink-message">
-                        <i class="ri-checkbox-circle-line"></i>
-                        <p>Copied article link</p>
                     </div>
-                    
-                </div>
-            </div>
-        </div>
-
-
-        <!--- user post comment online -->
-        <div class="main-post-comments">
-            <span class="title">Comments</span>
-            <div class="comments">
-                {% for comment in comments %}
-                <div class="comment-container">
-                    <div class="user">
-                    <div class="user-pic">
-                        <!-- <svg>{{ comment.user_comment.profile_image }}</svg> -->
-                        <img src="{{ comment.user_comment.profile_image.url }}" alt="">
-                    </div>
-                    <div class="user-info">
-                        <span>{{ comment.user_comment }}</span>
-                        <p>{{ comment.created_at|date:'M d' }}</p>
-                    </div>
-                    </div>
-                    <p class="comment-content">
-                    {{ comment.comment }}
-                    </p>
-                </div>
-                {% endfor %}
-            </div>
-          
-            <div class="text-box">
-              <div class="box-container">
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <textarea name="comment" placeholder="Reply"></textarea>
-                    <div class="formatting">
-                        <button type="submit" class="send" title="Send">
-                        <svg fill="none" viewBox="0 0 24 24" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#ffffff" d="M12 5L12 20"></path>
-                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#ffffff" d="M7 9L11.2929 4.70711C11.6262 4.37377 11.7929 4.20711 12 4.20711C12.2071 4.20711 12.3738 4.37377 12.7071 4.70711L17 9"></path>
-                        </svg>
-                        </button>
-                    </div>
-                </form>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <!---------------------- Sidebar content --------------------->
-    <div class="sidebar-column">
-        <div class="related-side-post">
-            <h3>Related Post</h3>
-
-            {% for post in related_posts %}
-            <button class="related-post">
-                <a href="{{ post.get_absolute_url }}">
-                    <img src="{{ post.author.profile_image.url }}" alt="author-image">
-                    <div class="related-post-headline">
+                    <div class="main-post-headline">
                         <h2>{{ post.title }}</h2>
-                        <div class="related-post-author-date">
-                            <p class="related-author">{{ post.author }}</p>
-                            <p class="related-date">{{ post.publish | date:'M d' }}</p>
-                        </div>
                     </div>
-                </a>
-            </button>
-            {% endfor %}
-        </div>
+                    <div class="main-post-tags">
+                        {% for post in post.tags.all %}
+                            <button><span id="tag-color"></span>{{ post }}</button>
+                        {% endfor %}
+                    </div>
+                    <div class="post-main-detail ck-content">
+                        {{ post.content | safe }}
+                    </div>
+                </div>
 
-        <div class="trending-side-post">
-            <h3>Trending Post</h3>
+                <!---------------- external- share ------------------------>
+                <div class="external-share-container"> 
+                    <div class="share-link">
+                        <div class="social-share">
+                            <i class="ri-heart-line share-like pop"></i>
+                            <div class="like-count"></div>
+                            <p class="pop-like kat">Like this article</p>
+                        </div>
+                        <div class="social-share">
+                            <i class="ri-message-3-line share-comment pop"></i>
+                            <div class="comment-count"></div>
+                            <p class="pop-comment kat">Write a comment</p>
+                        </div>
+                        <div class="social-share">
+                            <i class="ri-bookmark-line share-bookmark pop"></i>
+                            <p class="pop-bookmark kat">Add Bookmark</p>
+                        </div>
+                        <div class="social-share">
+                            <i class="ri-share-line share-share pop"></i>
+                            <p class="pop-share kat">Share this article</p>
+                        </div>
+
+
+                        <span class="social-scroll-wrapper">
+                            <div class="social-cs9 share-buttons">
+                                <a href="#" class="share-button reddit">
+                                    <i class="ri-reddit-fill"></i><p>Reddit</p>
+                                </a>
+                                <a href="#" class="share-button linkedin">
+                                    <i class="ri-linkedin-box-fill"></i><p>Linkedin</p>
+                                </a>
+                                <a href="#" class="share-button twitch">
+                                    <i class="ri-twitch-fill"></i><p>Twitch</p>
+                                </a>
+                                <a href="#" class="share-button whatsapp">
+                                    <i class="ri-whatsapp-fill"></i><p>Whatsapp</p>
+                                </a>
+                                <a href="#" class="share-button facebook">
+                                    <i class="ri-facebook-circle-fill"></i> <p>Facebook</p>
+                                </a>
+                                <a href="#" class="share-button twitter">
+                                    <i class="ri-twitter-fill"></i><p>Twitter</p>
+                                </a>
+                                <a href="#" class="permalink">
+                                    <i class="ri-links-line"></i><p>Permalink</p>
+                                </a>
+                            </div>
+                        </span>
+
+                        <div class="permalink-message">
+                            <i class="ri-checkbox-circle-line"></i>
+                            <p>Copied article link</p>
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
+
+
+            <!--- user post comment online -->
+            <!-- <div class="main-post-comments">
+                <span class="title">Comments</span>
+                <div class="comments">
+                    {% for comment in comments %}
+                    <div class="comment-container">
+                        <div class="user">
+                        <div class="user-pic">
+                            <img src="{{ comment.user_comment.profile_image.url }}" alt="">
+                        </div>
+                        <div class="user-info">
+                            <span>{{ comment.user_comment }}</span>
+                            <p>{{ comment.created_at|date:'M d' }}</p>
+                        </div>
+                        </div>
+                        <p class="comment-content">
+                        {{ comment.comment }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
             
-            {% for post in trending_posts %}
-            <button class="trending-post">
-                <a href="#"><img src="{{ post.author.profile_image.url }}"alt="author-image"></a>
-                
-                <div class="trending-post-headline">
+                <div class="text-box">
+                <div class="box-container">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <textarea name="comment" placeholder="Reply"></textarea>
+                        <div class="formatting">
+                            <button type="submit" class="send" title="Send">
+                            <svg fill="none" viewBox="0 0 24 24" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#ffffff" d="M12 5L12 20"></path>
+                                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#ffffff" d="M7 9L11.2929 4.70711C11.6262 4.37377 11.7929 4.20711 12 4.20711C12.2071 4.20711 12.3738 4.37377 12.7071 4.70711L17 9"></path>
+                            </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div> -->
+        </div>
+
+        <!---------------------- Sidebar content --------------------->
+        <!-- <div class="sidebar-column">
+            <div class="related-side-post">
+                <h3>Related Post</h3>
+
+                {% for post in related_posts %}
+                <button class="related-post">
                     <a href="{{ post.get_absolute_url }}">
-                        <h2>{{ post.title }}</h2>
-                        <div class="trending-post-author-date">
-                            <p class="trending-author">{{ post.author }}</p>
-                            <p class="trending-date">{{ post.publish | date:'M d' }}</p>
+                        <img src="{{ post.author.profile_image.url }}" alt="author-image">
+                        <div class="related-post-headline">
+                            <h2>{{ post.title }}</h2>
+                            <div class="related-post-author-date">
+                                <p class="related-author">{{ post.author }}</p>
+                                <p class="related-date">{{ post.publish | date:'M d' }}</p>
+                            </div>
                         </div>
                     </a>
-                </div>
-            </button>
-            {% endfor %}
-        </div>
+                </button>
+                {% endfor %}
+            </div>
+
+            <div class="trending-side-post">
+                <h3>Trending Post</h3>
+                
+                {% for post in trending_posts %}
+                <button class="trending-post">
+                    <a href="#"><img src="{{ post.author.profile_image.url }}"alt="author-image"></a>
+                    
+                    <div class="trending-post-headline">
+                        <a href="{{ post.get_absolute_url }}">
+                            <h2>{{ post.title }}</h2>
+                            <div class="trending-post-author-date">
+                                <p class="trending-author">{{ post.author }}</p>
+                                <p class="trending-date">{{ post.publish | date:'M d' }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </button>
+                {% endfor %}
+            </div>
+        </div> -->
+       
     </div>
-  </div>
-</div>
+  
 {% endblock %}
