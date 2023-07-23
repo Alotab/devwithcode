@@ -4,10 +4,12 @@
 }
 
 
+
+
 :root{
   --navBar-color: #7c9ce5 ;
-  --footer-Color: #23377E;
-  --buttons: #1b7ce3;
+  /* --footer-Color: #23377E; */
+  /* --buttons: #1b7ce3; */
   --button-hoverWhite: rgb(255 255 255 / 0.2);
   --button-hoverDark: #ffffff;
 
@@ -18,23 +20,21 @@
   --ft-background: #f0f0f0;
   --share-background: #fff;
   --share-iconHover:rgb(223, 221, 221);
-  
+  --hambuger-nav:hsla(0, 4%, 34%, 0.5);
   --title-head: rgb(41, 41, 41);
   --user-name: rgba(255, 255, 255, 0.5);
   --hm-username: rgb(51 65 85/var(--tw-text-opacity));
   --dim-textColors: rgb(41, 41, 41);
-  /* --ext-social-icon:rgb(71 85 105 / var(--tw-text-opacity)); */
+  --share-social: rgb(30 41 59 / var(0));
   --ext-social-icon:rgb(51 65 85 / var(--tw-text-opacity));
   --ext-social-border: rgb(226 232 240 / var(--tw-border-opacity));
   --ext-social-hover:#f0f2f5;
   --btn-border: rgb(226 232 240 / var(--tw-border-opacity));
-  
-  
   --gn-textColor: #000;
 
-  --main-buttons: rgb(240, 236, 234);
-  --middleColume-backgroundColor:  #F9F9FA;
-  --buttonIconHover: rgba(124, 131, 133, .9);
+  /* --main-buttons: rgb(240, 236, 234); */
+  /* --middleColume-backgroundColor:  #F9F9FA; */
+  /* --buttonIconHover: rgba(124, 131, 133, .9); */
 
    /* update */
    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -48,19 +48,20 @@
 .dark-mode-theme{
   --tw-bg-opacity: 1;
   --website-backgroundColor: #081b29;
-  /* color: #081b29;    #111827*/
   --ft-background: #000000;
   --title-head: rgb(255, 255, 255);
   --hm-username: rgb(226 232 240/var(--tw-text-opacity));
   --dim-textColor: #fafafa;
   --dim-textColors: #f4f4f4;
   --gn-textColor: rgb(255, 255, 255, 0.9);
+  --share-social: #ffffff;
   --share-background: rgb(51 65 85 / var(--tw-bg-opacity));
   --share-iconHover: #081b29;
   --ext-social-icon: #f4f4f4;
   --ext-social-border: 0;
-  --ext-social-hover: #11222e;  /* #081b29 */
+  --ext-social-hover: #11222e;  
   --btn-border: #fff;
+  --hambuger-nav:hsla(0, 0%, 0%, 0.5);
 }
 
 button{
@@ -91,7 +92,7 @@ body {
   color: var(--gn-textColor);
   /* transition: background 0.5s; */
 }
-header {
+header .nav-main{
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -104,6 +105,19 @@ header {
   align-items: center;
   z-index: 1; 
 }
+
+header .scroll-tracker{
+  position: fixed;
+  width: 100%;
+  margin: 4rem;
+  height: 0.3rem;
+  left: -40px;
+  background-color: rgb(60, 60, 242);
+  transform-origin: left;
+}
+
+
+
 .logo{
   display: flex;
   gap: 0.5em;
@@ -175,9 +189,6 @@ input[type="search"]::-webkit-search-cancel-button {
 .nav-links-menu{
   display: flex;
   position: relative;
-  /* margin-right: 2.5rem; */
-  /* margin-right: 1rem; */
-  /* background-color: red; */
 }
 .subheader{
   text-align: right;
@@ -226,14 +237,7 @@ li{
   display: none;
 }
  
-
-/*-------  dark mode ---------*/
-/* .darkmode-set:hover{
-  border-radius: 9999px;
-  padding: 0.5rem;
-  background-color: var(--button-hoverWhite);
-} */
-
+/*------ dark-mode------ */
 .darkmode-nav{
   /* background-color: blue; */
   width: 50px;
@@ -297,8 +301,6 @@ li{
 .sunset-setup[aria-expanded='true']{
   display: block;
 }
-
-
 
 
 /* Show menu */
@@ -2329,7 +2331,8 @@ button .trending-post-headline h2{
 }
 .social-share i{
   font-size: 2.2rem;
-  color: rgb(30 41 59 / var(0));
+  color: var(--share-social);
+ 
   opacity: 0.7;
   cursor: pointer;
   
@@ -2477,8 +2480,6 @@ button .trending-post-headline h2{
   line-height: 4px;
 }
 
-
-
 .styled-scrollbars{
   /* Foreground, Background */
   scrollbar-color: #999 #333;
@@ -2496,6 +2497,7 @@ button .trending-post-headline h2{
 .styled-scrollbars::-webkit-scrollbar-track{
   background-color: #333;
 }
+
 
 
 
@@ -3307,7 +3309,7 @@ button .trending-post-headline h2{
     inset: 0 0 0 10%;
     flex-direction: column;
     padding-top: 2rem;
-    background: hsla(0, 4%, 34%, 0.5);
+    background: var(--hambuger-nav);
     backdrop-filter: blur(0.3rem);
     position: fixed;
     z-index: 2;
@@ -3717,6 +3719,10 @@ button .trending-post-headline h2{
 
   .search-right-content{
     display: none !important;
+  }
+
+  footer{
+    height: 20rem;
   }
 
   /*----------- show-permalink-message -------------*/

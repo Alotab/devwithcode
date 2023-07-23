@@ -45,82 +45,88 @@
     <div class="wrapper">
         <!--====================== NAVIGATION SECTION ==========================-->
         <header>
-            <!-------------- logo and search icon ---------------->
-            <div class="logo">
-                <div class="main-logo">
-                    <a href="{% url 'blog:home' %}"><img src="{% static 'images/logo2.svg' %}" alt="logo" ></a>
-                </div>
-                <div class="search">
-                    <!-- <input type="search" id="gsearch" name="gsearch"> -->
-                    <i class="ri-search-line search-icon"></i>
-                </div>
-            </div>
 
-            <!--------------- DARK MOODE ------------------>
+            <div class="nav-main">
+                 <!-------------- logo and search icon ---------------->
+                <div class="logo">
+                    <div class="main-logo">
+                        <a href="{% url 'blog:home' %}"><img src="{% static 'images/logo2.svg' %}" alt="logo" ></a>
+                    </div>
+                    <div class="search">
+                        <!-- <input type="search" id="gsearch" name="gsearch"> -->
+                        <i class="ri-search-line search-icon"></i>
+                    </div>
+                </div>
 
-            <!-- <div class="darkmode-set">
-                <i class="ri-moon-fill dark-set"></i>
-                <i class="ri-sun-fill sun-set activate-mode"></i>
-            </div> -->
+                <!--------------- DARK MOODE ------------------>
+
+                <!-- <div class="darkmode-set">
+                    <i class="ri-moon-fill dark-set"></i>
+                    <i class="ri-sun-fill sun-set activate-mode"></i>
+                </div> -->
             
           
 
 
             
 
-            <!------------- Hambuger menu  ---------------->
-            <button class="mobile-nav-toggle" 
-                aria-controls="primary-navigation" aria-expanded="false">
-                <span class="sr-only">
-                    <i class="ri-menu-line"></i>
-                </span> 
-                <!--- add menu there to help screen readers know is not just an icon but a menu button-->
-            </button>
+                <!------------- Hambuger menu  ---------------->
+                <button class="mobile-nav-toggle" 
+                    aria-controls="primary-navigation" aria-expanded="false">
+                    <span class="sr-only">
+                        <i class="ri-menu-line"></i>
+                    </span> 
+                    <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+                </button>
 
-            <button class="mobile-nav-toggle-close" aria-expanded="false">
-                <span class="sr-only">
-                    <i class="ri-close-line"></i>
-                </span> 
-                <!--- add menu there to help screen readers know is not just an icon but a menu button-->
-            </button>
+                <button class="mobile-nav-toggle-close" aria-expanded="false">
+                    <span class="sr-only">
+                        <i class="ri-close-line"></i>
+                    </span> 
+                    <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+                </button>
 
 
-            <!--------------------- Navigation links ------------------------->
-            <div class="nav-links-menu">
-
-                <div class="darkmode-nav">
-                    <button class="sunset-setup" aria-controls="primary-darkmode" aria-expanded="false">
-                        <span class="darkmode-icon">
-                            <i class="ri-sun-fill"></i>
-                        </span> 
-                    </button>
-    
-                    <button class="darkmode-setup" aria-expanded="false">
-                        <span class="darkmode-icon">
-                            <i class="ri-moon-fill"></i>
-                        </span> 
-                        <!--- add menu there to help screen readers know is not just an icon but a menu button-->
-                    </button>
-                </div>
-          
-                <div class="subheader" id="nav-menu">
-                    <nav>
-                        <ul id="primary-navigation" data-visible="false"  class="primary-navigation">
-                            {% if request.user.is_authenticated %}
-                            <!-- <li class="active"><a href="{% url 'blog:post' %}"class="home-link">write</a></li> -->
-                            <li class="active"><a href="{% url 'blog:home' %}"class="home-link">Home</a></li>
-                            <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
-                            <li><a href="{% url 'logout' %}" class="sign-in-link" id="sign-in">LogOut</a></li>
-                            {% else %}
-                            <li class="active"><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
-                            <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
-                            <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
-                            <li><a href="{% url 'signup' %}" class="create-account-link">Create account</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
+                <!--------------------- Navigation links ------------------------->
+                <div class="nav-links-menu">
+                
+                    <div class="darkmode-nav">
+                        <button class="sunset-setup" aria-controls="primary-darkmode" aria-expanded="false">
+                            <span class="darkmode-icon">
+                                <i class="ri-sun-fill"></i>
+                            </span> 
+                        </button>
+        
+                        <button class="darkmode-setup" aria-expanded="false">
+                            <span class="darkmode-icon">
+                                <i class="ri-moon-fill"></i>
+                            </span> 
+                            <!--- add menu there to help screen readers know is not just an icon but a menu button-->
+                        </button>
+                    </div>
+            
+                    <div class="subheader" id="nav-menu">
+                        <nav>
+                            <ul id="primary-navigation" data-visible="false"  class="primary-navigation">
+                                {% if request.user.is_authenticated %}
+                                <!-- <li class="active"><a href="{% url 'blog:post' %}"class="home-link">write</a></li> -->
+                                <li class="active"><a href="{% url 'blog:home' %}"class="home-link">Home</a></li>
+                                <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="{% url 'logout' %}" class="sign-in-link" id="sign-in">LogOut</a></li>
+                                {% else %}
+                                <li class="active"><a href="{% url 'blog:home' %}" class="home-link">Home</a></li>
+                                <li><a href="{% url 'portfolio' %}" class="portfolio-link">Portfolio</a></li>
+                                <li><a href="{% url 'login' %}" class="sign-in-link">Sign-In</a></li>
+                                <li><a href="{% url 'signup' %}" class="create-account-link">Create account</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
+           
+
+            <div class="scroll-tracker"></div>
         </header>
 
 
@@ -192,7 +198,7 @@
 
 
     <!--=============== MAIN-JAVASCRIPT SECTION ===============-->
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}" type="module"></script>
 
     <!--=============== SCROLLREVEAL ===============-->
     <script src="{% static 'js/scrollreveal.min.js' %}"></script>

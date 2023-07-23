@@ -1,3 +1,4 @@
+import "https://flackr.github.io/scroll-timeline//dist/scroll-timeline.js";
 /*============ SHOW MENU =================== */
 const primaryNav = document.querySelector('.primary-navigation');
 const navToggleMobile = document.querySelector('.mobile-nav-toggle');
@@ -23,6 +24,29 @@ if(elSearcIcon){
         elSearchMenu.classList.add('middle-search')
     })
 }
+
+
+/*============== scroll tracker =====================*/
+const scrollTracker = document.querySelector('.scroll-tracker');
+
+const scrollTrackingTimeline = new ScrollTimeline({
+    // by default source is the entire viewpower for the scorlling elmenet
+    source: document.scrollingElement, 
+    //for up/down (block) scrolling and horizontall scorlling
+    orientation: "block", 
+    //scrolling range /starting point and end point
+    scrollOffsets: [CSS.percent(0), CSS.percent(100)]
+});
+
+scrollTracker.animate(
+    {
+        transform: ["scaleX(0", "scale(1"],
+    },
+    {
+        duration: 1,
+        timeline: scrollTrackingTimeline,
+    }
+);
 
 
 /*=============== Hambuger Menu for small devices =================*/
