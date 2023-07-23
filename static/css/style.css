@@ -175,8 +175,9 @@ input[type="search"]::-webkit-search-cancel-button {
 .nav-links-menu{
   display: flex;
   position: relative;
-  margin-right: 1rem;
-  background-color: red;
+  /* margin-right: 2.5rem; */
+  /* margin-right: 1rem; */
+  /* background-color: red; */
 }
 .subheader{
   text-align: right;
@@ -186,10 +187,11 @@ input[type="search"]::-webkit-search-cancel-button {
   display: flex;
   gap: 3em;
   align-items: center;
+
 }
 .subheader nav ul{
   display: flex;
-  gap: 3em;
+  gap: 2.5em;
   margin-right: 1em;
   padding: 0;
 } 
@@ -199,6 +201,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 1.7rem;
   color: #fff;
   white-space: nowrap;
+ 
 }
 li{
   list-style: none;
@@ -232,8 +235,9 @@ li{
 } */
 
 .darkmode-nav{
-  background-color: blue;
-  width: 90px;
+  /* background-color: blue; */
+  width: 50px;
+  justify-content: center;
 }
 .activate-mode{
   display: none;
@@ -2475,6 +2479,25 @@ button .trending-post-headline h2{
 
 
 
+.styled-scrollbars{
+  /* Foreground, Background */
+  scrollbar-color: #999 #333;
+}
+
+.styled-scrollbars::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+.styled-scrollbars::-webkit-scrollbar-thumb{
+  background: #999;
+}
+
+.styled-scrollbars::-webkit-scrollbar-track{
+  background-color: #333;
+}
+
+
 
 
 
@@ -2678,6 +2701,13 @@ button .trending-post-headline h2{
     background-color: rgb(30, 34, 24);
   } */
 
+  .subheader{
+    padding: 0;
+  }
+  .sign-in-link{
+    padding-right: 1rem;
+  }
+
   .toggle-menu .nav__toggle i{
     display: none !important;
   }
@@ -2723,6 +2753,10 @@ button .trending-post-headline h2{
     padding-left: 2rem;
   }
 
+  .post{
+    margin-right: 1rem;
+  }
+
   /* main content  on Small screens, laptops  */
   .main-content{
     margin-left: 0px;
@@ -2737,7 +2771,6 @@ button .trending-post-headline h2{
   .community-post{
     margin-top: -19px;
     margin-right: 10px;
-    background-color: var(--middleColume-backgroundColor);
     border-radius: 0.5rem;
     overflow: auto;
   }
@@ -2782,7 +2815,7 @@ button .trending-post-headline h2{
   }
 
   .sidebar-post2{
-    background-color: var(--middleColume-backgroundColor);
+    /* background-color: var(--middleColume-backgroundColor); */
     border-radius: 5px;
     margin-top: 2rem;
     border-radius: 5px;
@@ -2929,10 +2962,8 @@ button .trending-post-headline h2{
   .toggle-menu .nav__toggle i{
     display: block !important;
   } */
-
   .search input {
     display: none! important;
-    
   }
   .primary-navigation{
     inset: 0 0 0 10%;
@@ -2942,7 +2973,7 @@ button .trending-post-headline h2{
     backdrop-filter: blur(0.3rem);
     position: fixed;
     z-index: 2;
-    transform: translateX(100%);
+    transform: translateX(120%);
     transition: transform 350ms ease-out;
    
   }
@@ -2954,6 +2985,9 @@ button .trending-post-headline h2{
   }
   .mobile-nav-toggle-close[aria-expanded='true'] {
     display: block;
+  }
+  .subheader nav > ul {
+    padding: 2rem 0 0 2rem;
   }
   .subheader nav > ul > li > a {
     display: block;
@@ -3014,6 +3048,9 @@ button .trending-post-headline h2{
   .mobile-nav-toggle-close:hover{
     border-radius: 0.5rem;
     background-color: var(--button-hoverWhite);
+  }
+  .darkmode-nav{
+    margin-right: 5rem;
   }
 
  
@@ -3274,7 +3311,7 @@ button .trending-post-headline h2{
     backdrop-filter: blur(0.3rem);
     position: fixed;
     z-index: 2;
-    transform: translateX(100%);
+    transform: translateX(120%);
     transition: transform 350ms ease-out;
    
   }
@@ -3287,11 +3324,16 @@ button .trending-post-headline h2{
   .mobile-nav-toggle-close[aria-expanded='true'] {
     display: block;
   }
+
+  .subheader nav > ul {
+    padding: 2rem 0 0 2rem;
+  }
   .subheader nav > ul > li > a {
     display: block;
     text-align: left;
     font-weight: 400;
     font-family: 'Poppins';
+    /* padding: 2rem 0 0 1rem; */
     letter-spacing: 0.5px;
   }
   .subheader .create-account-link{
@@ -3315,7 +3357,6 @@ button .trending-post-headline h2{
     z-index: 9999;
     background-color: transparent;
     background-repeat: no-repeat;
-   
     width: 4rem;
     border: 0;
     aspect-ratio: 1; /* controls the height and width of an object*/
@@ -3347,6 +3388,9 @@ button .trending-post-headline h2{
     border-radius: 0.5rem;
     background-color: var(--button-hoverWhite);
   }
+  .darkmode-nav{
+    margin-right: 5.5rem;
+  }
   .community-post{
     margin-top: -10px;
   }
@@ -3357,7 +3401,6 @@ button .trending-post-headline h2{
     font-size: 16px;
     font-family: "Caudex", sans-serif;
     font-weight: 500;
- 
   }
   .community-post-headline{
     padding: 15px 15px;
@@ -3407,25 +3450,27 @@ button .trending-post-headline h2{
 
 
   /*---------------------- post content ------------------------*/
+
+  .post{
+    /* background: red; */
+    padding: 1rem;
+  }
   .author-profile{
     padding: 0px 5px;
   }
   .author-name .post-date{
     font-size: 10px;
-    color: #969CA3;
+    /* color: #969CA3; */
     font-family: sans-serif;
     font-weight: 500;
   }
   .post-header{
     padding: 3px 5px;
     align-items: center;
-    /* font-size: 19px; */
-    /* font-weight: bold; */
   }
   .post-header a h4{
     text-decoration: none;
     list-style: none;
-    color: rgb(41, 41, 41);
     font-size: 15px;
     font-weight: 700;
     line-height: 28px;
