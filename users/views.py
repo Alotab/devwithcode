@@ -44,14 +44,6 @@ class AccountSignupView(SignupView):
     # change template's name and path
     template_name = "users/register.html"
 
-    # You can also override some other methods of SignupView
-    # Like below:
-    # def form_valid(self, form):
-    #     ...
-    #
-    # def get_context_data(self, **kwargs):
-    #     ...
-
 account_signup_view = AccountSignupView.as_view()
 
 
@@ -65,30 +57,8 @@ account_login_view = AccountLoginView.as_view()
 
 
 
-# class AccountSignView(SignupView):
-    # Signup View extended
-
-    # change template's name and path
-    # template_name = "users/register.html"
-
-    # You can also override some other methods of SignupView
-    # Like below:
-    # def form_valid(self, form):
-    #     ...
-    #
-    # def get_context_data(self, **kwargs):
-    #     ...
-
-
-
-
-
-
-
-
 def portfolio(request):
     return render(request, 'users/portfolio.html')
-
 
 def register(request, *args, **kwargs):
     user = request.user
@@ -115,21 +85,10 @@ def register(request, *args, **kwargs):
     #return render(request, "users/register.html", context)
 
 
-# def logout_view(request):
-#     logout(request)
-#     return redirect('blog:home')
-
-
 def logout_view(request):
   """Log the user out and redirect them to the current detail page."""
 
-  # Get the current URL.
-#   current_url = request.url
-
-  # Log the user out.
   logout(request)
-
-  # Redirect the user to the current detail page.
   return redirect('blog:home')
 
 
@@ -171,7 +130,6 @@ def get_redirect_if_exists(request):
 ## CODIDNGWITHMITCH
 
 UserModel = get_user_model()
-
 
 class SuccessURLAllowedHostsMixin:
     success_url_allowed_hosts = set()

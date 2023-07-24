@@ -35,7 +35,7 @@ const scrollTrackingTimeline = new ScrollTimeline({
     //for up/down (block) scrolling and horizontall scorlling
     orientation: "block", 
     //scrolling range /starting point and end point
-    scrollOffsets: [CSS.percent(0), CSS.percent(100)]
+    scrollOffsets: [CSS.percent(0), CSS.percent(120)]
 });
 
 scrollTracker.animate(
@@ -200,6 +200,34 @@ const sharelinkOne = document.querySelector(".share-link");
 const postdetailOne = document.querySelector(".post-main-detail");
 const externalOne = document.querySelector(".external-share-container");
 
+// const shareFuction = function(entries){
+//     console.log(entries[0]);
+// }
+
+// const shareOberserver = new IntersectionObserver(shareFuction, {
+//     threshold: [0, 1]
+//     // rootMargin: [0% 0% 0% 20%]
+// });
+
+// shareOberserver.observe(sharelinkOne);
+
+
+
+// const observer = new IntersectionObserver((entries, observer) => {
+    
+//     entries.forEach((entry) => {
+//         const mathss = entry.intersectionRect.y + entry.intersectionRect.height
+//         if(mathss){
+//             console.log('try');
+//         }
+//     });
+// });
+
+// observer.observe(sharelinkOne);
+
+
+
+
 
 // Create a function to check if the share container is reached
 function isDivReached() {
@@ -211,45 +239,50 @@ function isDivReached() {
 }
 
 // Add an event listener to the window scroll event
-// window.addEventListener('scroll', function (e) {
-//     e.preventDefault();
-//   // Check if the div is reached//
-//   if (isDivReached()) {
-//     sharelinkOne.classList.add('share-java');
-//   }
-//   else {
-//     sharelinkOne.classList.remove('share-java');
-//   }
-// });
+window.addEventListener('scroll', function (e) {
+    e.preventDefault();
+  // Check if the div is reached//
+  if (isDivReached()) {
+    sharelinkOne.classList.add('share-java');
+  }
+  else {
+    sharelinkOne.classList.remove('share-java');
+  }
+});
 
-// function Reached() {
-//     // Get the current scroll position
-//     const scrollPosition = window.scrollY;
+function Reached() {
+    // Get the current scroll position
+    const scrollPosition = window.scrollY;
 
-//     // Check if the scroll position is greater than or equal to the top of the div
-//     return scrollPosition <= externalOne.offsetTop;
-// }
+    // Check if the scroll position is greater than or equal to the top of the div
+    return scrollPosition <= externalOne.offsetTop;
+}
+
+
 
 // prevent scroll event
-// window.addEventListener('scroll', function (e) {
-//     if(Reached){
-//         sharelinkOne.classList.add("share-scroll");
-//     }
-// });
-// window.addEventListener('scroll', function (e) {
-//     const scrollPosition = window.pageYOffset;
+window.addEventListener('scroll', function (e) {
+    if(Reached){
+        sharelinkOne.classList.add("share-scroll");
+    }
+});
+window.addEventListener('scroll', function (e) {
+    // const scrollPosition = window.pageYOffset;
+    const scrollPosition = window.scrollY;
     
-//     if (scrollPosition <= externalOne.offsetTop - 655) {
-//         sharelinkOne.classList.add('share-scroll');
-//     } else {
-//         sharelinkOne.classList.remove('share-scroll');
-//     }
-// });
+    if(scrollPosition <= externalOne.offsetTop - 680) {
+        sharelinkOne.classList.add('share-scroll');
+    } else {
+        sharelinkOne.classList.remove('share-scroll');
+    }
+});
+
 
 
 
 /*=============== POPUP SHARE LIKE SCREEN ===============*/
 const shareEl = document.querySelector('.share-share');
+const removeMouse = document.querySelectorAll('.social-share i');
 const socialContainerEl = document.querySelector('.social-scroll-wrapper');
 const hidePopupWidget = document.querySelector('.kat');
 
@@ -262,17 +295,26 @@ function popShareScreen(){
         shareEl.addEventListener('click', () => {
             socialContainerEl.classList.add('show-social-links');
             likePop.classList.remove('alert-active');
+            removeMouse.forEach((icon) => {
+                icon.style.cursor = 'default';
+                // icon.style.background = 'transparent';   not working
+            });
             
             showMes = true;
             if(showMes){
                 document.body.style.overflow = 'hidden';
-                
             }
         
-            document.addEventListener('click', (e) => {
+            document.addEventListener('mousedown', (e) => {
                 if (!socialContainerEl.contains(e.target) && !shareEl.contains(e.target)) {
                     socialContainerEl.classList.remove('show-social-links');
                     document.body.style.overflow = 'auto';
+
+                    removeMouse.forEach((icon) => {
+                        icon.style.setProperty('cursor', "pointer", "important");
+                        // icon.style.setProperty('background', 'var(--share-iconHover)', "important");
+                        
+                    });
                   
                 }
             });    
@@ -452,11 +494,7 @@ setDarkEl.addEventListener('click', () => {
             localStorage.setItem("theme", "light")
         }
     }
-   
-     
-   
-  
-})
+});
 
 setSunsetEl.addEventListener('click', () => {
     if(setSunsetEl){
@@ -481,7 +519,7 @@ if(localStorage.getItem("theme") == "light"){
 } else {
     // execute when a user first the website for the first time
     localStorage.setItem("theme", "light");
-}
+};
 
 
 // localStorage.clear();

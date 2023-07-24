@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 # from django.contrib.auth.models import UserManager
 from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
@@ -13,7 +13,6 @@ def get_default_profile_image():
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    #username = models.CharField(max_length=100, null=True,unique=True, blank=True)  # remove the username field
     email = models.EmailField(_("email address"), unique=True) # make email field required and unique
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -40,9 +39,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     def has_module_perms(self, app_label):
         return True
-    
-    # def get_full_name(self):
-    #     return f"{self.first_name} {self.last_name}"
     
     def get_short_name(self):
         return f"{self.first_name}"

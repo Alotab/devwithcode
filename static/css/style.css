@@ -88,7 +88,7 @@ html {
 body {
   margin: 0;
   background-color: var(--website-backgroundColor);
-  min-height: 90vh;
+  /* min-height: 90vh; */
   color: var(--gn-textColor);
   /* transition: background 0.5s; */
 }
@@ -104,16 +104,19 @@ header .nav-main{
   height: 5.5em; /*5.5 */
   align-items: center;
   z-index: 1; 
+  /* display: none; */
 }
 
-header .scroll-tracker{
+.scroll-tracker{
   position: fixed;
   width: 100%;
-  margin: 4rem;
+  margin-top: 4rem;
+  /* margin: 4rem; */
   height: 0.3rem;
-  left: -40px;
+  left: 0px;
   background-color: rgb(60, 60, 242);
   transform-origin: left;
+  display: none;
 }
 
 
@@ -812,6 +815,7 @@ footer ul li a{
 .detail-post{
   background: var(--website-backgroundColor);
   /* margin-bottom: 5rem; */
+  
 }
 .detail-post .post-image{
   height: 45rem;
@@ -2300,7 +2304,8 @@ button .trending-post-headline h2{
 }
 .share-link.share-scroll{
   /* z-index: 2; */
-  background: #fff;
+  /* background: #fff; */
+  background: var(--share-background);
   width: 300px;
   height: 45px;
   display: flex;
@@ -2335,18 +2340,19 @@ button .trending-post-headline h2{
  
   opacity: 0.7;
   cursor: pointer;
-  
   font-family: inherit;
   font-weight: inherit;
   line-height: inherit;
   transition: background 0.1s;
 }
+i{
+  background: transparent;
+}
 .social-share i:hover{
+  background: transparent;
   border-radius: 50%;
   padding: 7px;
   background: var(--share-iconHover);
-  /* background: rgb(223, 221, 221); */
-  /* background: red; */
 }
 .pop-comment{
   bottom: 41px;

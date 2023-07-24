@@ -13,6 +13,7 @@ import uuid
 import readtime
 from django_ckeditor_5.fields import CKEditor5Field
 
+
 # Create your models here.
 
 # This manager filter the post objects to retreived on published post
@@ -20,17 +21,6 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return Post.objects.filter(status=Post.Status.PUBLISHED)
     
-# class PublishedManager(models.Manager):
-
-#   def get_queryset(self):
-#     return Post.objects.filter(status=Post.Status.PUBLISHED)
-
-#   def get_or_404(self, slug):
-#     try:
-#       return self.get(slug=slug)
-#     except Post.DoesNotExist:
-#       raise Http404("Post does not exist")
-
 class Post(models.Model):
 
     class Status(models.TextChoices):
@@ -40,16 +30,9 @@ class Post(models.Model):
     id = models.BigAutoField(primary_key=True, editable=False)
     title = models.CharField(max_length=200)
     slug =  models.SlugField(max_length=250, unique_for_date='publish', unique=True, blank=True)
-    # content = models.TextField()
-
-    # content = RichTextUploadingField(blank=True, null=True)
     content = CKEditor5Field('Text', config_name='extends')
-
-    
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='post')
     publish = models.DateTimeField(default=timezone.now)
-    # image = models.ImageField(default="default.jpg", upload_to='post_pics')
-    # image = models.ImageField(default='default.jpg',upload_to='post_pics', blank=True, null=True)
     image = models.ImageField(default='default.jpg',upload_to='post_pics', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
@@ -57,38 +40,38 @@ class Post(models.Model):
     published = PublishedManager()
     tags = TaggableManager()
 
-
-    def get_readtime(self):
-        result = readtime.of_text(self.content)
-        return result.text 
+    def get_author_id(self):
+        return self.author.id
+    
+    @property
+    def readtime(self):
+        return readtime.of_text(self.content).text
 
 
     def __str__(self) -> str:
         return self.title
     
+
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args= [self.slug, self.id])
+        return reverse('blog:post_detail', kwargs={'slug': self.slug, 'pk': self.id}) # args= [self.slug, self.id]
+    
 
     def create_slug(sender, instance, **kwargs):
         if not instance.slug:
             instance.slug = slugify(instance.title)
-
-
-
-    # override the save method in post class and reduce the size of the image size
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
-
+            
+    def resize_image(self):
         img = Image.open(self.image.path)
 
         if img.height > 1000 or img.width > 1000:
             output_size = (500, 800)
             img.thumbnail(output_size)
             img.save(self.image.path)
-        
-        # if not self.slug:
-        #     self.slug = slugify(self.title)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        self.resize_image()
+        super(Post, self).save(*args, **kwargs)
     
 
 

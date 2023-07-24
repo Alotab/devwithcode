@@ -12,6 +12,9 @@ transformers==4.30.2
 tensorflow==2.13.0
 django-social-share==2.3.0
 django-ckeditor-5==0.2.8
+pytest==7.4.0
+pytest-django==4.5.2
+django-markdown-deux==1.0.6
 
 
 # PRODUCTION
