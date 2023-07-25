@@ -8,8 +8,8 @@ Original file is located at
 """
 
 
-from transformers import DistilBertTokenizer, TFDistilBertForQuestionAnswering
-import tensorflow as tf
+# from transformers import DistilBertTokenizer, TFDistilBertForQuestionAnswering
+# import tensorflow as tf
 
 # tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-cased-distilled-squad")
 # model = TFDistilBertForQuestionAnswering.from_pretrained("distilbert-base-cased-distilled-squad")
