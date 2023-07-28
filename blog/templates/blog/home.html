@@ -52,12 +52,12 @@
                 <div class="post ck-content">
                     <div class="author-profile">
                         <div class="author-image">
-                            <a href="#"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
+                            <a href="{% url 'portfolio' %}"><img src="{{ post.author.profile_image.url }}" alt="author"></a>
                            
                         </div>
                         <div class="post-author-details">
                             {% with author=post.author %}
-                                <a href="#"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
+                                <a href="{% url 'portfolio' %}"><p>{{ author.first_name}} {{ author.last_name}}</p></a>
                                 <p id="time-tag"  class="post-date">{{ post.publish |date:'M d' }} &middot; {{ post.get_readtime }} read</p>
                              
                             {% endwith %}

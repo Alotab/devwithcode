@@ -74,8 +74,6 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
     
 
-
-
 class Comment(models.Model):
     blog = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comment')
     user_comment = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user')
