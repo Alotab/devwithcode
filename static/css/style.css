@@ -1374,8 +1374,10 @@ button .trending-post-headline h2{
   position: absolute;
   right: 2.5rem;
   margin-top: 2rem;
-  /* background-color: #026eda; */
 
+}
+.signup-link p{
+  color: black;
 }
 .login-button-link{
   padding-left: 0.5rem;
@@ -1397,6 +1399,7 @@ button .trending-post-headline h2{
   
 }
 .login-link p{
+  color: black;
   opacity: 0.5;
 }
 .signup-right-info{
@@ -1539,6 +1542,7 @@ button .trending-post-headline h2{
    /* width: 100%; */
 }
 .input-field i{
+  color: black;
   font-size: 1.5rem;
   width: 20px;
   position: absolute;
@@ -1677,6 +1681,7 @@ button .trending-post-headline h2{
 
 }
 .login-account-page p{
+  color: #000;
   font-family: sans-serif;
   font-size: 1.5rem;
   font-weight: 310;
@@ -1746,6 +1751,7 @@ button .trending-post-headline h2{
     outline: none;
 } */
 .login-input-container i{
+  color: black;
   position: absolute;
   /* padding: 8px 16px; */
   font-size: 1.5rem;
@@ -2345,7 +2351,7 @@ button .trending-post-headline h2{
   line-height: inherit;
   transition: background 0.1s;
 }
-i{
+.social-share i{
   background: transparent;
 }
 .social-share i:hover{
