@@ -60,17 +60,17 @@ class Post(models.Model):
         if not instance.slug:
             instance.slug = slugify(instance.title)
             
-    def resize_image(self):
-        img = Image.open(self.image.path)
+    # def resize_image(self):
+    #     img = Image.open(self.image.path)
 
-        if img.height > 1000 or img.width > 1000:
-            output_size = (500, 800)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    #     if img.height > 1000 or img.width > 1000:
+    #         output_size = (500, 800)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        self.resize_image()
+        # self.resize_image()
         super(Post, self).save(*args, **kwargs)
     
 

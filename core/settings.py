@@ -18,15 +18,16 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = "django-insecure-n2ij^1gk8*8i2e)j=#r5$q9=3rc3ujx$kr2h1_wd+4ca-e%bb%"
 
-try:
-    SECRET_KEY = os.environ['SECRET_KEY']
-except KeyError as e:
-    raise RuntimeError("Could not find a SECRET_KEY in environment") from e
+# try:
+#     SECRET_KEY = os.environ['SECRET_KEY']
+# except KeyError as e:
+#     raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = bool(int(os.environ.get('DEBUG', 0)))
+DEBUG = True
+# DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -65,7 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_ckeditor_5',
-    'django_extensions',
+    # 'django_extensions',
     'whoosh',
     'django_social_share',
 ]
@@ -104,12 +105,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'core',
-        'HOST': 'localhost',
-        'USER': os.environ['DATABASE_USER'],
-        'PASSWORD' : os.environ['DATABASE_KEY']
+       "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
