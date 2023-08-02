@@ -4,7 +4,7 @@ Pillow==9.5.0
 django-allauth==0.54.0
 django-taggit==4.0.0
 django-haystack==3.2.1
-Whoosh==2.7.4
+#Whoosh==2.7.4
 mysqlclient==2.2.0
 readtime==2.0.0
 python-dotenv==1.0.0
@@ -16,8 +16,8 @@ django-markdown-deux==1.0.6
 
 
 ## PRODUCTION
- gunicorn==20.1.0
- whitenoise==6.5.0
+ #gunicorn==20.1.0
+ #whitenoise==6.5.0
 
 ## machine Learning
 # transformers==4.30.2

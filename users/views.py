@@ -3,12 +3,10 @@ from .models import CustomUser
 from django.http import HttpResponse
 from django.contrib.auth import get_user_model  # get the custome user model 
 from .forms import CustomeUserChangeForm, CustomUserCreationsForm, AccountAuthenticationForm
-# from django.views.generic import CreateView
 from django.contrib.auth import authenticate, login, logout
 import warnings
 
 from django.conf import settings
-# Avoid shadowing the login() and logout() views below.
 from django.contrib.auth import (
     REDIRECT_FIELD_NAME, get_user_model, login as auth_login,
     logout as auth_logout, update_session_auth_hash,
@@ -24,7 +22,6 @@ from django.shortcuts import resolve_url
 from django.template.response import TemplateResponse
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-# from django.utils.deprecation import RemovedInDjango21Warning
 from django.utils.http import urlsafe_base64_decode, url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.cache import never_cache
