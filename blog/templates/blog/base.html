@@ -8,12 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="HTML, CSS, JavaScript, Python, Docker, AWS, code, coding, learn to code, programming, programming languages, Bard, large language model, Google AI, GraphQL, ChatGPT, articles, pytest, unittest, github, gitaction, gitlab, copilot, algorithm, program, API, OOP, Machine learning scripts, tensorflow, models, training, terminal, stackoverflow, frontend, backend, fullstack, software developer, deployment, django, react, mysql, postgres, database, flask, git, REST/RESTful, SQL, json ">
     <!-- <link rel="stylesheet" type="text/css" href="static/css/styles.css"> -->
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@alazkaBoi" />
+    <meta name="twitter:site" content="@alazkaBoi" />
+    <meta name="twitter:image" content="{{ post.image.url }}" />
+    <meta property="og:url" content="https://devwithcode.com{{ post.get_absolute_url }}" />
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:description" content="{{ post.content | safe | truncatechars:200 }}" />
+    <meta property="og:image" content="{{ post.image.url }}" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
-
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">　
- 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/monokai.min.css">　
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
