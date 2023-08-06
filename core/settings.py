@@ -66,12 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_ckeditor_5',
-<<<<<<< HEAD
     'django_extensions',
-=======
-    # 'django_extensions',
-    'whoosh',
->>>>>>> 950a3743d5b1e983c46f2de0162aa5bce40cc8c6
     'django_social_share',
 ]
 
