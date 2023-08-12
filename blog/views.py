@@ -22,7 +22,6 @@ def post_blog(request):
       post.save()
       messages.success(request, 'Post created successfully')
       return redirect('blog:home')
-      
   else:
     form = PostForm()
   return render(request, 'blog/createPost.html', {'form': form})

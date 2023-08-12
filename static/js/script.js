@@ -40,7 +40,7 @@ const scrollTrackingTimeline = new ScrollTimeline({
 
 scrollTracker.animate(
     {
-        transform: ["scaleX(0", "scale(1"],
+        transform: ["scaleX(0)", "scale(1)"],
     },
     {
         duration: 1,
